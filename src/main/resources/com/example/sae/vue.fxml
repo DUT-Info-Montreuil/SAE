@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="500.0" prefWidth="482.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
+   <bottom>
+      <HBox focusTraversable="true" prefHeight="124.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="124.0" prefWidth="106.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Vie :" />
+                        <TextField prefHeight="32.0" prefWidth="36.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Vague :" />
+                        <TextField prefHeight="32.0" prefWidth="35.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Taille :" />
+                        <TextField prefHeight="32.0" prefWidth="36.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <HBox prefHeight="124.0" prefWidth="146.0">
+                     <children>
+                        <Label prefHeight="19.0" prefWidth="63.0" text="Argent :" />
+                        <TextField prefHeight="32.0" prefWidth="36.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="66.0" prefWidth="177.0">
+                     <children>
+                        <ImageView fx:id="vaisseauNormal" fitHeight="64.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@vaiseauNormal.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="124.0" prefWidth="199.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
+                     <children>
+                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" text="Vague suivante" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
+                     <children>
+                        <Button fx:id="boutonPause" mnemonicParsing="false" onAction="#boutonPause" prefHeight="33.0" prefWidth="189.0" text="Pause" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <center>
+      <Pane fx:id="PaneauDeJeu" prefHeight="339.0" prefWidth="482.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <children>
+            <TilePane fx:id="tilePane" prefColumns="30" prefHeight="378.0" prefRows="20" prefTileHeight="16.0" prefTileWidth="16.0" prefWidth="495.0" />
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
