@@ -7,8 +7,7 @@ public class Terrain {
 
     private int[][] tileMap;
     private int tileSize;
-    private ObservableList<Ennemi> ennemis;
-    private ObservableList<Vaisseau> vaisseaus;
+
 
 
 
@@ -37,8 +36,7 @@ public class Terrain {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 
         };
-        this.ennemis = FXCollections.observableArrayList();
-        this.vaisseaus = FXCollections.observableArrayList();
+
     }
 
     public int[][] getTileMap() {
@@ -57,11 +55,5 @@ public class Terrain {
         this.tileSize = tileSize;
     }
 
-    public ObservableList<Ennemi> getEnnemi() {
-        return ennemis;
-    }
 
-    public void ajouterEnnemi(Ennemi e) {
-        ennemis.add(e);
-    }
 }
