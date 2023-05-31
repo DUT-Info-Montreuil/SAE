@@ -8,6 +8,7 @@ import com.example.sae.vue.TerrainVue;
 import com.example.sae.vue.VaisseauxVue;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,10 +45,11 @@ public class Controleur implements Initializable {
 
      private Vaisseau vaisseau;
 
+     private Environnement env;
+
     @FXML
     private ImageView vaisseauNormal;
 
-    private VaisseauxVue vaisseauxVue;
 
     private int i = 0;
 
@@ -69,22 +71,22 @@ public class Controleur implements Initializable {
 
     @FXML
      void boutonVague(ActionEvent event) {
-        if (boutonVague.isPressed()) {
-            ennemi = new Ennemi(4, terrain, 100);
-            ImageView iv2 = new ImageView(imageEnn);
-
-            iv2.translateXProperty().bind(ennemi.xProperty());
-            iv2.translateYProperty().bind(ennemi.yProperty());
-
-            // Ajoutez iv2 à PaneauDeJeu ou à un autre conteneur approprié
-            PaneauDeJeu.getChildren().add(iv2);
-        }
+//        if (boutonVague.isPressed()) {
+//            ennemi = new Ennemi(4, terrain, 100);
+//            ImageView iv2 = new ImageView(imageEnn);
+//
+//            iv2.translateXProperty().bind(ennemi.xProperty());
+//            iv2.translateYProperty().bind(ennemi.yProperty());
+//
+//            // Ajoutez iv2 à PaneauDeJeu ou à un autre conteneur approprié
+//            PaneauDeJeu.getChildren().add(iv2);
+//        }
     }
 
 
     @FXML
     void testTourelle(ActionEvent event) {
-        vaisseau = new Vaisseau(0, 0, terrain, 30); // Modifier cette ligne
+        vaisseau = new Vaisseau(0, 0, terrain, 30, env); // Modifier cette ligne
 
         creerSpriteTourelle(vaisseau);
 
@@ -134,32 +136,34 @@ public class Controleur implements Initializable {
 
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         terrain = new Terrain(40); // initialisation du terrain avec une taille de case de 32
         TerrainVue tv = new TerrainVue(terrain, tilePane);
         tv.afficherTerrain();
 
-            URL urlImageVai = Main.class.getResource("vaiseauNormal.png");
-            imageVai = new Image(String.valueOf(urlImageVai));
-
-        ennemisVue = new EnnemisVue(PaneauDeJeu);
-        ennemi = new Alien(terrain);
-        ennemisVue.créerSprite(ennemi);
+//            Ennemi ennemi = new Alien(terrain, env);
+//            EnnemisVue ennemisVue = new EnnemisVue(PaneauDeJeu);
+//            ennemisVue.créerSprite(ennemi);
 
 
 
-            ennemi = new LimaceLente(terrain);
-            ennemisVue.créerSprite(ennemi);
+        env = new Environnement(terrain);
+
+        ListChangeListener<Ennemi> listen = new ListObs(PaneauDeJeu);
+        env.getEnnemi().addListener(listen);
 
 
+        URL urlImageVai = Main.class.getResource("vaiseauNormal.png");
+        imageVai = new Image(String.valueOf(urlImageVai));
 
-            initAnimation();
+        initAnimation();
         gameLoop.play();
 
-//        ListChangeListener<Ennemi> listen = new ListObs();
-//        terrain.getActeurs().addListener(listen);
-          vaisseauNormal.setOnMouseClicked( event -> {
+
+
+        vaisseauNormal.setOnMouseClicked( event -> {
                 testTourelle(null);
-            });
+        });
 
     }
 
@@ -174,8 +178,7 @@ public class Controleur implements Initializable {
                 // on définit ce qui se passe à chaque frame
                 // c'est un eventHandler d'ou le lambda
                 (ev ->{
-                    ennemi.seDeplace();
-
+                    env.unTour();
                 })
         );
         gameLoop.getKeyFrames().add(kf);

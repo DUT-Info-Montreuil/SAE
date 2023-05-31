@@ -4,9 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/SAE.iml" beforeDir="false" />
+    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="Environnement">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Alien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Alien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/ChevauxAlien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/ChevauxAlien.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/LimaceLente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/LimaceLente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/TerrainVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/TerrainVue.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +32,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -70,6 +90,14 @@
       <option name="presentableId" value="Default" />
       <updated>1685534809524</updated>
     </task>
+    <task id="LOCAL-00001" summary="Environnement">
+      <created>1685536244635</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685536244635</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -82,5 +110,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Environnement" />
+    <option name="LAST_COMMIT_MESSAGE" value="Environnement" />
   </component>
 </project>

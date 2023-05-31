@@ -13,9 +13,10 @@ public class Ennemi {
     private int colonne;
     private int compteurPx;
     private int direction;
+    private Environnement env;
 
 
-    public Ennemi(int v, Terrain terrain, int pv) {
+    public Ennemi(int v, Terrain terrain, int pv, Environnement env) {
         this.pv = pv;
         this.x = new SimpleIntegerProperty(16);
         this.y = new SimpleIntegerProperty(0);
@@ -25,6 +26,7 @@ public class Ennemi {
         this.colonne = 1;
         this.compteurPx = 0;
         this.direction = 0;
+        this.env = env;
     }
 
     public IntegerProperty xProperty() {
@@ -63,6 +65,13 @@ public class Ennemi {
 
     public void decrementerPv(int n) {
         this.pv -= n;
+    }
+
+    public boolean estArrive(){
+        if (terrain.getTileMap()[ligne][colonne] == 2) {
+            return true;
+        }
+        return false;
     }
 
     public void seDeplace() {

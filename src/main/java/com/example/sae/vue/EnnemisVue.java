@@ -44,4 +44,8 @@ public class EnnemisVue {
 
     }
 
+    public void supprimerSprite(Ennemi ennemi){
+        this.panneauJeu.getChildren().remove(ennemi);
+    }
+
 }

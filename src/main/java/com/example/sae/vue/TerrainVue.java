@@ -3,26 +3,21 @@ package com.example.sae.vue;
 import com.example.sae.Main;
 import com.example.sae.modele.Terrain;
 import com.example.sae.modele.Ennemi;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
-import javafx.util.Duration;
 
 import java.net.URL;
 
 public class TerrainVue {
     private TilePane tilePane;
     private Terrain terrain;
-    private Ennemi ennemi;
 
 
 
     public TerrainVue(Terrain terrain, TilePane tilePane) {
         this.terrain = terrain;
         this.tilePane = tilePane;
-        this.ennemi = new Ennemi(0, terrain,100); // Initialisation de l'ennemi à la position (0, 0) et vitesse 1.0
     }
 
 
@@ -54,11 +49,5 @@ public class TerrainVue {
                 }
             }
         }
-    }
-
-
-
-    public Ennemi getEnnemi() {
-        return ennemi;
     }
 }

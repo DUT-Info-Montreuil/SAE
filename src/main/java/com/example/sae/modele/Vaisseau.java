@@ -10,12 +10,14 @@ public  class Vaisseau {
     private IntegerProperty x,y;
     protected Terrain terrain;
     private int prix;
+    private Environnement env;
 
-    public Vaisseau(int x, int y, Terrain terrain, int prix) {
+    public Vaisseau(int x, int y, Terrain terrain, int prix, Environnement env) {
         this.prix=prix;
         this.x=new SimpleIntegerProperty(x);
         this.y = new SimpleIntegerProperty(y);
         this.terrain=terrain;
+        this.env = env;
     }
     public Vaisseau(Terrain terrain) {
         this.terrain=terrain;
