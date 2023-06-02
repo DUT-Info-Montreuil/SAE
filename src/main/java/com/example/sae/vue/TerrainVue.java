@@ -29,9 +29,11 @@ public class TerrainVue {
         URL urlImageSol = Main.class.getResource("sol.png");
         Image imageSol = new Image(String.valueOf(urlImageSol));
 
-
         URL urlImageSol2 = Main.class.getResource("sol2.png");
         Image imageSol2 = new Image(String.valueOf(urlImageSol2));
+
+        URL urlImageSol4 = Main.class.getResource("sol4.png");
+        Image imageSol4 = new Image(String.valueOf(urlImageSol4));
 
         URL urlImageStation = Main.class.getResource("station.png");
         Image imageStation = new Image(String.valueOf(urlImageStation));
@@ -46,6 +48,9 @@ public class TerrainVue {
                 } else if (codesTuiles[y][x] == 2) {
                     ImageView iv4 = new ImageView(imageStation);
                     this.tilePane.getChildren().add(iv4);
+                } else if (codesTuiles[y][x] == 4) {
+                    ImageView iv6 = new ImageView(imageSol4);
+                    this.tilePane.getChildren().add(iv6);
                 }
             }
         }

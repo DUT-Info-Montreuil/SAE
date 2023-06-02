@@ -4,11 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="Environnement" />
+    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Station.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Terrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/TerrainVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/TerrainVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -46,6 +71,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../prive" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -97,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685543985683</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Environnement">
+      <created>1685544243282</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685544243282</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,6 +146,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Environnement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Environnement" />
+    <MESSAGE value="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station" />
+    <option name="LAST_COMMIT_MESSAGE" value="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station" />
   </component>
 </project>

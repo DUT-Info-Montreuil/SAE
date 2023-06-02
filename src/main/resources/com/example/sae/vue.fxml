@@ -16,7 +16,7 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Vie :" />
-                        <TextField prefHeight="32.0" prefWidth="36.0" />
+                        <TextField fx:id="vieStation" prefHeight="32.0" prefWidth="36.0" text="20" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -43,11 +43,16 @@
                   </HBox>
                   <HBox prefHeight="66.0" prefWidth="177.0">
                      <children>
-                        <ImageView fx:id="vaisseauNormal" fitHeight="64.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@vaiseauNormal.png" />
-                           </image>
-                        </ImageView>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fx:id="vaisseauNormal" fitHeight="64.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@vaiseauNormal.png" />
+                                 </image>
+                              </ImageView>
+                              <RadioButton fx:id="tour1" mnemonicParsing="false" text="Tour1" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                </children>
@@ -56,7 +61,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" text="Vague suivante" />
+                        <Button fx:id="boutonVague" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Vague suivante" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
@@ -70,12 +75,12 @@
       </HBox>
    </bottom>
    <center>
-      <Pane fx:id="PaneauDeJeu" prefHeight="339.0" prefWidth="482.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="PaneauDeJeu" prefHeight="320.0" prefWidth="460.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-            <TilePane fx:id="tilePane" prefColumns="30" prefHeight="378.0" prefRows="20" prefTileHeight="16.0" prefTileWidth="16.0" prefWidth="495.0" />
+            <TilePane fx:id="tilePane" prefColumns="30" prefHeight="320.0" prefRows="20" prefTileHeight="16.0" prefTileWidth="16.0" prefWidth="480.0" />
          </children>
       </Pane>
    </center>

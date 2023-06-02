@@ -14,6 +14,8 @@ public class Ennemi {
     private int compteurPx;
     private int direction;
     private Environnement env;
+    public static int compteur=0;
+    private String id;
 
 
     public Ennemi(int v, Terrain terrain, int pv, Environnement env) {
@@ -27,6 +29,12 @@ public class Ennemi {
         this.compteurPx = 0;
         this.direction = 0;
         this.env = env;
+        this.id="E"+compteur;
+        compteur++;
+
+    }
+    public String getId() {
+        return id;
     }
 
     public IntegerProperty xProperty() {

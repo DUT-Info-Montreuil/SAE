@@ -13,10 +13,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -35,25 +38,21 @@ public class Controleur implements Initializable {
 
     private Timeline gameLoop;
 
-    private Ennemi ennemi;
-
-    private EnnemisVue ennemisVue;
-
-     private Image imageEnn;
-
      private Terrain terrain;
+
+     private VaisseauxVue vaisseauxVue;
 
      private Vaisseau vaisseau;
 
      private Environnement env;
 
-    @FXML
-    private ImageView vaisseauNormal;
+     @FXML
+     private RadioButton tour1;
 
+    @FXML
+    private TextField vieStation;
 
     private int i = 0;
-
-    private Image imageVai ;
 
     @FXML
     private Button boutonPause;
@@ -69,8 +68,31 @@ public class Controleur implements Initializable {
         }
     }
 
+    void ajouter(ActionEvent event, double x, double y) {
+        if (tour1.isSelected()) {
+            vaisseau = new VaisseauLong((int) (x/16)*16, (int) (y/16)*16, terrain, env);
+            if (vaisseau.vaisseauBienPlacee()) {
+                vaisseauxVue = new VaisseauxVue(PaneauDeJeu, vaisseau);
+                vaisseauxVue.créerSprite(vaisseau);
+                env.ajouterVaisseau(vaisseau);
+                 System.out.println("Tourelle ajoutée");
+        } else {
+            System.out.println("Erreur ajout");
+        }
+//        } else if (Loup.isSelected()) {
+//            for (int i = 0; i < nbIndividus; i++) {
+//                Loup loup = new Loup(environnement);
+//                environnement.ajouter(loup);
+//                Circle spriteLoup = creerSprite(loup);
+//                PaneauDeJeu.getChildren().add(spriteLoup); // Ajouter le cercle au panneau de jeu
+//            }
+        }
+        System.out.println("clic sur bouton ajouter");
+
+    }
+
     @FXML
-     void boutonVague(ActionEvent event) {
+//     void boutonVague(ActionEvent event) {
 //        if (boutonVague.isPressed()) {
 //            ennemi = new Ennemi(4, terrain, 100);
 //            ImageView iv2 = new ImageView(imageEnn);
@@ -81,89 +103,29 @@ public class Controleur implements Initializable {
 //            // Ajoutez iv2 à PaneauDeJeu ou à un autre conteneur approprié
 //            PaneauDeJeu.getChildren().add(iv2);
 //        }
-    }
-
-
-    @FXML
-    void testTourelle(ActionEvent event) {
-        vaisseau = new Vaisseau(0, 0, terrain, 30, env); // Modifier cette ligne
-
-        creerSpriteTourelle(vaisseau);
-
-        vaisseauNormal.setOnMouseDragged(eve -> {
-            vaisseau.setX((int) eve.getSceneX());
-            vaisseau.setY((int) (eve.getSceneY()));
-            System.out.println("Tourelle :" + vaisseau.getX() + " " + vaisseau.getY());
-        });
-    }
-
-
-    public void creerSpriteTourelle(Vaisseau t) {
-//        Circle c = new Circle(8);
-//        c.setFill(Color.RED);
-
-        ImageView iv5 = new ImageView(imageVai);
-        iv5.setTranslateX(t.getX());
-        iv5.setTranslateY(t.getY());
-        iv5.translateXProperty().bind(t.xProperty());
-        iv5.translateYProperty().bind(t.yProperty());
-        this.PaneauDeJeu.getChildren().add(iv5);
-
-//        c.setTranslateX(t.getX());
-//        c.setTranslateY(t.getY());
-//        c.translateXProperty().bind(t.xProperty());
-//        c.translateYProperty().bind(t.yProperty());
-//        PaneauDeJeu.getChildren().add(c);
-//        c.setOnMouseExited(e -> {
-//                    ajouterDefenseDansModele(t.getX(), t.getY());
-//                    ajusterEmplacementtourelle(t, (Math.round(t.getX() / 16)), Math.round(t.getY() / 16));
-//                    afficherTerrain(env.getTerrainModele());
-//                    System.out.println(t.xProperty().getValue() + " " + t.yProperty().getValue());
-//
-//                    if(TourellebienPlacé(t)) {
-//                        env.ajouterDefense(t);
-//                        System.out.println("Tourelle ajoutée");
-//                    }
-//                    else {
-//                        System.out.println("Erreur ajout");
-//                        Pa.getChildren().remove(c);
-//                    }
-//
-//                }
-//        );
-        }
-
+//    }
 
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        terrain = new Terrain(40); // initialisation du terrain avec une taille de case de 32
+        terrain = new Terrain();
         TerrainVue tv = new TerrainVue(terrain, tilePane);
         tv.afficherTerrain();
-
-//            Ennemi ennemi = new Alien(terrain, env);
-//            EnnemisVue ennemisVue = new EnnemisVue(PaneauDeJeu);
-//            ennemisVue.créerSprite(ennemi);
-
-
 
         env = new Environnement(terrain);
 
         ListChangeListener<Ennemi> listen = new ListObs(PaneauDeJeu);
         env.getEnnemi().addListener(listen);
 
-
-        URL urlImageVai = Main.class.getResource("vaiseauNormal.png");
-        imageVai = new Image(String.valueOf(urlImageVai));
-
+        env.vieProperty().addListener(
+                    (obs, old, nouv) ->
+                            vieStation.setText(nouv.toString()));
         initAnimation();
         gameLoop.play();
 
-
-
-        vaisseauNormal.setOnMouseClicked( event -> {
-                testTourelle(null);
-        });
+        PaneauDeJeu.setOnMouseClicked( event -> {
+            ajouter(null, event.getX(), event.getY());
+                });
 
     }
 

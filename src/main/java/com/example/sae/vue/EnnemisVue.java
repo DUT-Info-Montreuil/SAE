@@ -29,13 +29,20 @@ public class EnnemisVue {
     }
 
     public void créerSprite(Ennemi ennemi) {
+
         if (ennemi instanceof Alien){
             iv2 = new ImageView(imageAl);
+            iv2.setId(ennemi.getId());
+
         } else {
             if (ennemi instanceof LimaceLente){
                 iv2 = new ImageView(imageLim);
+                iv2.setId(ennemi.getId());
+
             } else {
                 iv2 = new ImageView(imageChe);
+                iv2.setId(ennemi.getId());
+
             }
         }
         iv2.translateXProperty().bind(ennemi.xProperty());
@@ -45,7 +52,8 @@ public class EnnemisVue {
     }
 
     public void supprimerSprite(Ennemi ennemi){
-        this.panneauJeu.getChildren().remove(ennemi);
+        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ ennemi.getId()));
     }
+
 
 }
