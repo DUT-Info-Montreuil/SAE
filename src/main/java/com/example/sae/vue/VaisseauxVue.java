@@ -1,8 +1,7 @@
 package com.example.sae.vue;
 
 import com.example.sae.Main;
-import com.example.sae.modele.Vaisseau;
-import com.example.sae.modele.VaisseauLong;
+import com.example.sae.modele.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,29 +12,49 @@ import javafx.scene.shape.Circle;
 import java.net.URL;
 
 public class VaisseauxVue {
-    private Image imageVai ;
+    private Image imageVaiC ;
+    private Image imageVaiM ;
+    private Image imageVaiL ;
     private Pane panneauJeu;
-    private Vaisseau vaisseau;
+    private ImageView iv2;
 
-    public VaisseauxVue (Pane panneauJeu, Vaisseau vaisseau) {
+    public VaisseauxVue (Pane panneauJeu) {
         this.panneauJeu = panneauJeu;
-        this.vaisseau = vaisseau;
-        URL urlImageVai = Main.class.getResource("vaiseauNormal.png");
-        imageVai = new Image(String.valueOf(urlImageVai));
+        URL urlImageVaiC = Main.class.getResource("vaisseauCourt.png");
+        imageVaiC = new Image(String.valueOf(urlImageVaiC));
+        URL urlImageVaiM = Main.class.getResource("vaisseauMoyen.png");
+        imageVaiM = new Image(String.valueOf(urlImageVaiM));
+        URL urlImageVaiL = Main.class.getResource("vaisseauLong.png");
+        imageVaiL = new Image(String.valueOf(urlImageVaiL));
+
 
     }
 
-    public void créerSprite(Vaisseau personnage) {
-            ImageView iv5 = new ImageView(imageVai);
-            iv5.setTranslateX(vaisseau.getX());
-            iv5.setTranslateY(vaisseau.getY());
-            iv5.translateXProperty().bind(vaisseau.xProperty());
-            iv5.translateYProperty().bind(vaisseau.yProperty());
-            this.panneauJeu.getChildren().add(iv5);
-            VaisseauxVue vaisseauxVue = new VaisseauxVue(panneauJeu, vaisseau);
-            vaisseauxVue.afficherRayonPortee();
+    public void créerSprite(Vaisseau vaisseau) {
+        if (vaisseau instanceof VaisseauCourt){
+            iv2 = new ImageView(imageVaiC);
+            iv2.setId(vaisseau.getId());
+
+        } else {
+            if (vaisseau instanceof VaisseauMoyen){
+                iv2 = new ImageView(imageVaiM);
+                iv2.setId(vaisseau.getId());
+
+            } else {
+                iv2 = new ImageView(imageVaiL);
+                iv2.setId(vaisseau.getId());
+
+            }
+        }
+            iv2.setTranslateX(vaisseau.getX());
+            iv2.setTranslateY(vaisseau.getY());
+            iv2.translateXProperty().bind(vaisseau.xProperty());
+            iv2.translateYProperty().bind(vaisseau.yProperty());
+            this.panneauJeu.getChildren().add(iv2);
+            VaisseauxVue vaisseauxVue = new VaisseauxVue(panneauJeu);
+            vaisseauxVue.afficherRayonPortee(vaisseau);
     }
-    public void afficherRayonPortee() {
+    public void afficherRayonPortee(Vaisseau vaisseau) {
         Circle rayonPortee = new Circle();
 
         double tourelleLargeur = vaisseau.getPortee();

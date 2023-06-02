@@ -4,23 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Station.java" afterDir="false" />
+    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="ajout image sol4">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObsVaisseaux.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObsEnnemis.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Terrain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/TerrainVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/TerrainVue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vaiseauNormal.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +38,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,6 +72,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../prive" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.DirectoryMappings" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -130,7 +134,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685544243282</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station">
+      <created>1685698439321</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685698439322</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ajout image sol4">
+      <created>1685698885919</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685698885919</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,8 +163,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/SAE" />
+    </ignored-roots>
     <MESSAGE value="Environnement" />
     <MESSAGE value="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station" />
-    <option name="LAST_COMMIT_MESSAGE" value="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station" />
+    <MESSAGE value="ajout image sol4" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout image sol4" />
   </component>
 </project>

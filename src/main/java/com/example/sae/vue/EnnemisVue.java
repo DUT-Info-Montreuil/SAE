@@ -16,7 +16,7 @@ public class EnnemisVue {
     private Image imageLim ;
     private Image imageChe ;
     private Pane panneauJeu;
-    private   ImageView iv2;
+    private ImageView iv2;
 
     public EnnemisVue(Pane panneauJeu) {
         this.panneauJeu = panneauJeu;
@@ -29,7 +29,6 @@ public class EnnemisVue {
     }
 
     public void créerSprite(Ennemi ennemi) {
-
         if (ennemi instanceof Alien){
             iv2 = new ImageView(imageAl);
             iv2.setId(ennemi.getId());

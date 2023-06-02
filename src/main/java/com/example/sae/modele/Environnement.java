@@ -10,6 +10,7 @@ public class Environnement {
     private int tours;
     private Terrain terrain;
     private Station station;
+    private Vague vague;
 
     public Environnement(Terrain terrain) {
         this.ennemis =FXCollections.observableArrayList();
@@ -17,6 +18,7 @@ public class Environnement {
         this.tours = 0;
         this.terrain = terrain;
         this.station = new Station(terrain, this);
+        this.vague = new Vague(terrain, this);
     }
 
     public ObservableList<Ennemi> getEnnemi() {
@@ -39,13 +41,18 @@ public class Environnement {
         return station.vieProperty();
     }
 
+    public int getTours() {
+        return tours;
+    }
+
     public void unTour(){
+
+        if (vague.getCompteur() ==0) {
+            vague.ennemis();
+        }
 
         this.tours++;
 
-        if (this.tours %30 == 0 && tours < 70) {
-            ajouterEnnemi(new ChevauxAlien(this.terrain, this));
-        }
 
         for(int i=0;i<ennemis.size(); i++){
             Ennemi e = ennemis.get(i);

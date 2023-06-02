@@ -6,13 +6,13 @@ import javafx.collections.ListChangeListener;
 import javafx.scene.layout.Pane;
 
 
-public class ListObs implements ListChangeListener<Ennemi> {
+public class ListObsEnnemis implements ListChangeListener<Ennemi> {
 
 
     private Pane PaneauDeJeu;
     private EnnemisVue ennemisVue;
 
-    public ListObs(Pane PanneauJeu) {
+    public ListObsEnnemis(Pane PanneauJeu) {
         this.PaneauDeJeu = PanneauJeu;
         ennemisVue = new EnnemisVue(PanneauJeu);
     }

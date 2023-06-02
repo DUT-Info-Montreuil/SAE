@@ -1,9 +1,7 @@
 package com.example.sae.controleur;
 
 
-import com.example.sae.Main;
 import com.example.sae.modele.*;
-import com.example.sae.vue.EnnemisVue;
 import com.example.sae.vue.TerrainVue;
 import com.example.sae.vue.VaisseauxVue;
 import javafx.animation.KeyFrame;
@@ -15,11 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
-import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -46,8 +41,14 @@ public class Controleur implements Initializable {
 
      private Environnement env;
 
-     @FXML
-     private RadioButton tour1;
+    @FXML
+    private RadioButton tour1;
+
+    @FXML
+    private RadioButton tour2;
+
+    @FXML
+    private RadioButton tour3;
 
     @FXML
     private TextField vieStation;
@@ -70,28 +71,37 @@ public class Controleur implements Initializable {
 
     void ajouter(ActionEvent event, double x, double y) {
         if (tour1.isSelected()) {
-            vaisseau = new VaisseauLong((int) (x/16)*16, (int) (y/16)*16, terrain, env);
+            vaisseau = new VaisseauCourt((int) (x/16)*16, (int) (y/16)*16, terrain, env);
             if (vaisseau.vaisseauBienPlacee()) {
-                vaisseauxVue = new VaisseauxVue(PaneauDeJeu, vaisseau);
-                vaisseauxVue.créerSprite(vaisseau);
                 env.ajouterVaisseau(vaisseau);
                  System.out.println("Tourelle ajoutée");
         } else {
             System.out.println("Erreur ajout");
         }
-//        } else if (Loup.isSelected()) {
-//            for (int i = 0; i < nbIndividus; i++) {
-//                Loup loup = new Loup(environnement);
-//                environnement.ajouter(loup);
-//                Circle spriteLoup = creerSprite(loup);
-//                PaneauDeJeu.getChildren().add(spriteLoup); // Ajouter le cercle au panneau de jeu
-//            }
+        } else  if (tour2.isSelected()) {
+            vaisseau = new VaisseauMoyen((int) (x/16)*16, (int) (y/16)*16, terrain, env);
+            if (vaisseau.vaisseauBienPlacee()) {
+                env.ajouterVaisseau(vaisseau);
+                System.out.println("Tourelle ajoutée");
+            } else {
+                System.out.println("Erreur ajout");
+            }
+        }else {
+                if (tour3.isSelected()) {
+                    vaisseau = new VaisseauLong((int) (x/16)*16, (int) (y/16)*16, terrain, env);
+                    if (vaisseau.vaisseauBienPlacee()) {
+                        env.ajouterVaisseau(vaisseau);
+                        System.out.println("Tourelle ajoutée");
+                    } else {
+                        System.out.println("Erreur ajout");
+                    }
+            }
         }
         System.out.println("clic sur bouton ajouter");
 
     }
 
-    @FXML
+//    @FXML
 //     void boutonVague(ActionEvent event) {
 //        if (boutonVague.isPressed()) {
 //            ennemi = new Ennemi(4, terrain, 100);
@@ -114,8 +124,11 @@ public class Controleur implements Initializable {
 
         env = new Environnement(terrain);
 
-        ListChangeListener<Ennemi> listen = new ListObs(PaneauDeJeu);
-        env.getEnnemi().addListener(listen);
+        ListChangeListener<Ennemi> listenE = new ListObsEnnemis(PaneauDeJeu);
+        env.getEnnemi().addListener(listenE);
+
+        ListChangeListener<Vaisseau> listenV = new ListObsVaisseaux(PaneauDeJeu);
+        env.getVaisseaux().addListener(listenV);
 
         env.vieProperty().addListener(
                     (obs, old, nouv) ->

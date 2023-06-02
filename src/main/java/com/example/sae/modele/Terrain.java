@@ -4,6 +4,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Terrain {
+    public final static int CHEMIN=1;
+    public final static int STATION=2;
+    public final static int POSEV=4;
 
     private int[][] tileMap;
     public Terrain() {

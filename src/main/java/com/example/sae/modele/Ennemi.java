@@ -4,7 +4,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class Ennemi {
-
     private IntegerProperty x, y;
     private int v; // vitesse de deplacement
     protected Terrain terrain;
@@ -83,10 +82,10 @@ public class Ennemi {
     }
 
     public void seDeplace() {
-        if (terrain.getTileMap()[ligne][colonne] == 2) {
+        if (terrain.getTileMap()[ligne][colonne] == terrain.STATION) {
             setX(this.getX());
         } else {
-            if (terrain.getTileMap()[ligne][colonne + 1] == 1 && direction != 4 || terrain.getTileMap()[ligne][colonne + 1] == 2) {
+            if (terrain.getTileMap()[ligne][colonne + 1] == terrain.CHEMIN && direction != 4 || terrain.getTileMap()[ligne][colonne + 1] == terrain.STATION) {
                 setX(this.getX() + v);
                 compteurPx = compteurPx + v;
                 if (compteurPx >= 16) {
@@ -95,7 +94,7 @@ public class Ennemi {
                     direction = 6;
                 }
             }else {
-                if (terrain.getTileMap()[ligne][colonne - 1] == 1 && direction != 6 || terrain.getTileMap()[ligne][colonne - 1] == 2) {
+                if (terrain.getTileMap()[ligne][colonne - 1] == terrain.CHEMIN && direction != 6 || terrain.getTileMap()[ligne][colonne - 1] == terrain.STATION) {
                     setX(this.getX() - v);
                     compteurPx = compteurPx + v;
                     if (compteurPx >= 16) {
@@ -104,7 +103,7 @@ public class Ennemi {
                         direction = 4;
                     }
                 }else {
-                    if (terrain.getTileMap()[ligne + 1][colonne] == 1 && direction != 8 || terrain.getTileMap()[ligne + 1][colonne] == 2) {
+                    if (terrain.getTileMap()[ligne + 1][colonne] == terrain.CHEMIN && direction != 8 || terrain.getTileMap()[ligne + 1][colonne] == terrain.STATION) {
                         setY(this.getY() + v);
                         compteurPx = compteurPx + v;
                         if (compteurPx >= 16) {
@@ -113,7 +112,7 @@ public class Ennemi {
                             direction = 2;
                         }
                     } else {
-                        if (terrain.getTileMap()[ligne - 1][colonne] == 1 && direction != 2 || terrain.getTileMap()[ligne - 1][colonne] == 2) {
+                        if (terrain.getTileMap()[ligne - 1][colonne] == terrain.CHEMIN && direction != 2 || terrain.getTileMap()[ligne - 1][colonne] == terrain.STATION) {
                             setY(this.getY() - v);
                             compteurPx = compteurPx + v;
                             if (compteurPx >= 16) {

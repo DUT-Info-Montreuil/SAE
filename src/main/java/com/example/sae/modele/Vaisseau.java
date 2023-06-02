@@ -13,6 +13,10 @@ public  class Vaisseau {
     private int portee;
     private int degat;
     private Environnement env;
+    private String id;
+    public static int compteur=0;
+//    public static int j;
+
 
     public Vaisseau(int x, int y, Terrain terrain, int prix, Environnement env, int portee, int degat) {
         this.prix = prix;
@@ -22,6 +26,8 @@ public  class Vaisseau {
         this.env = env;
         this.portee = portee;
         this.degat = degat;
+        this.id="V"+compteur;
+        compteur++;
     }
 
     public Vaisseau(Terrain terrain) {
@@ -36,6 +42,9 @@ public  class Vaisseau {
         return y;
     }
 
+    public String getId() {
+        return id;
+    }
 
     public final int getX() {
         return this.xProperty().getValue();
@@ -58,7 +67,7 @@ public  class Vaisseau {
         int x = getX() / 16;
         int y = getY() / 16;
         System.out.println(y + " " + x);
-        if (terrain.getTileMap()[y][x] == 4) {
+        if (terrain.getTileMap()[y][x] == terrain.POSEV) {
             terrain.getTileMap()[y][x] = 5;
             return true; // La case à gauche n'est pas vide
         }
@@ -74,16 +83,19 @@ public  class Vaisseau {
     }
 
     public void attaque(ObservableList<Ennemi> e){
-        for(int i=0;i<e.size(); i++) {
-            Ennemi a = e.get(i);
-            if (ennemiPortee(a)) {
-                a.decrementerPv(degat);
-                System.out.println("attaque");
-            } else {
-                System.out.println("pas attaque");
+        boolean ennemi = false;
+        for (int i = 0; i < e.size(); i++){
+                Ennemi a = e.get(i);
+                if (ennemiPortee(a) && ennemi == false) {
+                    a.decrementerPv(degat);
+                    ennemi = true;
+                    System.out.println("attaque");
+                } else {
+                    System.out.println("pas attaque");
+                }
             }
         }
-    }
+
 
     public boolean ennemiPortee(Ennemi ennemi) {
         double distance = Math.sqrt(Math.pow(ennemi.getX() - getX() , 2) + Math.pow(ennemi.getY() - getY(), 2));
@@ -91,3 +103,25 @@ public  class Vaisseau {
         }
 
 }
+//    boolean ennemi = false;
+//    Ennemi a = e.get(j);
+//        for (int i = 0; i < e.size(); i++){
+//        if(ennemiPortee(a) && j!=0 && ennemi == false){
+//        a.decrementerPv(degat);
+//        j=i;
+//        ennemi = true;
+//        if (!a.estVivant() && !ennemiPortee(a)) {
+//        j = 0;
+//        }
+//        }else {
+//        a = e.get(i);
+//        if (ennemiPortee(a) && ennemi == false) {
+//        a.decrementerPv(degat);
+//        ennemi = true;
+//        j = i;
+//        System.out.println("attaque");
+//        } else {
+//        System.out.println("pas attaque");
+//        }
+//        }
+//        }

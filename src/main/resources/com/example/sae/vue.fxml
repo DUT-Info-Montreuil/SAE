@@ -41,16 +41,39 @@
                         <TextField prefHeight="32.0" prefWidth="36.0" />
                      </children>
                   </HBox>
-                  <HBox prefHeight="66.0" prefWidth="177.0">
+                  <HBox prefHeight="150.0" prefWidth="242.0">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <ImageView fx:id="vaisseauNormal" fitHeight="64.0" fitWidth="71.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="vaisseauNormal" fitHeight="45.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@vaiseauNormal.png" />
+                                    <Image url="@vaisseauCourt.png" />
                                  </image>
                               </ImageView>
-                              <RadioButton fx:id="tour1" mnemonicParsing="false" text="Tour1" />
+                              <RadioButton fx:id="tour1" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="tour" />
+                                 </toggleGroup></RadioButton>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="44.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@vaisseauMoyen.png" />
+                                 </image>
+                              </ImageView>
+                              <RadioButton fx:id="tour2" mnemonicParsing="false" text="Tour2" toggleGroup="$tour" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fitHeight="45.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@vaisseauLong.png" />
+                                 </image>
+                              </ImageView>
+                              <RadioButton fx:id="tour3" mnemonicParsing="false" text="Tour3" toggleGroup="$tour" />
                            </children>
                         </VBox>
                      </children>
