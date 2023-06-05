@@ -1,12 +1,15 @@
 package com.example.sae.modele;
 
+import com.example.sae.BFS.BFS;
+import com.example.sae.BFS.Sommet;
 import com.example.sae.vue.VaisseauxVue;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.layout.TilePane;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Environnement {
     private ObservableList<Ennemi> ennemis;
@@ -18,6 +21,11 @@ public class Environnement {
     private Vague vague;
     private Boutique boutique;
 
+    private Map<Sommet, Set<Sommet>> listeAdj;
+    private ObservableList<Sommet> obstacles;
+    private BFS bfs;
+    private ArrayList<Sommet> chemin;
+
     public Environnement(Terrain terrain) {
         this.ennemis =FXCollections.observableArrayList();
         this.vaisseaux =FXCollections.observableArrayList();
@@ -28,6 +36,82 @@ public class Environnement {
         this.boutique = new Boutique(this);
         this.nbEnnemis = new SimpleIntegerProperty(0);
 
+        this.listeAdj = new HashMap<>();
+        this.obstacles = FXCollections.observableArrayList();
+        construit();
+        bfs= new BFS(this,getSommet(32, 22));
+        chemin=bfs.cheminVersSource(getSommet(2,0));
+        System.out.println(listeAdj);
+        System.out.println(obstacles);
+        System.out.println(chemin);
+    }
+
+    public void construit() {
+        int i;
+        int j;
+        for(i = 0; i < this.terrain.getTileMap().length; ++i) {
+            for(j = 0; j < this.terrain.getTileMap()[i].length; ++j) {
+
+                if (this.terrain.getTileMap()[i][j] == terrain.CHEMIN) {
+                    Sommet s = new Sommet(i, j,1);
+                    this.listeAdj.put(s,new HashSet());
+                } else{
+                    Sommet s = new Sommet(i, j,0);
+                    this.listeAdj.put(s, new HashSet());
+                }
+            }
+        }
+        for (Sommet key : this.listeAdj.keySet()) {
+//System.out.println(" key dans coustruit " + key);
+        }
+        for(i = 0; i < this.terrain.getTileMap().length; ++i) {
+            for(j = 0; j < this.terrain.getTileMap()[i].length; ++j) {
+                Sommet s = this.getSommet(i, j);
+                if (this.terrain.estAInterieur((i - 1), j)) {
+                    ((Set)this.listeAdj.get(s)).add(this.getSommet(i - 1, j));
+                }
+
+                if (this.terrain.estAInterieur((i + 1), j)) {
+                    ((Set)this.listeAdj.get(s)).add(this.getSommet(i + 1, j));
+                }
+
+                if (this.terrain.estAInterieur(i, (j + 1))) {
+                    ((Set)this.listeAdj.get(s)).add(this.getSommet(i, j + 1));
+                }
+
+                if (this.terrain.estAInterieur(i, (j - 1))) {
+                    ((Set)this.listeAdj.get(s)).add(this.getSommet(i, j - 1));
+                }
+            }
+        }
+
+    }
+
+    public ArrayList<Sommet> getChemin() {
+        return chemin;
+    }
+
+    public Set<Sommet> adjacents(Sommet s) {
+        if (this.estDeconnecte(s)) {
+            return Collections.emptySet();
+        } else {
+            Set<Sommet> adjacents = listeAdj.getOrDefault(s, new HashSet<>());
+            adjacents.removeIf(adjacent -> adjacent != null && adjacent.getPoids() != s.getPoids());
+            return adjacents;
+        }
+    }
+
+    public boolean estDeconnecte(Sommet s) {
+        return this.obstacles.contains(s);
+    }
+
+    public Sommet getSommet(int x, int y) {
+        for (Sommet sommet : this.listeAdj.keySet()) {
+            if (sommet.getX() == x && sommet.getY() == y) {
+                return sommet;
+            }
+        }
+        return null;
     }
 
     public ObservableList<Ennemi> getEnnemi() {

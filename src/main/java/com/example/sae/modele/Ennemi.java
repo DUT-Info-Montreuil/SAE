@@ -16,10 +16,11 @@ public class Ennemi {
     public static int compteur=0;
     private String id;
     private int prix;
+    private int index;
 
     public Ennemi(int v, Terrain terrain, int pv, Environnement env, int prix) {
         this.pv = pv;
-        this.x = new SimpleIntegerProperty(32);
+        this.x = new SimpleIntegerProperty(50);
         this.y = new SimpleIntegerProperty(0);
         this.v = v;
         this.terrain = terrain;
@@ -31,7 +32,7 @@ public class Ennemi {
         this.id="E"+compteur;
         compteur++;
         this.prix = prix;
-
+        this.index = 0;
     }
     public String getId() {
         return id;
@@ -86,49 +87,54 @@ public class Ennemi {
     }
 
     public void seDeplace() {
-        if (terrain.getTileMap()[ligne][colonne] == terrain.STATION) {
-            setX(this.getX());
-        } else {
-            if (terrain.getTileMap()[ligne][colonne + 1] == terrain.CHEMIN && direction != 4 || terrain.getTileMap()[ligne][colonne + 1] == terrain.STATION) {
-                setX(this.getX() + v);
-                compteurPx = compteurPx + v;
-                if (compteurPx >= 32) {
-                    compteurPx = 0;
-                    colonne++;
-                    direction = 6;
-                }
-            }else {
-                if (terrain.getTileMap()[ligne][colonne - 1] == terrain.CHEMIN && direction != 6 || terrain.getTileMap()[ligne][colonne - 1] == terrain.STATION) {
-                    setX(this.getX() - v);
-                    compteurPx = compteurPx + v;
-                    if (compteurPx >= 32) {
-                        compteurPx = 0;
-                        colonne--;
-                        direction = 4;
-                    }
-                }else {
-                    if (terrain.getTileMap()[ligne + 1][colonne] == terrain.CHEMIN && direction != 8 || terrain.getTileMap()[ligne + 1][colonne] == terrain.STATION) {
-                        setY(this.getY() + v);
-                        compteurPx = compteurPx + v;
-                        if (compteurPx >= 32) {
-                            compteurPx = 0;
-                            ligne++;
-                            direction = 2;
-                        }
-                    } else {
-                        if (terrain.getTileMap()[ligne - 1][colonne] == terrain.CHEMIN && direction != 2 || terrain.getTileMap()[ligne - 1][colonne] == terrain.STATION) {
-                            setY(this.getY() - v);
-                            compteurPx = compteurPx + v;
-                            if (compteurPx >= 32) {
-                                compteurPx = 0;
-                                ligne--;
-                                direction = 8;
-                            }
-                        }
-                    }
-                }
-            }
+        if (index< this.env.getChemin().size()-1){
+            index++;
+            setX(env.getChemin().get(index).getX()*32);
+            setY(env.getChemin().get(index).getY()*32);
         }
-
+//        if (terrain.getTileMap()[ligne][colonne] == terrain.STATION) {
+//            setX(this.getX());
+//        } else {
+//            if (terrain.getTileMap()[ligne][colonne + 1] == terrain.CHEMIN && direction != 4 || terrain.getTileMap()[ligne][colonne + 1] == terrain.STATION) {
+//                setX(this.getX() + v);
+//                compteurPx = compteurPx + v;
+//                if (compteurPx >= 32) {
+//                    compteurPx = 0;
+//                    colonne++;
+//                    direction = 6;
+//                }
+//            }else {
+//                if (terrain.getTileMap()[ligne][colonne - 1] == terrain.CHEMIN && direction != 6 || terrain.getTileMap()[ligne][colonne - 1] == terrain.STATION) {
+//                    setX(this.getX() - v);
+//                    compteurPx = compteurPx + v;
+//                    if (compteurPx >= 32) {
+//                        compteurPx = 0;
+//                        colonne--;
+//                        direction = 4;
+//                    }
+//                }else {
+//                    if (terrain.getTileMap()[ligne + 1][colonne] == terrain.CHEMIN && direction != 8 || terrain.getTileMap()[ligne + 1][colonne] == terrain.STATION) {
+//                        setY(this.getY() + v);
+//                        compteurPx = compteurPx + v;
+//                        if (compteurPx >= 32) {
+//                            compteurPx = 0;
+//                            ligne++;
+//                            direction = 2;
+//                        }
+//                    } else {
+//                        if (terrain.getTileMap()[ligne - 1][colonne] == terrain.CHEMIN && direction != 2 || terrain.getTileMap()[ligne - 1][colonne] == terrain.STATION) {
+//                            setY(this.getY() - v);
+//                            compteurPx = compteurPx + v;
+//                            if (compteurPx >= 32) {
+//                                compteurPx = 0;
+//                                ligne--;
+//                                direction = 8;
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//
     }
 }

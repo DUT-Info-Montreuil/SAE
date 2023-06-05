@@ -44,6 +44,15 @@ public class Terrain {
 
         return x >= 0 && x < colonnes && y >= 0 && y < lignes;
     }
+
+    public int ligne(){
+        return tileMap.length;
+    }
+
+    public int colonne(){
+        return tileMap[0].length;
+    }
+
     public int[][] getTileMap() {
         return tileMap;
     }
