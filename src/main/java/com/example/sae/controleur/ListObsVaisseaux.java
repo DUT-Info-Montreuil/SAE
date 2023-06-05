@@ -7,8 +7,12 @@ import javafx.scene.layout.Pane;
 
 public class ListObsVaisseaux implements ListChangeListener<Vaisseau> {
 
-
     private Pane PaneauDeJeu;
+
+    public VaisseauxVue getVaisseauxVue() {
+        return vaisseauxVue;
+    }
+
     private VaisseauxVue vaisseauxVue;
 
     public ListObsVaisseaux (Pane PanneauJeu) {
@@ -28,7 +32,7 @@ public class ListObsVaisseaux implements ListChangeListener<Vaisseau> {
             if (change.wasRemoved()) {
                 for (Vaisseau v : change.getRemoved()) {
                     System.out.println("supp");
-//                    vaisseauxVue.supprimerSprite(v);
+                    vaisseauxVue.supprimerSprite(v);
                 }
             }
         }

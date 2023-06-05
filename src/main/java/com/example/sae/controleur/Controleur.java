@@ -35,10 +35,6 @@ public class Controleur implements Initializable {
 
      private Terrain terrain;
 
-     private VaisseauxVue vaisseauxVue;
-
-     private Vaisseau vaisseau;
-
      private Environnement env;
 
     @FXML
@@ -53,10 +49,32 @@ public class Controleur implements Initializable {
     @FXML
     private TextField vieStation;
 
+    @FXML
+    private TextField argentStation;
+
+    @FXML
+    private TextField compteurV;
+
+    @FXML
+    private TextField tailleEnnemi;
+
     private int i = 0;
 
     @FXML
     private Button boutonPause;
+
+    @FXML
+     void boutonVague(ActionEvent event) {
+        if(env.getEnnemi().isEmpty()) {
+            while(env.getEnnemisVagues().isEmpty()){
+                env.setCompteurVague();
+                env.lancerVague();
+            }
+        }
+        if (env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()) {
+            gameLoop.pause();
+        }
+    }
 
     @FXML
     void boutonPause(ActionEvent event) {
@@ -69,50 +87,47 @@ public class Controleur implements Initializable {
         }
     }
 
-    void ajouter(ActionEvent event, double x, double y) {
-        if (tour1.isSelected()) {
-            vaisseau = new VaisseauCourt((int) (x/16)*16, (int) (y/16)*16, terrain, env);
+    public void ajouterVaisseau(Vaisseau vaisseau){
+        if ((env.getArgent()-vaisseau.getPrix()) < 0){
+            System.out.println("Pas assez d'argent");
+        }else {
             if (vaisseau.vaisseauBienPlacee()) {
                 env.ajouterVaisseau(vaisseau);
-                 System.out.println("Tourelle ajoutée");
-        } else {
-            System.out.println("Erreur ajout");
-        }
-        } else  if (tour2.isSelected()) {
-            vaisseau = new VaisseauMoyen((int) (x/16)*16, (int) (y/16)*16, terrain, env);
-            if (vaisseau.vaisseauBienPlacee()) {
-                env.ajouterVaisseau(vaisseau);
+                env.suppArgent(vaisseau);
                 System.out.println("Tourelle ajoutée");
             } else {
                 System.out.println("Erreur ajout");
             }
-        }else {
-                if (tour3.isSelected()) {
-                    vaisseau = new VaisseauLong((int) (x/16)*16, (int) (y/16)*16, terrain, env);
-                    if (vaisseau.vaisseauBienPlacee()) {
-                        env.ajouterVaisseau(vaisseau);
-                        System.out.println("Tourelle ajoutée");
-                    } else {
-                        System.out.println("Erreur ajout");
+        }
+    }
+
+    void appuyer(ActionEvent event, double x, double y) {
+        Vaisseau vaisseau = env.vaisseauPresent((int) x, (int) y);
+        if(vaisseau != null){
+            env.getVaisseaux().remove(vaisseau);
+        } else {
+            if (tour1.isSelected()) {
+                vaisseau = new VaisseauCourt((int) (x / 16) * 16, (int) (y / 16) * 16, terrain, env);
+                ajouterVaisseau(vaisseau);
+            } else {
+                if (tour2.isSelected()) {
+                    vaisseau = new VaisseauMoyen((int) (x / 16) * 16, (int) (y / 16) * 16, terrain, env);
+                    ajouterVaisseau(vaisseau);
+                } else {
+                    if (tour3.isSelected()) {
+                        vaisseau = new VaisseauLong((int) (x / 16) * 16, (int) (y / 16) * 16, terrain, env);
+                        ajouterVaisseau(vaisseau);
                     }
+                }
             }
         }
         System.out.println("clic sur bouton ajouter");
-
     }
 
-//    @FXML
-//     void boutonVague(ActionEvent event) {
-//        if (boutonVague.isPressed()) {
-//            ennemi = new Ennemi(4, terrain, 100);
-//            ImageView iv2 = new ImageView(imageEnn);
-//
-//            iv2.translateXProperty().bind(ennemi.xProperty());
-//            iv2.translateYProperty().bind(ennemi.yProperty());
-//
-//            // Ajoutez iv2 à PaneauDeJeu ou à un autre conteneur approprié
-//            PaneauDeJeu.getChildren().add(iv2);
-//        }
+//    for(int i=0;i<env.getVaisseaux().size(); i++){
+//        Vaisseau v = env.getVaisseaux().get(i);
+//        this.PaneauDeJeu.lookup("#"+ v.getId());
+//        vaisseauxVue.mettreAJourBarreDeVie(v);
 //    }
 
         @Override
@@ -130,14 +145,33 @@ public class Controleur implements Initializable {
         ListChangeListener<Vaisseau> listenV = new ListObsVaisseaux(PaneauDeJeu);
         env.getVaisseaux().addListener(listenV);
 
+
+
         env.vieProperty().addListener(
                     (obs, old, nouv) ->
                             vieStation.setText(nouv.toString()));
+
+        env.argentProperty().addListener(
+                (obs, old, nouv) ->
+                        argentStation.setText(nouv.toString()));
+
+            env.nbEnnemisProperty().addListener(
+                    (obs, old, nouv) ->
+                            tailleEnnemi.setText(nouv.toString()));
+
+            env.compteurVagueProperty().addListener(
+                    (obs, old, nouv) ->
+                            compteurV.setText(nouv.toString()));
+
+            for (int i = 0; i < env.getVaisseaux().size(); i++){
+                Vaisseau v = env.getVaisseaux().get(i);
+            }
+
         initAnimation();
         gameLoop.play();
 
         PaneauDeJeu.setOnMouseClicked( event -> {
-            ajouter(null, event.getX(), event.getY());
+            appuyer(null, event.getX(), event.getY());
                 });
 
     }
@@ -154,6 +188,7 @@ public class Controleur implements Initializable {
                 // c'est un eventHandler d'ou le lambda
                 (ev ->{
                     env.unTour();
+
                 })
         );
         gameLoop.getKeyFrames().add(kf);

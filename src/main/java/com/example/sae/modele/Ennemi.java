@@ -15,9 +15,9 @@ public class Ennemi {
     private Environnement env;
     public static int compteur=0;
     private String id;
+    private int prix;
 
-
-    public Ennemi(int v, Terrain terrain, int pv, Environnement env) {
+    public Ennemi(int v, Terrain terrain, int pv, Environnement env, int prix) {
         this.pv = pv;
         this.x = new SimpleIntegerProperty(16);
         this.y = new SimpleIntegerProperty(0);
@@ -30,6 +30,7 @@ public class Ennemi {
         this.env = env;
         this.id="E"+compteur;
         compteur++;
+        this.prix = prix;
 
     }
     public String getId() {
@@ -44,6 +45,9 @@ public class Ennemi {
         return y;
     }
 
+    public int getPrix(){
+        return prix;
+    }
 
     public final int getX() {
         return this.xProperty().getValue();

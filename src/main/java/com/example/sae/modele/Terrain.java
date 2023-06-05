@@ -35,6 +35,13 @@ public class Terrain {
         };
 
     }
+
+    public boolean estAInterieur(int x, int y) {
+        int lignes = tileMap.length;
+        int colonnes = tileMap[0].length;
+
+        return x >= 0 && x < colonnes && y >= 0 && y < lignes;
+    }
     public int[][] getTileMap() {
         return tileMap;
     }

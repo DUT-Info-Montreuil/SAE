@@ -1,39 +1,50 @@
 package com.example.sae.modele;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
-public class Vague {
+public class Vague{
     private Terrain terrain;
     private Environnement env;
-    private ObservableList<Ennemi> ennemis;
-    private static int compteur=0;
+    private IntegerProperty compteur;
+    private ArrayList<Ennemi> ennemis;
 
     public Vague(Terrain terrain, Environnement env){
+        this.compteur = new SimpleIntegerProperty(0);
         this.terrain = terrain;
         this.env = env;
-        this.ennemis= FXCollections.observableArrayList();
+        this.ennemis = new ArrayList<>();
     }
 
-    public void ennemis(){
-        for(int i = 0; i <= compteur ; i++) {
-            if (env.getTours() %5 == 0 && env.getTours() < 30) {
-                env.getEnnemi().add(new LimaceLente(terrain, env));
-                System.out.println("caca");
-            }
-            if (this.env.getTours() %10 == 0 && env.getTours() < 30) {
-                env.getEnnemi().add(new Alien(terrain, env));
-            }
-            if (this.env.getTours() %15 == 0 && env.getTours() < 30) {
-                env.getEnnemi().add(new ChevauxAlien(terrain, env));
-            }
-            }
-        compteur++;
+    public void vagueEnnemis(){
+        for(int i = 0; i < getCompteur() ; i++) {
+            ennemis.add(new LimaceLente(terrain, env));
+            ennemis.add(new Alien(terrain, env));
+            ennemis.add(new ChevauxAlien(terrain, env));
+        }
+    }
+
+    public IntegerProperty compteurProperty(){
+        return compteur;
     }
 
     public int getCompteur(){
-        return compteur;
+        return this.compteurProperty().getValue();
+    }
+
+    public void setCompteur() {
+        this.compteurProperty().setValue(getCompteur()+1);
+    }
+
+    public ArrayList<Ennemi> getEnnemisVague() {
+        return ennemis;
+    }
+
+    public void supprimerEnnemi() {
+        ennemis.remove(0);
     }
 }

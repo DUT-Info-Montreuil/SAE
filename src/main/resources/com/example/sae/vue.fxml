@@ -22,13 +22,13 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Vague :" />
-                        <TextField prefHeight="32.0" prefWidth="35.0" />
+                        <TextField fx:id="compteurV" prefHeight="32.0" prefWidth="35.0" text="0"/>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Taille :" />
-                        <TextField prefHeight="32.0" prefWidth="36.0" />
+                        <TextField fx:id="tailleEnnemi" prefHeight="32.0" prefWidth="36.0" text="0" />
                      </children>
                   </HBox>
                </children>
@@ -38,7 +38,7 @@
                   <HBox prefHeight="124.0" prefWidth="146.0">
                      <children>
                         <Label prefHeight="19.0" prefWidth="63.0" text="Argent :" />
-                        <TextField prefHeight="32.0" prefWidth="36.0" />
+                        <TextField fx:id="argentStation" prefHeight="32.0" prefWidth="36.0" text="200" />
                      </children>
                   </HBox>
                   <HBox prefHeight="150.0" prefWidth="242.0">
@@ -84,7 +84,7 @@
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Button fx:id="boutonVague" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Vague suivante" />
+                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" text="Vague suivante" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">

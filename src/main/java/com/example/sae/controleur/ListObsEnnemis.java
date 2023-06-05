@@ -23,13 +23,13 @@ public class ListObsEnnemis implements ListChangeListener<Ennemi> {
             if (change.wasAdded()) {
                 for (Ennemi e : change.getAddedSubList()) {
                     System.out.println("add");
-                         ennemisVue.créerSprite(e);
+                    ennemisVue.créerSprite(e);
                     }
                 }
                 if (change.wasRemoved()) {
                     for (Ennemi e : change.getRemoved()) {
                         System.out.println("supp");
-                            ennemisVue.supprimerSprite(e);
+                        ennemisVue.supprimerSprite(e);
                     }
                 }
             }
