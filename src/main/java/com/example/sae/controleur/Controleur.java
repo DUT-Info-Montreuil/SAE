@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.util.Duration;
@@ -63,9 +64,11 @@ public class Controleur implements Initializable {
     @FXML
     private Button boutonPause;
 
+
     @FXML
      void boutonVague(ActionEvent event) {
         if(env.getEnnemi().isEmpty()) {
+
             while(env.getEnnemisVagues().isEmpty()){
                 env.setCompteurVague();
                 env.lancerVague();

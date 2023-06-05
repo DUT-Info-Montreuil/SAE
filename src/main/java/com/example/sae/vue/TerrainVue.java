@@ -14,7 +14,6 @@ public class TerrainVue {
     private Terrain terrain;
 
 
-
     public TerrainVue(Terrain terrain, TilePane tilePane) {
         this.terrain = terrain;
         this.tilePane = tilePane;

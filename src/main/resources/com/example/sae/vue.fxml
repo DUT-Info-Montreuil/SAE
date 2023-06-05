@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -7,37 +10,57 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="500.0" prefWidth="482.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
+<BorderPane prefHeight="500.0" prefWidth="1024.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
    <bottom>
-      <HBox focusTraversable="true" prefHeight="124.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+      <HBox focusTraversable="true" prefHeight="172.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="124.0" prefWidth="106.0">
+            <VBox prefHeight="171.0" prefWidth="168.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Vie :" />
+                        <Label text="Vie :">
+                           <font>
+                              <Font name="Lato Semibold" size="21.0" />
+                           </font></Label>
                         <TextField fx:id="vieStation" prefHeight="32.0" prefWidth="36.0" text="20" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Vague :" />
+                        <Label text="Vague :">
+                           <font>
+                              <Font name="Lato Semibold" size="21.0" />
+                           </font></Label>
                         <TextField fx:id="compteurV" prefHeight="32.0" prefWidth="35.0" text="0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Taille :" />
+                        <Label text="Taille :">
+                           <font>
+                              <Font size="21.0" />
+                           </font></Label>
                         <TextField fx:id="tailleEnnemi" prefHeight="32.0" prefWidth="36.0" text="0" />
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox>
+            <VBox prefHeight="172.0" prefWidth="284.0">
                <children>
                   <HBox prefHeight="124.0" prefWidth="146.0">
                      <children>
-                        <Label prefHeight="19.0" prefWidth="63.0" text="Argent :" />
+                        <ImageView fitHeight="52.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../../../Téléchargements/3d-money-coin-icon-illustration-png.png" />
+                           </image>
+                           <effect>
+                              <DropShadow color="#f8d50f" spread="0.12" />
+                           </effect>
+                        </ImageView>
+                        <Label prefHeight="27.0" prefWidth="84.0" text="Argent :">
+                           <font>
+                              <Font name="Lato Semibold" size="21.0" />
+                           </font></Label>
                         <TextField fx:id="argentStation" prefHeight="32.0" prefWidth="44.0" text="200" />
                      </children>
                   </HBox>
@@ -45,51 +68,94 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <ImageView fx:id="vaisseauNormal" fitHeight="45.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="93.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@vaisseauCourt.png" />
+                                    <Image url="@Tour1.png" />
                                  </image>
+                                 <effect>
+                                    <DropShadow color="RED" />
+                                 </effect>
                               </ImageView>
                               <RadioButton fx:id="tour1" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="tour" />
-                                 </toggleGroup></RadioButton>
+                                 </toggleGroup>
+                                 <font>
+                                    <Font name="Lato Semibold" size="17.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <effect>
+                                    <InnerShadow choke="0.63" color="#ff000047" height="11.89" radius="6.2675" width="15.18" />
+                                 </effect>
+                              </RadioButton>
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <ImageView fitHeight="44.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="139.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@vaisseauMoyen.png" />
+                                    <Image url="@Tour2.png" />
                                  </image>
+                                 <effect>
+                                    <DropShadow color="#e0ff00" />
+                                 </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour2" mnemonicParsing="false" text="Tour2" toggleGroup="$tour" />
+                              <RadioButton fx:id="tour2" mnemonicParsing="false" text="Tour2" toggleGroup="$tour">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <effect>
+                                    <InnerShadow color="#f0e411" />
+                                 </effect></RadioButton>
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <ImageView fitHeight="45.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="112.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@vaisseauLong.png" />
+                                    <Image url="@Tour3.png" />
                                  </image>
+                                 <effect>
+                                    <DropShadow color="#e18607" radius="6.205" spread="0.57" width="5.82" />
+                                 </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour3" mnemonicParsing="false" text="Tour3" toggleGroup="$tour" />
+                              <RadioButton fx:id="tour3" mnemonicParsing="false" text="Tour3" toggleGroup="$tour">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <effect>
+                                    <InnerShadow color="#ff9c00" />
+                                 </effect></RadioButton>
                            </children>
                         </VBox>
                      </children>
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="124.0" prefWidth="199.0">
+            <VBox prefHeight="172.0" prefWidth="295.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" text="Vague suivante" />
+                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" text="Vague suivante">
+                           <font>
+                              <Font name="Lato Semibold" size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Button fx:id="boutonPause" mnemonicParsing="false" onAction="#boutonPause" prefHeight="33.0" prefWidth="189.0" text="Pause" />
+                        <Button fx:id="boutonPause" mnemonicParsing="false" onAction="#boutonPause" prefHeight="33.0" prefWidth="189.0" text="Pause">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect></Button>
                      </children>
                   </HBox>
                </children>
@@ -98,12 +164,12 @@
       </HBox>
    </bottom>
    <center>
-      <Pane fx:id="PaneauDeJeu" prefHeight="640.0" prefWidth="960.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="PaneauDeJeu" prefHeight="660.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-            <TilePane fx:id="tilePane" prefColumns="30" prefHeight="640.0" prefRows="20" prefTileHeight="32.0" prefTileWidth="32.0" prefWidth="960.0" />
+            <TilePane fx:id="tilePane" prefColumns="32" prefHeight="660.0" prefRows="22" prefTileHeight="32.0" prefTileWidth="32.0" prefWidth="1024.0" />
          </children>
       </Pane>
    </center>

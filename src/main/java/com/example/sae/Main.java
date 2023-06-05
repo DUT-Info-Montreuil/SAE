@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         // essai
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("vue.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 3000, 3000);
+        Scene scene = new Scene(fxmlLoader.load(), 1024, 880);
         stage.setTitle("TowerDefense");
         stage.setScene(scene);
         stage.setResizable(false);
