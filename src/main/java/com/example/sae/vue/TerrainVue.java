@@ -36,6 +36,16 @@ public class TerrainVue {
 
         URL urlImageStation = Main.class.getResource("station.png");
         Image imageStation = new Image(String.valueOf(urlImageStation));
+
+        URL urlImageSol5 = Main.class.getResource("sol5.png");
+        Image imageSol5 = new Image(String.valueOf(urlImageSol5));
+
+        URL urlImageSol6 = Main.class.getResource("sol6.png");
+        Image imageSol6 = new Image(String.valueOf(urlImageSol6));
+
+        URL urlImageSol7 = Main.class.getResource("sol7.png");
+        Image imageSol7 = new Image(String.valueOf(urlImageSol7));
+
         for (int y = 0; y < codesTuiles.length; y++) {
             for (int x = 0; x < codesTuiles[y].length; x++) {
                 if (codesTuiles[y][x] == 0) {
@@ -47,6 +57,15 @@ public class TerrainVue {
                 } else if (codesTuiles[y][x] == 2) {
                     ImageView iv4 = new ImageView(imageStation);
                     this.tilePane.getChildren().add(iv4);
+                } else if (codesTuiles[y][x] == 5) {
+                    ImageView iv5 = new ImageView(imageSol5);
+                    this.tilePane.getChildren().add(iv5);
+                } else if (codesTuiles[y][x] == 6) {
+                    ImageView iv6 = new ImageView(imageSol6);
+                    this.tilePane.getChildren().add(iv6);
+                } else if (codesTuiles[y][x] == 7) {
+                    ImageView iv7 = new ImageView(imageSol7);
+                    this.tilePane.getChildren().add(iv7);
                 } else if (codesTuiles[y][x] == 4) {
                     ImageView iv6 = new ImageView(imageSol4);
                     this.tilePane.getChildren().add(iv6);

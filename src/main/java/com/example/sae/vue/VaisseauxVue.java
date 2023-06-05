@@ -71,7 +71,8 @@ public class VaisseauxVue {
         barreDeVie.setTranslateX(centerX);
         barreDeVie.setTranslateY(centerY);
         barreDeVie.setMaxHeight(10);
-        barreDeVie.setMaxWidth(18);
+        barreDeVie.setMaxWidth(30);
+        barreDeVie.setStyle("-fx-accent: red;");
         barredeVies.add(barreDeVie);
         this.panneauJeu.getChildren().add(barreDeVie);
     }
@@ -88,12 +89,8 @@ public class VaisseauxVue {
     }
     public void afficherRayonPortee(Vaisseau vaisseau) {
         Circle rayonPortee = new Circle();
-
-        double tourelleLargeur = vaisseau.getPortee();
-        double tourelleHauteur = vaisseau.getPortee();
-
-        double centerX = vaisseau.getX() + tourelleLargeur / 32;
-        double centerY = vaisseau.getY() + tourelleHauteur / 32;
+        double centerX = vaisseau.getX()+16;
+        double centerY = vaisseau.getY()+16;
 
         rayonPortee.setCenterX(centerX);
         rayonPortee.setCenterY(centerY);
