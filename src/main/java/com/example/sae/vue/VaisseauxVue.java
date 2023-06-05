@@ -92,8 +92,8 @@ public class VaisseauxVue {
         double tourelleLargeur = vaisseau.getPortee();
         double tourelleHauteur = vaisseau.getPortee();
 
-        double centerX = vaisseau.getX() + tourelleLargeur / 16;
-        double centerY = vaisseau.getY() + tourelleHauteur / 16;
+        double centerX = vaisseau.getX() + tourelleLargeur / 32;
+        double centerY = vaisseau.getY() + tourelleHauteur / 32;
 
         rayonPortee.setCenterX(centerX);
         rayonPortee.setCenterY(centerY);

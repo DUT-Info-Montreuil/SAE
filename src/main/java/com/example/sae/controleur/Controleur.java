@@ -107,15 +107,15 @@ public class Controleur implements Initializable {
             env.getVaisseaux().remove(vaisseau);
         } else {
             if (tour1.isSelected()) {
-                vaisseau = new VaisseauCourt((int) (x / 16) * 16, (int) (y / 16) * 16, terrain, env);
+                vaisseau = new VaisseauCourt((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
                 ajouterVaisseau(vaisseau);
             } else {
                 if (tour2.isSelected()) {
-                    vaisseau = new VaisseauMoyen((int) (x / 16) * 16, (int) (y / 16) * 16, terrain, env);
+                    vaisseau = new VaisseauMoyen((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
                     ajouterVaisseau(vaisseau);
                 } else {
                     if (tour3.isSelected()) {
-                        vaisseau = new VaisseauLong((int) (x / 16) * 16, (int) (y / 16) * 16, terrain, env);
+                        vaisseau = new VaisseauLong((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
                         ajouterVaisseau(vaisseau);
                     }
                 }

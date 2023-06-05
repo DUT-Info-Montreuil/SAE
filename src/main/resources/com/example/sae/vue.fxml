@@ -22,7 +22,7 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <Label text="Vague :" />
-                        <TextField fx:id="compteurV" prefHeight="32.0" prefWidth="35.0" text="0"/>
+                        <TextField fx:id="compteurV" prefHeight="32.0" prefWidth="35.0" text="0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -38,7 +38,7 @@
                   <HBox prefHeight="124.0" prefWidth="146.0">
                      <children>
                         <Label prefHeight="19.0" prefWidth="63.0" text="Argent :" />
-                        <TextField fx:id="argentStation" prefHeight="32.0" prefWidth="36.0" text="200" />
+                        <TextField fx:id="argentStation" prefHeight="32.0" prefWidth="44.0" text="200" />
                      </children>
                   </HBox>
                   <HBox prefHeight="150.0" prefWidth="242.0">
@@ -98,12 +98,12 @@
       </HBox>
    </bottom>
    <center>
-      <Pane fx:id="PaneauDeJeu" prefHeight="320.0" prefWidth="460.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="PaneauDeJeu" prefHeight="640.0" prefWidth="960.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-            <TilePane fx:id="tilePane" prefColumns="30" prefHeight="320.0" prefRows="20" prefTileHeight="16.0" prefTileWidth="16.0" prefWidth="480.0" />
+            <TilePane fx:id="tilePane" prefColumns="30" prefHeight="640.0" prefRows="20" prefTileHeight="32.0" prefTileWidth="32.0" prefWidth="960.0" />
          </children>
       </Pane>
    </center>

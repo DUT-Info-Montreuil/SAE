@@ -19,7 +19,7 @@ public class Ennemi {
 
     public Ennemi(int v, Terrain terrain, int pv, Environnement env, int prix) {
         this.pv = pv;
-        this.x = new SimpleIntegerProperty(16);
+        this.x = new SimpleIntegerProperty(32);
         this.y = new SimpleIntegerProperty(0);
         this.v = v;
         this.terrain = terrain;
@@ -92,7 +92,7 @@ public class Ennemi {
             if (terrain.getTileMap()[ligne][colonne + 1] == terrain.CHEMIN && direction != 4 || terrain.getTileMap()[ligne][colonne + 1] == terrain.STATION) {
                 setX(this.getX() + v);
                 compteurPx = compteurPx + v;
-                if (compteurPx >= 16) {
+                if (compteurPx >= 32) {
                     compteurPx = 0;
                     colonne++;
                     direction = 6;
@@ -101,7 +101,7 @@ public class Ennemi {
                 if (terrain.getTileMap()[ligne][colonne - 1] == terrain.CHEMIN && direction != 6 || terrain.getTileMap()[ligne][colonne - 1] == terrain.STATION) {
                     setX(this.getX() - v);
                     compteurPx = compteurPx + v;
-                    if (compteurPx >= 16) {
+                    if (compteurPx >= 32) {
                         compteurPx = 0;
                         colonne--;
                         direction = 4;
@@ -110,7 +110,7 @@ public class Ennemi {
                     if (terrain.getTileMap()[ligne + 1][colonne] == terrain.CHEMIN && direction != 8 || terrain.getTileMap()[ligne + 1][colonne] == terrain.STATION) {
                         setY(this.getY() + v);
                         compteurPx = compteurPx + v;
-                        if (compteurPx >= 16) {
+                        if (compteurPx >= 32) {
                             compteurPx = 0;
                             ligne++;
                             direction = 2;
@@ -119,7 +119,7 @@ public class Ennemi {
                         if (terrain.getTileMap()[ligne - 1][colonne] == terrain.CHEMIN && direction != 2 || terrain.getTileMap()[ligne - 1][colonne] == terrain.STATION) {
                             setY(this.getY() - v);
                             compteurPx = compteurPx + v;
-                            if (compteurPx >= 16) {
+                            if (compteurPx >= 32) {
                                 compteurPx = 0;
                                 ligne--;
                                 direction = 8;

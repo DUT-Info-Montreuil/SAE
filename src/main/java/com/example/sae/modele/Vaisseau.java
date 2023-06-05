@@ -72,8 +72,8 @@ public  class Vaisseau {
     }
 
     public boolean vaisseauBienPlacee() {
-        int x = getX() / 16;
-        int y = getY() / 16;
+        int x = getX() / 32;
+        int y = getY() / 32;
         System.out.println(y + " " + x);
         if (terrain.estAInterieur(x, y) && terrain.getTileMap()[y][x] == terrain.POSEV) {
             terrain.getTileMap()[y][x] = 5;

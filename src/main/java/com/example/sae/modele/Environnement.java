@@ -49,8 +49,8 @@ public class Environnement {
     public Vaisseau vaisseauPresent(int x, int y){
         for(int i=0;i<vaisseaux.size(); i++) {
             Vaisseau v = vaisseaux.get(i);
-            if ((x / 16 == v.getX()/16) && (y / 16 == v.getY()/16)) {
-                terrain.getTileMap()[y/16][x/16] = 4;
+            if ((x / 32 == v.getX()/32) && (y / 32 == v.getY()/32)) {
+                terrain.getTileMap()[y/32][x/32] = 4;
                 boutique.ajoutVaisseau(v);
                 return v;
             }
