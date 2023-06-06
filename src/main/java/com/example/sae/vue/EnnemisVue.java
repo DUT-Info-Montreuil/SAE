@@ -52,6 +52,7 @@ public class EnnemisVue {
 
     public void supprimerSprite(Ennemi ennemi){
         this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ ennemi.getId()));
+        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ ennemi.getId()));
     }
 
 

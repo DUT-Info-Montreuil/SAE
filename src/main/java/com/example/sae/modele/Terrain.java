@@ -3,6 +3,9 @@ package com.example.sae.modele;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class Terrain {
     public final static int CHEMIN=1;
     public final static int STATION=2;

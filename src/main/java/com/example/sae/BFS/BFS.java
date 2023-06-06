@@ -1,62 +1,80 @@
 package com.example.sae.BFS;
 
-import com.example.sae.modele.Environnement;
+import java.awt.Point;
 import java.util.*;
 
 public class BFS {
-    private Environnement env;
-    private Sommet source;
-    /**
-     * Liste des sommets de la composante connexe de g obtenue par un parcours en largeur depuis le sommet source
-     */
-    private ArrayList<Sommet> parcours;
-    /**
-     * Chaque sommet (clé) est associé à son prédécesseur (valeur) du parcours en largeur
-     */
-    private Map<Sommet, Sommet> predecesseurs;
 
-    public BFS(Environnement env, Sommet source) {
-        this.env = env;
-        this.source = source;
-        parcours = new ArrayList<>();
-        predecesseurs = new HashMap<Sommet,Sommet>();
-        algoBFS();
-    }
+    private static int[][] moves = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}}; // Définition des mouvements possibles (haut, bas, gauche, droite)
 
-    private void algoBFS() {
-        LinkedList<Sommet> fifo = new LinkedList<>();
-        LinkedList<Sommet> Marquage = new LinkedList<>();
-        fifo.add(source); // Ajouter le sommet source à la file d'attente
-        Marquage.addFirst(source); // Marquer le sommet source predecesseurs-put (source, nULL); // Le prédécesseur du sommet source est null
-        predecesseurs.put(source, null);
-        while (!fifo.isEmpty()) {
-            Sommet suivant = fifo.pollLast();
-            parcours.add(suivant);
-            for (Sommet t : env.adjacents(suivant)) {
-                if (!(Marquage.contains(t))) {
-                    Marquage.addFirst(t);
-                    fifo.addFirst(t);
-                    predecesseurs.put(t, suivant);
+    public static List<Point> bfs(int[][] terrain, Point depart, Point arrivee) {
+        Queue<Point> queue = new LinkedList<>();
+        queue.add(depart);
+
+        // HashMap pour stocker les parents de chaque tuile
+        Map<Point, Point> parents = new HashMap<>();
+        parents.put(depart, null);
+
+        boolean found = false;
+
+        while (!queue.isEmpty() && !found) {
+            Point tuileCourante = queue.poll();
+
+            int x = tuileCourante.x;
+            int y = tuileCourante.y;
+
+            for (int[] move : moves) {
+                int newX = x + move[0];
+                int newY = y + move[1];
+
+                if (isValidMove(terrain, newX, newY) && !parents.containsKey(new Point(newX, newY))) {
+                    Point newTuile = new Point(newX, newY);
+                    queue.add(newTuile);
+                    parents.put(newTuile, tuileCourante);
+
+                    if (newTuile.equals(arrivee)) {
+                        found = true;
+                        break;
+                    }
                 }
             }
         }
-    }
 
+        List<Point> chemin = new ArrayList<>();
+        Point tuile = arrivee;
+        while (tuile != null) {
+            chemin.add(0, tuile);
+            tuile = parents.get(tuile);
+        }
 
-    public ArrayList<Sommet> cheminVersSource(Sommet cible) {
-        ArrayList<Sommet> chemin = new ArrayList<>();
-        Sommet courant = cible;
-        while (courant != null) {
-            chemin.add(courant);
-            courant = predecesseurs.get(courant);
-        }
-        Collections.reverse(chemin);
-        System.out.println("Le chemin vers le sommet cible:");
-        for (Sommet s : chemin) {
-            System.out.println(""+ s);
-        }
         return chemin;
     }
 
+    private static boolean isValidMove(int[][] terrain, int x, int y) {
+        int ligne = terrain.length;
+        int colonne = terrain[0].length;
+        return x >= 0 && x < ligne && y >= 0 && y < colonne && (terrain[x][y] == 1 || terrain[x][y] == 2);
+    }
 
+
+    public static void main(String[] args) {
+        int[][] terrain = {
+                {1, 1, 0, 1, 1, 0, 0},
+                {1, 0, 1, 1, 1, 1, 0},
+                {1, 1, 1, 0, 1, 0, 1},
+                {1, 0, 1, 1, 1, 1, 0},
+                {1, 1, 0, 0, 1, 0, 0},
+                {1, 0, 0, 1, 1, 1, 1},
+        };
+
+        Point depart = new Point(0, 0);
+        Point arrivee = new Point(5, 6);
+
+        List<Point> chemin = bfs(terrain, depart, arrivee);
+
+        System.out.println("Chemin le plus court :");
+        for (Point tuile : chemin) {
+            System.out.println(tuile);
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.sae.controleur;
 
 import com.example.sae.modele.Ennemi;
+import com.example.sae.vue.BarreDeVieVue;
 import com.example.sae.vue.EnnemisVue;
 import javafx.collections.ListChangeListener;
 import javafx.scene.layout.Pane;

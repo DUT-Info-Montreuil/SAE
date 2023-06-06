@@ -58,35 +58,8 @@ public class VaisseauxVue {
             iv2.translateYProperty().bind(vaisseau.yProperty());
             this.panneauJeu.getChildren().add(iv2);
             afficherRayonPortee(vaisseau);
-            afficherBarreVie(vaisseau);
     }
 
-    public void afficherBarreVie(Vaisseau vaisseau){
-        ProgressBar barreDeVie = new ProgressBar();
-
-        double centerX = vaisseau.getX();
-        double centerY = vaisseau.getY() - 5;
-        barreDeVie.setId(vaisseau.getId());
-        barreDeVie.setProgress(vaisseau.getVieMax()); // Ajustez la valeur de progression de la barre de vie
-        barreDeVie.setTranslateX(centerX);
-        barreDeVie.setTranslateY(centerY);
-        barreDeVie.setMaxHeight(10);
-        barreDeVie.setMaxWidth(30);
-        barreDeVie.setStyle("-fx-accent: red;");
-        barredeVies.add(barreDeVie);
-        this.panneauJeu.getChildren().add(barreDeVie);
-    }
-    public void mettreAJourBarreDeVie(Vaisseau vaisseau) {
-        if(!this.barredeVies.isEmpty()){
-        double pourcentageVie = vaisseau.getVie() / vaisseau.getVieMax();
-        for (int i = 0; i < barredeVies.size(); i++){
-            ProgressBar barreDeVie = barredeVies.get(i);
-            if(barreDeVie.getId() == vaisseau.getId()) {
-                barreDeVie.setProgress(pourcentageVie);
-                }
-            }
-        }
-    }
     public void afficherRayonPortee(Vaisseau vaisseau) {
         Circle rayonPortee = new Circle();
         double centerX = vaisseau.getX()+16;

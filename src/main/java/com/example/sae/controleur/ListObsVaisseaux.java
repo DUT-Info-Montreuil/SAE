@@ -1,6 +1,7 @@
 package com.example.sae.controleur;
 
 import com.example.sae.modele.Vaisseau;
+import com.example.sae.vue.BarreDeVieVue;
 import com.example.sae.vue.VaisseauxVue;
 import javafx.collections.ListChangeListener;
 import javafx.scene.layout.Pane;
@@ -8,11 +9,6 @@ import javafx.scene.layout.Pane;
 public class ListObsVaisseaux implements ListChangeListener<Vaisseau> {
 
     private Pane PaneauDeJeu;
-
-    public VaisseauxVue getVaisseauxVue() {
-        return vaisseauxVue;
-    }
-
     private VaisseauxVue vaisseauxVue;
 
     public ListObsVaisseaux (Pane PanneauJeu) {

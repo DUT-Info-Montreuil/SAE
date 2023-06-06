@@ -107,7 +107,9 @@ public class Controleur implements Initializable {
     void appuyer(ActionEvent event, double x, double y) {
         Vaisseau vaisseau = env.vaisseauPresent((int) x, (int) y);
         if(vaisseau != null){
-            env.getVaisseaux().remove(vaisseau);
+            if (vaisseau.getVie() >= vaisseau.getVieMax()/2){
+                env.getVaisseaux().remove(vaisseau);
+            }
         } else {
             if (tour1.isSelected()) {
                 vaisseau = new VaisseauCourt((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
@@ -127,12 +129,6 @@ public class Controleur implements Initializable {
         System.out.println("clic sur bouton ajouter");
     }
 
-//    for(int i=0;i<env.getVaisseaux().size(); i++){
-//        Vaisseau v = env.getVaisseaux().get(i);
-//        this.PaneauDeJeu.lookup("#"+ v.getId());
-//        vaisseauxVue.mettreAJourBarreDeVie(v);
-//    }
-
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -148,6 +144,8 @@ public class Controleur implements Initializable {
         ListChangeListener<Vaisseau> listenV = new ListObsVaisseaux(PaneauDeJeu);
         env.getVaisseaux().addListener(listenV);
 
+        ListChangeListener<BarreDeVie> listenB = new ListObsBarreDeVie(PaneauDeJeu);
+        env.getBarreDeVie().addListener(listenB);
 
 
         env.vieProperty().addListener(
@@ -165,10 +163,6 @@ public class Controleur implements Initializable {
             env.compteurVagueProperty().addListener(
                     (obs, old, nouv) ->
                             compteurV.setText(nouv.toString()));
-
-            for (int i = 0; i < env.getVaisseaux().size(); i++){
-                Vaisseau v = env.getVaisseaux().get(i);
-            }
 
         initAnimation();
         gameLoop.play();

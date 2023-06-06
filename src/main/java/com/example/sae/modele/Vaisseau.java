@@ -19,9 +19,8 @@ public  class Vaisseau {
     private String id;
     private static int compteur=0;
     private ObservableList<Ennemi> ennemis;
-
     private int vie;
-
+    private BarreDeVie barreDeVie;
 
 
     public Vaisseau(int x, int y, Terrain terrain, int prix, Environnement env, int portee, int degat) {
@@ -35,7 +34,8 @@ public  class Vaisseau {
         this.degat = degat;
         this.id="V"+compteur;
         compteur++;
-        this.vie = 100;
+        this.vie = 1000;
+        this.barreDeVie = new BarreDeVie(getVie(), getVieMax(), getId(), getX(), getY());
     }
 
     public IntegerProperty xProperty() {
@@ -48,6 +48,10 @@ public  class Vaisseau {
 
     public String getId() {
         return id;
+    }
+
+    public boolean estVivant() {
+        return this.vie > 0;
     }
 
     public final int getX() {
@@ -69,6 +73,10 @@ public  class Vaisseau {
 
     public int getPrix() {
         return prix;
+    }
+
+    public BarreDeVie getBarreDeVie() {
+        return barreDeVie;
     }
 
     public boolean vaisseauBienPlacee() {
