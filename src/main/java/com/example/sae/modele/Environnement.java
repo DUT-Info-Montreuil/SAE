@@ -148,6 +148,7 @@ public class Environnement {
         for (int i = 0; i < ennemis.size(); i++) {
             Ennemi a = ennemis.get(i);
             a.seDeplace();
+            a.getBarreDeVie().getCouleur();
             a.getBarreDeVie().setX(a.getX());
             a.getBarreDeVie().setY(a.getY());
             a.getBarreDeVie().setVie(a.getPv());

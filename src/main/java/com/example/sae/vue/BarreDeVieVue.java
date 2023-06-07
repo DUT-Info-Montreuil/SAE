@@ -18,7 +18,7 @@ public class BarreDeVieVue {
 
     public BarreDeVieVue (Pane panneauJeu) {
         this.panneauJeu = panneauJeu;
-        ;
+
     }
 
     public void afficherBarreVie(BarreDeVie barre){
@@ -29,7 +29,7 @@ public class BarreDeVieVue {
         barreDeVie.setTranslateY(barre.getY());
         barreDeVie.setMaxHeight(10);
         barreDeVie.setMaxWidth(30);
-        barreDeVie.setStyle("-fx-accent: red;");
+        barreDeVie.setStyle("-fx-accent: green;");
         this.panneauJeu.getChildren().add(barreDeVie);
         System.out.println("caca = " +barre.getVieTotale());
         barreDeVie.translateXProperty().bind(barre.xProperty());

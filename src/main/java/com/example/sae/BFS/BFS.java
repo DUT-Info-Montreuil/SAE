@@ -57,24 +57,4 @@ public class BFS {
     }
 
 
-    public static void main(String[] args) {
-        int[][] terrain = {
-                {1, 1, 0, 1, 1, 0, 0},
-                {1, 0, 1, 1, 1, 1, 0},
-                {1, 1, 1, 0, 1, 0, 1},
-                {1, 0, 1, 1, 1, 1, 0},
-                {1, 1, 0, 0, 1, 0, 0},
-                {1, 0, 0, 1, 1, 1, 1},
-        };
-
-        Point depart = new Point(0, 0);
-        Point arrivee = new Point(5, 6);
-
-        List<Point> chemin = bfs(terrain, depart, arrivee);
-
-        System.out.println("Chemin le plus court :");
-        for (Point tuile : chemin) {
-            System.out.println(tuile);
-        }
-    }
 }

@@ -10,12 +10,12 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        // essai
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("vue.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("vueMenu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1024, 880);
-        stage.setTitle("TowerDefense");
+        stage.setTitle("Alien Survival");
         stage.setScene(scene);
-//        stage.setResizable(false);
+
+        stage.setResizable(false);
         stage.show();
     }
 
