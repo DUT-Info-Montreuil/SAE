@@ -9,15 +9,21 @@ import javafx.animation.Timeline;
 import javafx.collections.ListChangeListener;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -65,17 +71,32 @@ public class Controleur implements Initializable {
     private Button boutonPause;
 
 
-    @FXML
-     void boutonVague(ActionEvent event) {
-        if(env.getEnnemi().isEmpty()) {
+    private FinControleur finControleur;
 
-            while(env.getEnnemisVagues().isEmpty()){
-                env.setCompteurVague();
-                env.lancerVague();
+    @FXML
+     void boutonVague(ActionEvent event) throws IOException {
+        if (env.getCompteurVague() <=9) {
+            if (env.getEnnemi().isEmpty()) {
+                while (env.getEnnemisVagues().isEmpty()) {
+                    env.setCompteurVague();
+                    env.lancerVague();
+                }
             }
-        }
-        if (env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()) {
-            gameLoop.pause();
+            if (env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()) {
+                gameLoop.pause();
+            }
+        } else {
+            System.out.println("vous avez gagné");
+            gameLoop.stop();
+            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            URL resource = getClass().getResource("/com/example/sae/vueFin.fxml");
+            Parent root = fxmlLoader.load(resource);
+            Scene scene = new Scene(root, 1024, 880);
+            primaryStage.setResizable(false);
+            primaryStage.setTitle("ALien Survival : La Dernière Lueur d'Espoir");
+            primaryStage.setScene(scene);
+            primaryStage.show();
         }
     }
 
@@ -147,10 +168,10 @@ public class Controleur implements Initializable {
         ListChangeListener<BarreDeVie> listenB = new ListObsBarreDeVie(PaneauDeJeu);
         env.getBarreDeVie().addListener(listenB);
 
-
-        env.vieProperty().addListener(
+            env.compteurVagueProperty().addListener(
                     (obs, old, nouv) ->
-                            vieStation.setText(nouv.toString()));
+                            compteurV.setText(nouv.toString()));
+
 
         env.argentProperty().addListener(
                 (obs, old, nouv) ->
@@ -160,9 +181,26 @@ public class Controleur implements Initializable {
                     (obs, old, nouv) ->
                             tailleEnnemi.setText(nouv.toString()));
 
-            env.compteurVagueProperty().addListener(
-                    (obs, old, nouv) ->
-                            compteurV.setText(nouv.toString()));
+
+            env.vieProperty().addListener(
+                    (obs, old, nouv) -> {
+                        vieStation.setText(nouv.toString());
+                            if (env.getVieStation() == 0 ){
+                                System.out.println("Vous avez perdu");
+                                gameLoop.stop();
+                                FXMLLoader fxmlLoader = new FXMLLoader();
+                                URL resource = getClass().getResource("/com/example/sae/vuePerdu.fxml");
+                                Parent root = null;
+                                try {
+                                    root = fxmlLoader.load(resource);
+                                } catch (IOException e) {
+                                }
+                                Scene scene = new Scene(root);
+                                Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
+                                primaryStage.setScene(scene);
+                                primaryStage.show();
+                            }
+                    });
 
         initAnimation();
         gameLoop.play();
@@ -170,8 +208,11 @@ public class Controleur implements Initializable {
         PaneauDeJeu.setOnMouseClicked( event -> {
             appuyer(null, event.getX(), event.getY());
                 });
+        compteurV.setText(String.valueOf(env.getCompteurVague()));
+        vieStation.setText(String.valueOf(env.getVieStation()));
+        argentStation.setText(String.valueOf(env.getArgent()));
 
-    }
+        }
 
 
     private void initAnimation() {

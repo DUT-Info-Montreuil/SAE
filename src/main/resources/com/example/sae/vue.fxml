@@ -22,7 +22,7 @@
                            <font>
                               <Font name="Lato Semibold" size="21.0" />
                            </font></Label>
-                        <TextField fx:id="vieStation" prefHeight="32.0" prefWidth="36.0" text="20" />
+                        <TextField fx:id="vieStation" prefHeight="32.0" prefWidth="36.0" />
                         <ImageView fitHeight="38.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@coeur.gif" />
@@ -39,7 +39,7 @@
                            <font>
                               <Font name="Lato Semibold" size="21.0" />
                            </font></Label>
-                        <TextField fx:id="compteurV" prefHeight="32.0" prefWidth="35.0" text="0" />
+                        <TextField fx:id="compteurV" prefHeight="32.0" prefWidth="35.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
@@ -69,7 +69,7 @@
                            <font>
                               <Font name="Lato Semibold" size="21.0" />
                            </font></Label>
-                        <TextField fx:id="argentStation" prefHeight="32.0" prefWidth="44.0" text="200" />
+                        <TextField fx:id="argentStation" prefHeight="32.0" prefWidth="44.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="150.0" prefWidth="242.0">

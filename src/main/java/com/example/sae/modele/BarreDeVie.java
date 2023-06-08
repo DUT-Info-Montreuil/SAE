@@ -1,9 +1,6 @@
 package com.example.sae.modele;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.*;
 import javafx.scene.control.ProgressBar;
 
 public class BarreDeVie  {
@@ -12,7 +9,7 @@ public class BarreDeVie  {
     private Double vie;
     private Double vieMax;
     private String id;
-    private String style;
+    private StringProperty style;
 
 
     public BarreDeVie(int vie, int vieMax, String id, int x, int y){
@@ -22,24 +19,22 @@ public class BarreDeVie  {
         this.vieMax = (double)vieMax;
         this.id = id;
         this.vieTotale = new SimpleDoubleProperty(vie/vieMax);
-
-
+        style = new SimpleStringProperty();
     }
 
-    public double getPourcentageVie() {
-        return vie / vieMax;
-    }
-    public String getCouleur() {
-        double pourcentageVie = getPourcentageVie();
+    public void setCouleur() {
+        double pourcentageVie = getVieTotale();
 
-        if (pourcentageVie <= 0.3) {
-            return "-fx-accent: red;"; // Rouge pour moins de 30% de vie
-        } else if (pourcentageVie <= 0.7) {
-            return "-fx-accent: orange;"; // Orange pour 30% à 70% de vie
+        if (pourcentageVie <= 0.55) {
+            setStyle("-fx-accent: red;"); // Rouge pour moins de 30% de vie
+        } else if (pourcentageVie <= 0.85) {
+            setStyle("-fx-accent: orange;"); // Orange pour 30% à 70% de vie
         } else {
-            return "-fx-accent: green;"; // Vert pour plus de 70% de vie
+            setStyle("-fx-accent: green;"); // Vert pour plus de 70% de vie
         }
     }
+
+
     public double getVieTotale() {
         return vieTotale.getValue();
     }
@@ -82,9 +77,19 @@ public class BarreDeVie  {
     }
 
     public final void setY(int n) {
-        this.yProperty().setValue(n+10);
+        this.yProperty().setValue(n-10);
     }
 
+    public StringProperty styleProperty() {
+        return style;
+    }
 
+    public final String getStyle() {
+        return this.styleProperty().getValue();
+    }
+
+    public final void setStyle(String s) {
+        this.styleProperty().setValue(s);
+    }
 
 }

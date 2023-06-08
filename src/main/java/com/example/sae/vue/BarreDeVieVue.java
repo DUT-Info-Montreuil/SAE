@@ -29,13 +29,21 @@ public class BarreDeVieVue {
         barreDeVie.setTranslateY(barre.getY());
         barreDeVie.setMaxHeight(10);
         barreDeVie.setMaxWidth(30);
-        barreDeVie.setStyle("-fx-accent: green;");
+        barreDeVie.setStyle(barre.getStyle()); // Utilisez la couleur appropriée en fonction de la vie
         this.panneauJeu.getChildren().add(barreDeVie);
-        System.out.println("caca = " +barre.getVieTotale());
+        System.out.println(barre.getVieTotale());
         barreDeVie.translateXProperty().bind(barre.xProperty());
         barreDeVie.translateYProperty().bind(barre.yProperty());
         barreDeVie.progressProperty().bind(barre.vieTotaleProperty());
+        barreDeVie.styleProperty().bind(barre.styleProperty());
     }
+
+//    public void setColor (B) {
+//        barreDeVie.setStyle(barre.getCouleur());
+//        DropShadow dropShadow = new DropShadow();
+//        dropShadow.setColor(couleur);
+//        barreDeVie.setEffect(dropShadow);
+//    }
 }
 
 

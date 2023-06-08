@@ -133,6 +133,14 @@ public class Environnement {
         vague.setCompteur();
     }
 
+    public int getCompteurVague(){
+        return vague.getCompteur();
+    }
+
+    public int getVieStation(){
+        return station.getVie();
+    }
+
     public IntegerProperty compteurVagueProperty() {
         return vague.compteurProperty();
     }
@@ -148,7 +156,7 @@ public class Environnement {
         for (int i = 0; i < ennemis.size(); i++) {
             Ennemi a = ennemis.get(i);
             a.seDeplace();
-            a.getBarreDeVie().getCouleur();
+            a.getBarreDeVie().setCouleur();
             a.getBarreDeVie().setX(a.getX());
             a.getBarreDeVie().setY(a.getY());
             a.getBarreDeVie().setVie(a.getPv());
@@ -167,6 +175,7 @@ public class Environnement {
             v.perteVie();
             v.ennemiPorteeVaisseau();
             v.attaque();
+            v.getBarreDeVie().setCouleur();
             v.getBarreDeVie().setVie(v.getVie());
             v.getBarreDeVie().setVieTotale();
             if (!v.estVivant()) {

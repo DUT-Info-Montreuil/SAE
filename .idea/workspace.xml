@@ -4,24 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="ajout image sol4">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObsVaisseaux.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="changement fond map">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/FinControleur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/PerduControleur.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vueFin.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vuePerdu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/ListObsEnnemis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Ennemi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/MenuControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/MenuControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/BarreDeVie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/BarreDeVie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Terrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/EnnemisVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vaiseauNormal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/BarreDeVieVue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/vue/BarreDeVieVue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/hello-view.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vueMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vueMenu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/BFS/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/BFS/BFS.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/ListObsBarreDeVie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/ListObsBarreDeVie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/ListObsEnnemis.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/ListObsEnnemis.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/ListObsVaisseaux.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/ListObsVaisseaux.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Alien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Alien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/BarreDeVie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/BarreDeVie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Boutique.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Boutique.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/ChevauxAlien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/ChevauxAlien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Ennemi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Ennemi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Environnement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Environnement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/LimaceLente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/LimaceLente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Station.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Station.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Terrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Terrain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vague.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vague.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vaisseau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vaisseau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauCourt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauCourt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauLong.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauLong.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauMoyen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauMoyen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue/BarreDeVieVue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue/BarreDeVieVue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue/EnnemisVue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue/EnnemisVue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue/TerrainVue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue/TerrainVue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue/VaisseauxVue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue/VaisseauxVue.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +54,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="Feature_Vague" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -51,6 +77,18 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/controleur/FinControleur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/example/sae/vueFin.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/BarreDeVie.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/vue/BarreDeVieVue.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/example/sae/vueMenu.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/controleur/MenuControleur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -148,7 +186,28 @@
       <option name="project" value="LOCAL" />
       <updated>1685698885919</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changement 32x32">
+      <created>1685955789968</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685955789968</updated>
+    </task>
+    <task id="LOCAL-00008" summary="changement 32x32">
+      <created>1685971696790</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685971696790</updated>
+    </task>
+    <task id="LOCAL-00009" summary="changement fond map">
+      <created>1685974608037</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685974608037</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,7 +215,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -169,6 +240,8 @@
     <MESSAGE value="Environnement" />
     <MESSAGE value="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station" />
     <MESSAGE value="ajout image sol4" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout image sol4" />
+    <MESSAGE value="changement 32x32" />
+    <MESSAGE value="changement fond map" />
+    <option name="LAST_COMMIT_MESSAGE" value="changement fond map" />
   </component>
 </project>

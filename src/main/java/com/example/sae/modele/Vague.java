@@ -18,13 +18,17 @@ public class Vague{
         this.terrain = terrain;
         this.env = env;
         this.ennemis = new ArrayList<>();
+
     }
 
     public void vagueEnnemis(){
         for(int i = 0; i < getCompteur() ; i++) {
-            ennemis.add(new LimaceLente(terrain, env));
-            ennemis.add(new Alien(terrain, env));
-            ennemis.add(new ChevauxAlien(terrain, env));
+
+                ennemis.add(new LimaceLente(terrain, env));
+                ennemis.add(new Alien(terrain, env));
+                ennemis.add(new ChevauxAlien(terrain, env));
+
+
         }
     }
 
