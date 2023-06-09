@@ -109,6 +109,7 @@ public class Controleur implements Initializable {
 
     @FXML
      void boutonVague(ActionEvent event) throws IOException {
+
         if (env.getCompteurVague() < 10) {
             if (env.getEnnemi().isEmpty()) {
                 if (env.getEnnemisVagues().isEmpty()) {
@@ -244,8 +245,7 @@ public class Controleur implements Initializable {
                     }
                 });
 
-        initAnimation();
-        gameLoop.play();
+
 
         PaneauDeJeu.setOnMouseClicked( event -> {
             appuyer(null, event.getX(), event.getY());
@@ -254,6 +254,8 @@ public class Controleur implements Initializable {
         vieStation.setText(String.valueOf(env.getVieStation()));
         argentStation.setText(String.valueOf(env.getArgent()));
 
+            initAnimation();
+            gameLoop.play();
         }
 
 
