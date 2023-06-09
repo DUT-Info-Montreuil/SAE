@@ -12,17 +12,20 @@
 
 <BorderPane prefHeight="500.0" prefWidth="1024.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
    <bottom>
-      <HBox focusTraversable="true" prefHeight="172.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <HBox focusTraversable="true" prefHeight="178.0" prefWidth="1024.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
          <children>
             <VBox prefHeight="171.0" prefWidth="168.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Vie :">
+                        <Label text="Vie :" textFill="WHITE">
                            <font>
                               <Font name="Lato Semibold" size="21.0" />
-                           </font></Label>
-                        <TextField fx:id="vieStation" prefHeight="32.0" prefWidth="36.0" />
+                           </font>
+                           <effect>
+                              <DropShadow height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                           </effect></Label>
+                        <TextField fx:id="vieStation" editable="false" prefHeight="32.0" prefWidth="36.0" />
                         <ImageView fitHeight="38.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@coeur.gif" />
@@ -35,20 +38,28 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Vague :">
+                        <Label text="Vague :" textFill="WHITE">
                            <font>
                               <Font name="Lato Semibold" size="21.0" />
-                           </font></Label>
-                        <TextField fx:id="compteurV" prefHeight="32.0" prefWidth="35.0" />
+                           </font>
+                           <effect>
+                              <DropShadow height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="compteurV" editable="false" prefHeight="32.0" prefWidth="35.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Label text="Taille :">
+                        <Label text="Taille :" textFill="#f5f4f4">
                            <font>
-                              <Font size="21.0" />
-                           </font></Label>
-                        <TextField fx:id="tailleEnnemi" prefHeight="32.0" prefWidth="36.0" text="0" />
+                              <Font name="Lato Semibold" size="21.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#1b1a1a" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="tailleEnnemi" editable="false" prefHeight="32.0" prefWidth="29.0" text="0" />
                      </children>
                   </HBox>
                </children>
@@ -65,17 +76,29 @@
                               <DropShadow color="#f8d50f" spread="0.12" />
                            </effect>
                         </ImageView>
-                        <Label prefHeight="27.0" prefWidth="84.0" text="Argent :">
+                        <Label text="Argent :" textFill="#f5f5f2">
                            <font>
                               <Font name="Lato Semibold" size="21.0" />
-                           </font></Label>
-                        <TextField fx:id="argentStation" prefHeight="32.0" prefWidth="44.0" />
+                           </font>
+                           <effect>
+                              <DropShadow color="#141414" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                           </effect>
+                        </Label>
+                        <TextField fx:id="argentStation" editable="false" prefHeight="32.0" prefWidth="44.0" />
                      </children>
                   </HBox>
                   <HBox prefHeight="150.0" prefWidth="242.0">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
+                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="78.0" text="70" textFill="#cee80f">
+                                 <font>
+                                    <Font name="Lato Semibold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow color="#eaff00" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                                 </effect>
+                              </Label>
                               <ImageView fitHeight="93.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Tour1.png" />
@@ -84,7 +107,7 @@
                                     <DropShadow color="RED" />
                                  </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour1" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1">
+                              <RadioButton fx:id="tour1" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1" textFill="RED">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="tour" />
                                  </toggleGroup>
@@ -95,13 +118,21 @@
                                     <Cursor fx:constant="DEFAULT" />
                                  </cursor>
                                  <effect>
-                                    <InnerShadow choke="0.63" color="#ff000047" height="11.89" radius="6.2675" width="15.18" />
+                                    <DropShadow color="RED" />
                                  </effect>
                               </RadioButton>
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
+                              <Label alignment="TOP_CENTER" prefHeight="20.0" prefWidth="114.0" text="100" textFill="#cee80f">
+                                 <font>
+                                    <Font name="Lato Semibold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow color="#eaff00" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                                 </effect>
+                              </Label>
                               <ImageView fitHeight="139.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Tour2.png" />
@@ -110,17 +141,25 @@
                                     <DropShadow color="#e0ff00" />
                                  </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour2" mnemonicParsing="false" text="Tour2" toggleGroup="$tour">
+                              <RadioButton fx:id="tour2" mnemonicParsing="false" text="Tour2" textFill="YELLOW" toggleGroup="$tour">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                                  <effect>
-                                    <InnerShadow color="#f0e411" />
+                                    <DropShadow color="#d4f212" />
                                  </effect></RadioButton>
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
+                              <Label alignment="TOP_CENTER" prefHeight="19.0" prefWidth="97.0" text="150" textFill="#cee80f">
+                                 <font>
+                                    <Font name="Lato Semibold" size="15.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow color="#eaff00" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                                 </effect>
+                              </Label>
                               <ImageView fitHeight="112.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Tour3.png" />
@@ -129,12 +168,12 @@
                                     <DropShadow color="#e18607" radius="6.205" spread="0.57" width="5.82" />
                                  </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour3" mnemonicParsing="false" text="Tour3" toggleGroup="$tour">
+                              <RadioButton fx:id="tour3" mnemonicParsing="false" text="Tour3" textFill="#ee930a" toggleGroup="$tour">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
                                  <effect>
-                                    <InnerShadow color="#ff9c00" />
+                                    <DropShadow color="#f5a835" height="5.82" radius="6.205" spread="0.5" />
                                  </effect></RadioButton>
                            </children>
                         </VBox>
@@ -142,33 +181,39 @@
                   </HBox>
                </children>
             </VBox>
+            <VBox prefHeight="172.0" prefWidth="295.0" />
             <VBox prefHeight="172.0" prefWidth="295.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" text="Vague suivante">
+                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" style="-fx-text-fill: black; -fx-background-color: lightgreen;" text="Vague suivante">
                            <font>
                               <Font name="Lato Semibold" size="20.0" />
                            </font>
                            <effect>
                               <DropShadow />
-                           </effect></Button>
+                           </effect>
+                        </Button>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Button fx:id="boutonPause" mnemonicParsing="false" onAction="#boutonPause" prefHeight="33.0" prefWidth="189.0" text="Pause">
+                        <Button fx:id="boutonPause" mnemonicParsing="false" onAction="#boutonPause" prefHeight="33.0" prefWidth="189.0" style="-fx-background-color: yellow; fx-text-fill: black;" text="Pause">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <effect>
-                              <DropShadow />
-                           </effect></Button>
+                              <DropShadow spread="0.11" />
+                           </effect>
+                        </Button>
                      </children>
                   </HBox>
                </children>
             </VBox>
          </children>
+         <effect>
+            <InnerShadow choke="0.29" color="#6486ebcf" height="25.56" radius="12.657499999999999" width="27.07" />
+         </effect>
       </HBox>
    </bottom>
    <center>
