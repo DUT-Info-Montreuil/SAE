@@ -15,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -70,14 +71,41 @@ public class Controleur implements Initializable {
     @FXML
     private Button boutonPause;
 
+    @FXML
+    private Label labelChronometre;
 
     private FinControleur finControleur;
 
+    private int chronometre = 0;
+
+
+    private Timeline chronometreTimeline;
+
     @FXML
     void boutonAbandonner(ActionEvent event) {
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.close();
+        System.out.println("Vous avez perdu");
+        gameLoop.stop();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL resource = getClass().getResource("/com/example/sae/vuePerdu.fxml");
+        Parent root = null;
+        try {
+            root = fxmlLoader.load(resource);
+        } catch (IOException e) {
+        }
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
+
+    private String formatChronometre(int seconds) {
+        int heures = seconds / 3600;
+        int minutes = (seconds % 3600) / 60;
+        int secondes = seconds % 60;
+
+        return String.format("%02d:%02d:%02d", heures, minutes, secondes);
+    }
+
 
     @FXML
      void boutonVague(ActionEvent event) throws IOException {
@@ -85,6 +113,15 @@ public class Controleur implements Initializable {
             if (env.getEnnemi().isEmpty()) {
                 if (env.getEnnemisVagues().isEmpty()) {
                     env.setCompteurVague();
+                    // Démarrer le chronomètre
+                     chronometreTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+                        chronometre++;
+                        String formattedTime = formatChronometre(chronometre);
+                        labelChronometre.setText(formattedTime);
+                    }));
+                    chronometreTimeline.setCycleCount(Timeline.INDEFINITE);
+                    chronometreTimeline.play();
+
                     env.lancerVague();
                 }
             }
@@ -107,9 +144,12 @@ public class Controleur implements Initializable {
     void boutonPause(ActionEvent event) {
         if (i == 0){
             gameLoop.pause();
+            chronometreTimeline.pause();
             i = 1;
         } else {
             gameLoop.play();
+            chronometreTimeline.play();
+
             i = 0;
         }
     }
