@@ -40,5 +40,10 @@
                 <DropShadow height="11.0" radius="5.0" spread="0.2" width="11.0" />
             </effect>
         </Button>
+        <Button onAction="#quitter" prefHeight="64.0" prefWidth="158.0" style="-fx-font-size: 30px; -fx-text-fill: white; -fx-background-color: green;" text="Quitter">
+            <effect>
+                <DropShadow height="11.0" radius="5.0" spread="0.2" width="11.0" />
+            </effect>
+        </Button>
     </VBox>
 </Pane>

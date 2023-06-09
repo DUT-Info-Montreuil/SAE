@@ -16,6 +16,8 @@ import java.net.URL;
 public class MenuControleur {
     @FXML
     private Button demarrerPartie;
+    @FXML
+    private Button quitter;
 
 
 
@@ -31,5 +33,10 @@ public class MenuControleur {
         primaryStage.setTitle("Alien Survival");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    @FXML
+    private void quitter(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 }

@@ -16,6 +16,8 @@ public class FinControleur {
 
     @FXML
     private Button retourMenu;
+    @FXML
+    private Button quitter;
 
 
     @FXML
@@ -29,6 +31,11 @@ public class FinControleur {
         primaryStage.setTitle("Alien Survival : La Dernière Lueur d'Espoir");
         primaryStage.setScene(scene);
         primaryStage.show();
+    }
+    @FXML
+    private void quitter(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
 }
 
