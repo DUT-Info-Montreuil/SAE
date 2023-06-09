@@ -34,7 +34,7 @@ public  class Vaisseau {
         this.degat = degat;
         this.id="V"+compteur;
         compteur++;
-        this.vie = 1000;
+        this.vie = 600;
         this.barreDeVie = new BarreDeVie(getVie(), getVieMax(), getId(), getX(), getY());
     }
 
@@ -131,7 +131,7 @@ public  class Vaisseau {
     }
 
     public int getVieMax(){
-        return 1000;
+        return 600;
     }
 
     public int getVie() {

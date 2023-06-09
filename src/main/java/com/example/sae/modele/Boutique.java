@@ -36,4 +36,8 @@ public class Boutique {
         setArgent(getArgent() - vaisseau.getPrix());
     }
 
+    public void ajoutManche(){
+        setArgent(getArgent() + 50);
+    }
+
 }

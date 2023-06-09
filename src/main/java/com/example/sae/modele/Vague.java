@@ -12,13 +12,14 @@ public class Vague{
     private Environnement env;
     private IntegerProperty compteur;
     private ArrayList<Ennemi> ennemis;
+    private Boutique boutique;
 
-    public Vague(Terrain terrain, Environnement env){
+    public Vague(Terrain terrain, Environnement env, Boutique boutique){
         this.compteur = new SimpleIntegerProperty(0);
         this.terrain = terrain;
         this.env = env;
         this.ennemis = new ArrayList<>();
-
+        this.boutique = boutique;
     }
 
     public void vagueEnnemis(){
@@ -42,6 +43,9 @@ public class Vague{
 
     public void setCompteur() {
         this.compteurProperty().setValue(getCompteur()+1);
+        if (getCompteur()>1){
+        boutique.ajoutManche();
+        }
     }
 
     public ArrayList<Ennemi> getEnnemisVague() {

@@ -75,15 +75,12 @@ public class Controleur implements Initializable {
 
     @FXML
      void boutonVague(ActionEvent event) throws IOException {
-        if (env.getCompteurVague() <=9) {
+        if (env.getCompteurVague() < 10) {
             if (env.getEnnemi().isEmpty()) {
-                while (env.getEnnemisVagues().isEmpty()) {
+                if (env.getEnnemisVagues().isEmpty()) {
                     env.setCompteurVague();
                     env.lancerVague();
                 }
-            }
-            if (env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()) {
-                gameLoop.pause();
             }
         } else {
             System.out.println("vous avez gagné");
@@ -168,39 +165,38 @@ public class Controleur implements Initializable {
         ListChangeListener<BarreDeVie> listenB = new ListObsBarreDeVie(PaneauDeJeu);
         env.getBarreDeVie().addListener(listenB);
 
-            env.compteurVagueProperty().addListener(
-                    (obs, old, nouv) ->
-                            compteurV.setText(nouv.toString()));
+        env.compteurVagueProperty().addListener(
+                (obs, old, nouv) ->
+                        compteurV.setText(nouv.toString()));
 
 
         env.argentProperty().addListener(
                 (obs, old, nouv) ->
                         argentStation.setText(nouv.toString()));
 
-            env.nbEnnemisProperty().addListener(
-                    (obs, old, nouv) ->
-                            tailleEnnemi.setText(nouv.toString()));
+        env.nbEnnemisProperty().addListener(
+                (obs, old, nouv) ->
+                        tailleEnnemi.setText(nouv.toString()));
 
-
-            env.vieProperty().addListener(
-                    (obs, old, nouv) -> {
-                        vieStation.setText(nouv.toString());
-                            if (env.getVieStation() == 0 ){
-                                System.out.println("Vous avez perdu");
-                                gameLoop.stop();
-                                FXMLLoader fxmlLoader = new FXMLLoader();
-                                URL resource = getClass().getResource("/com/example/sae/vuePerdu.fxml");
-                                Parent root = null;
-                                try {
-                                    root = fxmlLoader.load(resource);
-                                } catch (IOException e) {
-                                }
-                                Scene scene = new Scene(root);
-                                Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
-                                primaryStage.setScene(scene);
-                                primaryStage.show();
-                            }
-                    });
+        env.vieProperty().addListener(
+                (obs, old, nouv) -> {
+                    vieStation.setText(nouv.toString());
+                    if (env.getVieStation() == 0 ){
+                        System.out.println("Vous avez perdu");
+                        gameLoop.stop();
+                        FXMLLoader fxmlLoader = new FXMLLoader();
+                        URL resource = getClass().getResource("/com/example/sae/vuePerdu.fxml");
+                        Parent root = null;
+                        try {
+                            root = fxmlLoader.load(resource);
+                        } catch (IOException e) {
+                        }
+                        Scene scene = new Scene(root);
+                        Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
+                        primaryStage.setScene(scene);
+                        primaryStage.show();
+                    }
+                });
 
         initAnimation();
         gameLoop.play();

@@ -31,8 +31,8 @@ public class Environnement {
         this.tours = 0;
         this.terrain = terrain;
         this.station = new Station(terrain, this);
-        this.vague = new Vague(terrain, this);
         this.boutique = new Boutique(this);
+        this.vague = new Vague(terrain, this, boutique);
         this.nbEnnemis = new SimpleIntegerProperty(0);
         this.chemin = BFS.bfs(terrain.getTileMap(),new Point(0, 3), new Point(21, 31));
         for (Point tuile : chemin) {
