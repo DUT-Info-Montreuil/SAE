@@ -74,6 +74,12 @@ public class Controleur implements Initializable {
     private FinControleur finControleur;
 
     @FXML
+    void boutonAbandonner(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
+    @FXML
      void boutonVague(ActionEvent event) throws IOException {
         if (env.getCompteurVague() < 10) {
             if (env.getEnnemi().isEmpty()) {

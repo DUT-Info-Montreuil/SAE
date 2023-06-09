@@ -181,12 +181,26 @@
                   </HBox>
                </children>
             </VBox>
-            <VBox prefHeight="172.0" prefWidth="295.0" />
+            <VBox prefHeight="172.0" prefWidth="295.0">
+               <children>
+                  <HBox alignment="TOP_CENTER" prefHeight="179.0" prefWidth="291.0" style="-fx-alignment: center;">
+                     <children>
+                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" style="-fx-text-fill: black; -fx-background-color: lightgreen;" text="Vague suivante">
+                           <font>
+                              <Font name="Lato Semibold" size="20.0" />
+                           </font>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children></VBox>
             <VBox prefHeight="172.0" prefWidth="295.0">
                <children>
                   <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-alignment: center;">
                      <children>
-                        <Button fx:id="boutonVague" mnemonicParsing="false" onAction="#boutonVague" prefHeight="33.0" prefWidth="184.0" style="-fx-text-fill: black; -fx-background-color: lightgreen;" text="Vague suivante">
+                        <Button fx:id="boutonAbandonner" alignment="CENTER" mnemonicParsing="false" onAction="#boutonAbandonner" prefHeight="33.0" prefWidth="184.0" style="-fx-text-fill: black; -fx-background-color: red;" text="Abandonner">
                            <font>
                               <Font name="Lato Semibold" size="20.0" />
                            </font>

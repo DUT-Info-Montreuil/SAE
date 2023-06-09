@@ -4,25 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="Ajout des fins de partie">
+    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="modif affichage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Alien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Alien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Boutique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Boutique.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/ChevauxAlien.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/ChevauxAlien.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/LimaceLente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/LimaceLente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauLong.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauMoyen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Alien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Alien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Boutique.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Boutique.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/ChevauxAlien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/ChevauxAlien.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Environnement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Environnement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/LimaceLente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/LimaceLente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vague.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vague.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vaisseau.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Vaisseau.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauCourt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauCourt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauLong.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauLong.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauMoyen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauMoyen.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -37,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="Feature_Menu" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,6 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -187,7 +191,28 @@
       <option name="project" value="LOCAL" />
       <updated>1686224365696</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="ajustement des caractéristique des ennemi et vaisseau plus debug">
+      <created>1686301098392</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686301098393</updated>
+    </task>
+    <task id="LOCAL-00012" summary="ajout menu + victoire + game over">
+      <created>1686303019627</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686303019627</updated>
+    </task>
+    <task id="LOCAL-00013" summary="modif affichage">
+      <created>1686305347004</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686305347004</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,7 +226,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="develop" />
+                        <option value="origin/develop" />
                       </list>
                     </value>
                   </entry>
@@ -223,6 +248,9 @@
     <MESSAGE value="changement 32x32" />
     <MESSAGE value="changement fond map" />
     <MESSAGE value="Ajout des fins de partie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout des fins de partie" />
+    <MESSAGE value="ajustement des caractéristique des ennemi et vaisseau plus debug" />
+    <MESSAGE value="ajout menu + victoire + game over" />
+    <MESSAGE value="modif affichage" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif affichage" />
   </component>
 </project>
