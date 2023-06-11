@@ -1,6 +1,7 @@
 package com.example.sae.controleur;
 
 
+import com.example.sae.Main;
 import com.example.sae.modele.*;
 import com.example.sae.vue.TerrainVue;
 import com.example.sae.vue.VaisseauxVue;
@@ -24,6 +25,8 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -108,9 +111,9 @@ public class Controleur implements Initializable {
 
 
     @FXML
-     void boutonVague(ActionEvent event) throws IOException {
+     void boutonVague(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
 
-        if (env.getCompteurVague() < 10) {
+        if (env.getCompteurVague() <1) {
             if (env.getEnnemi().isEmpty()) {
                 if (env.getEnnemisVagues().isEmpty()) {
                     env.setCompteurVague();
@@ -140,6 +143,13 @@ public class Controleur implements Initializable {
             primaryStage.setTitle("ALien Survival : La Dernière Lueur d'Espoir");
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            // Arrêter la musique en cours (si elle est en cours de lecture)
+            Main.StopMusic();
+
+            // Lancer la musique de victoire
+            Main.PlayMusic("C:\\Users\\souha\\IdeaProjects\\SAE8\\src\\main\\resources\\com\\example\\sae\\sonVictoire.wav");
+
         }
     }
 
@@ -230,7 +240,7 @@ public class Controleur implements Initializable {
         env.vieProperty().addListener(
                 (obs, old, nouv) -> {
                     vieStation.setText(nouv.toString());
-                    if (env.getVieStation() == 0 ){
+                    if (env.getVieStation() == 19 ) {
                         System.out.println("Vous avez perdu");
                         gameLoop.stop();
                         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -244,6 +254,16 @@ public class Controleur implements Initializable {
                         Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
                         primaryStage.setScene(scene);
                         primaryStage.show();
+                        try {
+                            Main.PlayMusic("C:\\Users\\souha\\IdeaProjects\\SAE8\\src\\main\\resources\\com\\example\\sae\\sonPerdu.wav");
+                        } catch (UnsupportedAudioFileException e) {
+                            throw new RuntimeException(e);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        } catch (LineUnavailableException e) {
+                            throw new RuntimeException(e);
+                        }
+
                     }
                 });
 
