@@ -114,14 +114,16 @@ public class Controleur implements Initializable {
             if (env.getEnnemi().isEmpty()) {
                 if (env.getEnnemisVagues().isEmpty()) {
                     env.setCompteurVague();
-                    // Démarrer le chronomètre
-                     chronometreTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-                        chronometre++;
-                        String formattedTime = formatChronometre(chronometre);
-                        labelChronometre.setText(formattedTime);
-                    }));
-                    chronometreTimeline.setCycleCount(Timeline.INDEFINITE);
-                    chronometreTimeline.play();
+                    if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
+                        // Démarrer le chronomètre
+                        chronometreTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+                            chronometre++;
+                            String formattedTime = formatChronometre(chronometre);
+                            labelChronometre.setText(formattedTime);
+                        }));
+                        chronometreTimeline.setCycleCount(Timeline.INDEFINITE);
+                        chronometreTimeline.play();
+                    }
 
                     env.lancerVague();
                 }
