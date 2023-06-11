@@ -77,7 +77,6 @@ public class Controleur implements Initializable {
     @FXML
     private Label labelChronometre;
 
-    private FinControleur finControleur;
 
     private int chronometre = 0;
 
