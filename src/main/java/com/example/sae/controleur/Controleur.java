@@ -113,7 +113,7 @@ public class Controleur implements Initializable {
     @FXML
      void boutonVague(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
 
-        if (env.getCompteurVague() <1) {
+        if (env.getCompteurVague() <10) {
             if (env.getEnnemi().isEmpty()) {
                 if (env.getEnnemisVagues().isEmpty()) {
                     env.setCompteurVague();
@@ -240,7 +240,7 @@ public class Controleur implements Initializable {
         env.vieProperty().addListener(
                 (obs, old, nouv) -> {
                     vieStation.setText(nouv.toString());
-                    if (env.getVieStation() == 19 ) {
+                    if (env.getVieStation() == 0 ) {
                         System.out.println("Vous avez perdu");
                         gameLoop.stop();
                         FXMLLoader fxmlLoader = new FXMLLoader();
