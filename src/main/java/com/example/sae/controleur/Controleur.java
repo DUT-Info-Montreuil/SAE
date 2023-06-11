@@ -32,72 +32,40 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controleur implements Initializable {
-
     @FXML
     private Button boutonVague;
-
     @FXML
     private Pane PaneauDeJeu;
-
     @FXML
     private TilePane tilePane;
-
     private Timeline gameLoop;
-
-     private Terrain terrain;
-
-     private Environnement env;
-
+    private Terrain terrain;
+    private Environnement env;
     @FXML
     private RadioButton tour1;
-
     @FXML
     private RadioButton tour2;
-
     @FXML
     private RadioButton tour3;
-
     @FXML
     private TextField vieStation;
-
     @FXML
     private TextField argentStation;
-
     @FXML
     private TextField compteurV;
-
     @FXML
     private TextField tailleEnnemi;
-
     private int i = 0;
-
     @FXML
     private Button boutonPause;
-
     @FXML
     private Label labelChronometre;
-
-
     private int chronometre = 0;
-
-
     private Timeline chronometreTimeline;
 
     @FXML
     void boutonAbandonner(ActionEvent event) {
-        System.out.println("Vous avez perdu");
-        gameLoop.stop();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        URL resource = getClass().getResource("/com/example/sae/vuePerdu.fxml");
-        Parent root = null;
-        try {
-            root = fxmlLoader.load(resource);
-        } catch (IOException e) {
-        }
-        Scene scene = new Scene(root);
-        Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        finPerdu();
     }
 
     private String formatChronometre(int seconds) {
@@ -115,40 +83,16 @@ public class Controleur implements Initializable {
         if (env.getCompteurVague() <10) {
             if (env.getEnnemi().isEmpty()) {
                 if (env.getEnnemisVagues().isEmpty()) {
+                    env.lancerVague();
                     env.setCompteurVague();
                     if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
-                        // Démarrer le chronomètre
-                        chronometreTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
-                            chronometre++;
-                            String formattedTime = formatChronometre(chronometre);
-                            labelChronometre.setText(formattedTime);
-                        }));
-                        chronometreTimeline.setCycleCount(Timeline.INDEFINITE);
+                        initChrono();
                         chronometreTimeline.play();
                     }
-
-                    env.lancerVague();
                 }
             }
         } else {
-            System.out.println("vous avez gagné");
-            gameLoop.stop();
-            Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            URL resource = getClass().getResource("/com/example/sae/vueFin.fxml");
-            Parent root = fxmlLoader.load(resource);
-            Scene scene = new Scene(root, 1024, 880);
-            primaryStage.setResizable(false);
-            primaryStage.setTitle("ALien Survival : La Dernière Lueur d'Espoir");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-
-            // Arrêter la musique en cours (si elle est en cours de lecture)
-            Main.StopMusic();
-
-            // Lancer la musique de victoire
-            Main.PlayMusic("C:\\Users\\souha\\IdeaProjects\\SAE8\\src\\main\\resources\\com\\example\\sae\\sonVictoire.wav");
-
+            finVictoire();
         }
     }
 
@@ -214,6 +158,11 @@ public class Controleur implements Initializable {
 
         env = new Environnement(terrain);
 
+        compteurV.setText(String.valueOf(env.getCompteurVague()));
+        vieStation.setText(String.valueOf(env.getVieStation()));
+        argentStation.setText(String.valueOf(env.getArgent()));
+
+
         ListChangeListener<Ennemi> listenE = new ListObsEnnemis(PaneauDeJeu);
         env.getEnnemi().addListener(listenE);
 
@@ -227,7 +176,6 @@ public class Controleur implements Initializable {
                 (obs, old, nouv) ->
                         compteurV.setText(nouv.toString()));
 
-
         env.argentProperty().addListener(
                 (obs, old, nouv) ->
                         argentStation.setText(nouv.toString()));
@@ -240,29 +188,7 @@ public class Controleur implements Initializable {
                 (obs, old, nouv) -> {
                     vieStation.setText(nouv.toString());
                     if (env.getVieStation() == 0 ) {
-                        System.out.println("Vous avez perdu");
-                        gameLoop.stop();
-                        FXMLLoader fxmlLoader = new FXMLLoader();
-                        URL resource = getClass().getResource("/com/example/sae/vuePerdu.fxml");
-                        Parent root = null;
-                        try {
-                            root = fxmlLoader.load(resource);
-                        } catch (IOException e) {
-                        }
-                        Scene scene = new Scene(root);
-                        Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
-                        primaryStage.setScene(scene);
-                        primaryStage.show();
-                        try {
-                            Main.PlayMusic("C:\\Users\\souha\\IdeaProjects\\SAE8\\src\\main\\resources\\com\\example\\sae\\sonPerdu.wav");
-                        } catch (UnsupportedAudioFileException e) {
-                            throw new RuntimeException(e);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        } catch (LineUnavailableException e) {
-                            throw new RuntimeException(e);
-                        }
-
+                        finPerdu();
                     }
                 });
 
@@ -271,14 +197,65 @@ public class Controleur implements Initializable {
         PaneauDeJeu.setOnMouseClicked( event -> {
             appuyer(null, event.getX(), event.getY());
                 });
-        compteurV.setText(String.valueOf(env.getCompteurVague()));
-        vieStation.setText(String.valueOf(env.getVieStation()));
-        argentStation.setText(String.valueOf(env.getArgent()));
 
-            initAnimation();
-            gameLoop.play();
+        initAnimation();
+        gameLoop.play();
+    }
+
+    private void finPerdu(){
+        System.out.println("Vous avez perdu");
+        gameLoop.stop();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL resource = getClass().getResource("/com/example/sae/vuePerdu.fxml");
+        Parent root = null;
+        try {
+            root = fxmlLoader.load(resource);
+        } catch (IOException e) {
         }
+        Scene scene = new Scene(root);
+        Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        try {
+            Main.PlayMusic("C:\\Users\\User\\SAE\\src\\main\\resources\\com\\example\\sae\\sonPerdu.wav");
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    private void finVictoire() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        System.out.println("vous avez gagné");
+        gameLoop.stop();
+        Stage primaryStage = (Stage) ((Node) (Node) boutonVague).getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        URL resource = getClass().getResource("/com/example/sae/vueFin.fxml");
+        Parent root = fxmlLoader.load(resource);
+        Scene scene = new Scene(root, 1024, 880);
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("ALien Survival : La Dernière Lueur d'Espoir");
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+        // Arrêter la musique en cours (si elle est en cours de lecture)
+        Main.StopMusic();
+
+        // Lancer la musique de victoire
+        Main.PlayMusic("C:\\Users\\User\\SAE\\src\\main\\resources\\com\\example\\sae\\sonVictoire.wav");
+    }
+
+    private void initChrono(){
+        // Démarrer le chronomètre
+        chronometreTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+            chronometre++;
+            String formattedTime = formatChronometre(chronometre);
+            labelChronometre.setText(formattedTime);
+        }));
+        chronometreTimeline.setCycleCount(Timeline.INDEFINITE);
+    }
 
     private void initAnimation() {
         gameLoop = new Timeline();
