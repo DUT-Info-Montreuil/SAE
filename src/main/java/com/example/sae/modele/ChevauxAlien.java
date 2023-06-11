@@ -2,6 +2,6 @@ package com.example.sae.modele;
 
 public class ChevauxAlien extends Ennemi{
     public ChevauxAlien(Terrain terrain, Environnement env) {
-        super(8, terrain,50, env, 20,50);
+        super(8, terrain,50, env, 25,50);
     }
 }

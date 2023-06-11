@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.shape.*?>
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="1024.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
+<BorderPane prefHeight="500.0" prefWidth="1024.0" styleClass="background" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
    <bottom>
       <HBox focusTraversable="true" prefHeight="178.0" prefWidth="1024.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
          <children>
@@ -103,12 +111,12 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="78.0" text="70" textFill="#cee80f">
+                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="78.0" text="70">
                                  <font>
                                     <Font name="Lato Semibold" size="15.0" />
                                  </font>
                                  <effect>
-                                    <DropShadow color="#eaff00" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                                    <DropShadow height="6.64" radius="2.615" spread="0.3" width="5.82" />
                                  </effect>
                               </Label>
                               <ImageView fitHeight="93.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
@@ -137,12 +145,12 @@
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label alignment="TOP_CENTER" prefHeight="20.0" prefWidth="114.0" text="100" textFill="#cee80f">
+                              <Label alignment="TOP_CENTER" prefHeight="20.0" prefWidth="114.0" text="100">
                                  <font>
                                     <Font name="Lato Semibold" size="15.0" />
                                  </font>
                                  <effect>
-                                    <DropShadow color="#eaff00" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                                    <DropShadow height="6.64" radius="2.615" spread="0.3" width="5.82" />
                                  </effect>
                               </Label>
                               <ImageView fitHeight="139.0" fitWidth="93.0" pickOnBounds="true" preserveRatio="true">
@@ -164,12 +172,12 @@
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Label alignment="TOP_CENTER" prefHeight="19.0" prefWidth="97.0" text="150" textFill="#cee80f">
+                              <Label alignment="TOP_CENTER" prefHeight="19.0" prefWidth="97.0" text="150">
                                  <font>
                                     <Font name="Lato Semibold" size="15.0" />
                                  </font>
                                  <effect>
-                                    <DropShadow color="#eaff00" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
+                                    <DropShadow height="6.64" radius="2.615" spread="0.3" width="5.82" />
                                  </effect>
                               </Label>
                               <ImageView fitHeight="112.0" fitWidth="94.0" pickOnBounds="true" preserveRatio="true">
