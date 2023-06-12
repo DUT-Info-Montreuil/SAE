@@ -3,18 +3,17 @@ package com.example.sae;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import javax.print.attribute.standard.Media;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 public class Main extends Application {
 
-    private static Clip clip;
+    protected static Clip clipFond;
+    private static Clip clipVictoire;
+    private static Clip clipDefaite;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -29,22 +28,57 @@ public class Main extends Application {
 
     public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         String s = "/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav";
-        PlayMusic(s);
+        PlayMusicFond(s);
         launch();
     }
-    public static void PlayMusic(String location) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    public static void PlayMusicFond(String location) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(location));
         DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
-        Clip clip = (Clip) AudioSystem.getLine(info);
-        clip.open(audioInputStream);
-        clip.start();
+        clipFond = (Clip) AudioSystem.getLine(info);
+        clipFond.open(audioInputStream);
+        clipFond.start();
     }
 
-    public static void StopMusic() {
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
+    public static boolean verifSon() {
+        if(!clipFond.isRunning()){
+            return false;
+        }
+        return true;
+    }
+
+    public static void stopMusicFond() {
+        if (clipFond != null && clipFond.isRunning()) {
+            clipFond.stop();
+            clipFond.close();
+        }
+    }
+
+    public static void PlayMusicVictoire(String location) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+        DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
+        clipVictoire = (Clip) AudioSystem.getLine(info);
+        clipVictoire.open(audioInputStream);
+        clipVictoire.start();
+    }
+    public static void stopMusicVictoire() {
+        if (clipVictoire != null && clipVictoire.isRunning()) {
+            clipVictoire.stop();
+            clipVictoire.close();
         }
     }
 
 
+    public static void PlayMusicDefaite(String location) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+        DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
+        clipDefaite = (Clip) AudioSystem.getLine(info);
+        clipDefaite.open(audioInputStream);
+        clipDefaite.start();
+    }
+    public static void stopMusicDefaite() {
+        if (clipDefaite != null && clipDefaite.isRunning()) {
+            clipDefaite.stop();
+            clipDefaite.close();
+        }
+    }
 }

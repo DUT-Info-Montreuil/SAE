@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="Bouton chronometre">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="cbb27911-60cf-4065-a2d1-863d7b2249be" name="Changes" comment="reglage boutonvague">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vueFin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vueFin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vueMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vueMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vuePerdu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vuePerdu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/FinControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/FinControleur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/PerduControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/PerduControleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Alien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/Alien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/ChevauxAlien.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/ChevauxAlien.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686483133497</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="reglage boutonvague">
+      <created>1686577784154</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686577784154</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -207,6 +208,7 @@
     <MESSAGE value="Placement des vaisseaux&#10;Rayon vaisseau&#10;Attaque ennemi&#10;disparation des ennemi lorsqu'il sont mort ou arrivé &#10;perte vie station" />
     <MESSAGE value="ajout image sol4" />
     <MESSAGE value="reglage chronometre" />
-    <option name="LAST_COMMIT_MESSAGE" value="reglage chronometre" />
+    <MESSAGE value="reglage boutonvague" />
+    <option name="LAST_COMMIT_MESSAGE" value="reglage boutonvague" />
   </component>
 </project>

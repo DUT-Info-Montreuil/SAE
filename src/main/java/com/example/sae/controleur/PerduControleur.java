@@ -1,5 +1,6 @@
 package com.example.sae.controleur;
 
+import com.example.sae.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 
@@ -31,6 +34,15 @@ public class PerduControleur {
         primaryStage.setTitle("Alien Survival : La Dernière Lueur d'Espoir");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        Main.stopMusicDefaite();
+        try {
+            Main.PlayMusicFond("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav");
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
     @FXML
     private void quitter(ActionEvent event) {

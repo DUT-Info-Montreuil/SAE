@@ -4,7 +4,6 @@ package com.example.sae.controleur;
 import com.example.sae.Main;
 import com.example.sae.modele.*;
 import com.example.sae.vue.TerrainVue;
-import com.example.sae.vue.VaisseauxVue;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ListChangeListener;
@@ -19,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
@@ -215,8 +213,12 @@ public class Controleur implements Initializable {
         Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.show();
+        // Arrêter la musique en cours (si elle est en cours de lecture)
+        Main.stopMusicFond();
+
+        // Lancer la musique de victoire
         try {
-            Main.PlayMusic("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
+            Main.PlayMusicDefaite("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
         } catch (UnsupportedAudioFileException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -245,11 +247,11 @@ public class Controleur implements Initializable {
         primaryStage.show();
 
         // Arrêter la musique en cours (si elle est en cours de lecture)
-        Main.StopMusic();
+        Main.stopMusicFond();
 
         // Lancer la musique de victoire
         try {
-            Main.PlayMusic("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
+            Main.PlayMusicVictoire("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -280,7 +282,17 @@ public class Controleur implements Initializable {
                 // c'est un eventHandler d'ou le lambda
                 (ev ->{
                     env.unTour();
-
+                    if(Main.verifSon()==false){
+                        try {
+                            Main.PlayMusicFond("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav");
+                        } catch (UnsupportedAudioFileException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        } catch (LineUnavailableException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 })
         );
         gameLoop.getKeyFrames().add(kf);
