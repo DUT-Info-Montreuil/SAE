@@ -28,7 +28,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
-        String s = "C:\\Users\\souha\\IdeaProjects\\SAE8\\src\\main\\resources\\com\\example\\sae\\sonFond.wav";
+        String s = "/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav";
         PlayMusic(s);
         launch();
     }

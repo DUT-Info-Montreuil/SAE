@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="1024.0" styleClass="background" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
+<BorderPane prefHeight="500.0" prefWidth="1024.0" styleClass="background" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.Controleur">
    <bottom>
       <HBox focusTraversable="true" prefHeight="178.0" prefWidth="1024.0" style="-fx-background-color: lightblue;" BorderPane.alignment="CENTER">
          <children>

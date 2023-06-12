@@ -38,9 +38,6 @@ public class Controleur implements Initializable {
     private Pane PaneauDeJeu;
     @FXML
     private TilePane tilePane;
-    private Timeline gameLoop;
-    private Terrain terrain;
-    private Environnement env;
     @FXML
     private RadioButton tour1;
     @FXML
@@ -55,13 +52,16 @@ public class Controleur implements Initializable {
     private TextField compteurV;
     @FXML
     private TextField tailleEnnemi;
-    private int i = 0;
     @FXML
     private Button boutonPause;
     @FXML
     private Label labelChronometre;
+    private Timeline gameLoop;
+    private Terrain terrain;
+    private Environnement env;
     private int chronometre = 0;
     private Timeline chronometreTimeline;
+    boolean switchPause = false;
 
     @FXML
     void boutonAbandonner(ActionEvent event) {
@@ -78,35 +78,30 @@ public class Controleur implements Initializable {
 
 
     @FXML
-     void boutonVague(ActionEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException {
+     void boutonVague(ActionEvent event){
+        if (env.getEnnemi().isEmpty()) {
+            if (env.getEnnemisVagues().isEmpty()) {
+                env.setCompteurVague();
+                env.lancerVague();
 
-        if (env.getCompteurVague() <10) {
-            if (env.getEnnemi().isEmpty()) {
-                if (env.getEnnemisVagues().isEmpty()) {
-                    env.lancerVague();
-                    env.setCompteurVague();
-                    if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
-                        initChrono();
-                        chronometreTimeline.play();
-                    }
+                if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
+                    initChrono();
+                    chronometreTimeline.play();
                 }
             }
-        } else {
-            finVictoire();
         }
     }
 
     @FXML
     void boutonPause(ActionEvent event) {
-        if (i == 0){
+        if (!switchPause){
             gameLoop.pause();
             chronometreTimeline.pause();
-            i = 1;
+            switchPause = true;
         } else {
             gameLoop.play();
             chronometreTimeline.play();
-
-            i = 0;
+            switchPause = false;
         }
     }
 
@@ -173,8 +168,12 @@ public class Controleur implements Initializable {
         env.getBarreDeVie().addListener(listenB);
 
         env.compteurVagueProperty().addListener(
-                (obs, old, nouv) ->
-                        compteurV.setText(nouv.toString()));
+                (obs, old, nouv) -> {
+                        compteurV.setText(nouv.toString());
+                        if (env.getCompteurVague()==2 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
+                                finVictoire();
+                        }
+                });
 
         env.argentProperty().addListener(
                 (obs, old, nouv) ->
@@ -217,7 +216,7 @@ public class Controleur implements Initializable {
         primaryStage.setScene(scene);
         primaryStage.show();
         try {
-            Main.PlayMusic("C:\\Users\\User\\SAE\\src\\main\\resources\\com\\example\\sae\\sonPerdu.wav");
+            Main.PlayMusic("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
         } catch (UnsupportedAudioFileException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -227,13 +226,18 @@ public class Controleur implements Initializable {
         }
     }
 
-    private void finVictoire() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+    private void finVictoire() {
         System.out.println("vous avez gagné");
         gameLoop.stop();
         Stage primaryStage = (Stage) ((Node) (Node) boutonVague).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
         URL resource = getClass().getResource("/com/example/sae/vueFin.fxml");
-        Parent root = fxmlLoader.load(resource);
+        Parent root = null;
+        try {
+            root = fxmlLoader.load(resource);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         Scene scene = new Scene(root, 1024, 880);
         primaryStage.setResizable(false);
         primaryStage.setTitle("ALien Survival : La Dernière Lueur d'Espoir");
@@ -244,7 +248,15 @@ public class Controleur implements Initializable {
         Main.StopMusic();
 
         // Lancer la musique de victoire
-        Main.PlayMusic("C:\\Users\\User\\SAE\\src\\main\\resources\\com\\example\\sae\\sonVictoire.wav");
+        try {
+            Main.PlayMusic("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initChrono(){
