@@ -9,8 +9,5 @@
         <module name="SAE" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="SAE" target="0" />
-    </bytecodeTargetLevel>
   </component>
 </project>

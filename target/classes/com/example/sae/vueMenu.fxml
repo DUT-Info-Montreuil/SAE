@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane prefHeight="880.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.MenuControleur">
+    <ImageView fitHeight="992.0" fitWidth="1334.0" layoutX="-220.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@FondAlien.jpg" />
+        </image>
+    </ImageView>
+
+
+    <VBox alignment="CENTER" layoutX="215.0" layoutY="274.0" prefHeight="199.0" prefWidth="591.0" spacing="50.0">
+      <ImageView fitHeight="224.0" fitWidth="594.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@texte.png" />
+         </image>
+      </ImageView>
+        <Button onAction="#demarrerPartie" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-background-color: red;" text="Lancer">
+            <effect>
+                <DropShadow color="black" radius="5.0" spread="0.2" />
+            </effect>
+        </Button>
+        <Button onAction="#quitter" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-background-color: red;" text="Quitter">
+            <effect>
+                <DropShadow color="black" radius="5.0" spread="0.2" />
+            </effect>
+        </Button>
+    </VBox>
+</Pane>

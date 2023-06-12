@@ -77,16 +77,10 @@ public class Controleur implements Initializable {
 
     @FXML
      void boutonVague(ActionEvent event){
-        if (env.getEnnemi().isEmpty()) {
-            if (env.getEnnemisVagues().isEmpty()) {
-                env.setCompteurVague();
-                env.lancerVague();
-
-                if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
-                    initChrono();
-                    chronometreTimeline.play();
-                }
-            }
+        env.lancementVague();
+        if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
+            initChrono();
+            chronometreTimeline.play();
         }
     }
 
@@ -103,38 +97,22 @@ public class Controleur implements Initializable {
         }
     }
 
-    public void ajouterVaisseau(Vaisseau vaisseau){
-        if ((env.getArgent()-vaisseau.getPrix()) < 0){
-            System.out.println("Pas assez d'argent");
-        }else {
-            if (vaisseau.vaisseauBienPlacee()) {
-                env.ajouterVaisseau(vaisseau);
-                env.suppArgent(vaisseau);
-                System.out.println("Tourelle ajoutée");
-            } else {
-                System.out.println("Erreur ajout");
-            }
-        }
-    }
-
     void appuyer(ActionEvent event, double x, double y) {
         Vaisseau vaisseau = env.vaisseauPresent((int) x, (int) y);
         if(vaisseau != null){
-            if (vaisseau.getVie() >= vaisseau.getVieMax()/2){
-                env.getVaisseaux().remove(vaisseau);
-            }
+            env.suppVaisseauPlacee(vaisseau);
         } else {
             if (tour1.isSelected()) {
                 vaisseau = new VaisseauCourt((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
-                ajouterVaisseau(vaisseau);
+                env.verifVaisseau(vaisseau);
             } else {
                 if (tour2.isSelected()) {
                     vaisseau = new VaisseauMoyen((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
-                    ajouterVaisseau(vaisseau);
+                    env.verifVaisseau(vaisseau);
                 } else {
                     if (tour3.isSelected()) {
                         vaisseau = new VaisseauLong((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
-                        ajouterVaisseau(vaisseau);
+                        env.verifVaisseau(vaisseau);
                     }
                 }
             }
@@ -168,7 +146,7 @@ public class Controleur implements Initializable {
         env.compteurVagueProperty().addListener(
                 (obs, old, nouv) -> {
                         compteurV.setText(nouv.toString());
-                        if (env.getCompteurVague()==2 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
+                        if (env.getCompteurVague()==11 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
                                 finVictoire();
                         }
                 });
@@ -188,8 +166,6 @@ public class Controleur implements Initializable {
                         finPerdu();
                     }
                 });
-
-
 
         PaneauDeJeu.setOnMouseClicked( event -> {
             appuyer(null, event.getX(), event.getY());
@@ -218,7 +194,8 @@ public class Controleur implements Initializable {
 
         // Lancer la musique de victoire
         try {
-            Main.PlayMusicDefaite("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
+//            Main.PlayMusicDefaite("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
+            Main.PlayMusicDefaite("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
         } catch (UnsupportedAudioFileException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -251,7 +228,8 @@ public class Controleur implements Initializable {
 
         // Lancer la musique de victoire
         try {
-            Main.PlayMusicVictoire("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
+            Main.PlayMusicVictoire("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
+//            Main.PlayMusicVictoire("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -284,7 +262,8 @@ public class Controleur implements Initializable {
                     env.unTour();
                     if(Main.verifSon()==false){
                         try {
-                            Main.PlayMusicFond("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav");
+                            Main.PlayMusicFond("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonFond.wav");
+//                            Main.PlayMusicFond("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav");
                         } catch (UnsupportedAudioFileException e) {
                             e.printStackTrace();
                         } catch (IOException e) {

@@ -62,12 +62,38 @@ public class Environnement {
         ajouterBarreDeVie(v.getBarreDeVie());
     }
 
+    public void verifVaisseau(Vaisseau vaisseau){
+        if ((getArgent()-vaisseau.getPrix()) < 0){
+            System.out.println("Pas assez d'argent");
+        }else {
+            if (vaisseau.vaisseauBienPlacee()) {
+                ajouterVaisseau(vaisseau);
+                suppArgent(vaisseau);
+                System.out.println("Tourelle ajoutée");
+            } else {
+                System.out.println("Erreur ajout");
+            }
+        }
+    }
+    public void suppVaisseauPlacee(Vaisseau vaisseau){
+        if (vaisseau.getVie() >= vaisseau.getVieMax()/2){
+            getVaisseaux().remove(vaisseau);
+        }
+    }
+
     public ObservableList<BarreDeVie> getBarreDeVie() {
         return barreDeVies;
     }
 
     public void ajouterBarreDeVie(BarreDeVie b) {
         barreDeVies.add(b);
+    }
+
+    public void lancementVague() {
+        if (getEnnemi().isEmpty() && getEnnemisVagues().isEmpty()) {
+            setCompteurVague();
+            lancerVague();
+        }
     }
 
     public Vaisseau vaisseauPresent(int x, int y) {

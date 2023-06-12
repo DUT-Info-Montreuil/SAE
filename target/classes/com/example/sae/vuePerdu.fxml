@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane prefHeight="880.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.PerduControleur">
+    <ImageView fitHeight="992.0" fitWidth="1334.0" layoutX="-220.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@FondAlien.jpg" />
+        </image>
+        <effect>
+            <ColorAdjust brightness="-0.51" contrast="-0.19" saturation="-0.29" />
+        </effect>
+    </ImageView>
+
+
+    <VBox alignment="CENTER" layoutX="165.0" layoutY="256.0" prefHeight="290.0" prefWidth="645.0" spacing="50.0">
+      <ImageView fitHeight="178.0" fitWidth="659.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@textePerdu.png" />
+         </image>
+      </ImageView>
+        <Button onAction="#retourMenu" prefHeight="64.0" prefWidth="158.0" style="-fx-font-size: 30px; -fx-text-fill: white; -fx-background-color: red;" text="Rejouer">
+            <effect>
+                <DropShadow height="11.0" radius="5.0" spread="0.2" width="11.0" />
+            </effect>
+        </Button>
+        <Button onAction="#quitter" prefHeight="64.0" prefWidth="158.0" style="-fx-font-size: 30px; -fx-text-fill: white; -fx-background-color: red;" text="Quitter">
+            <effect>
+                <DropShadow height="11.0" radius="5.0" spread="0.2" width="11.0" />
+            </effect>
+        </Button>
+    </VBox>
+</Pane>
