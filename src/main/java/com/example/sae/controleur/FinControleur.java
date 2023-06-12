@@ -35,15 +35,11 @@ public class FinControleur {
         primaryStage.setScene(scene);
         primaryStage.show();
         Main.stopMusicVictoire();
-        try {
-            Main.PlayMusicFond("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonFond.wav");
-//            Main.PlayMusicFond("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav");
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        }
+        URL urlImageVaiL = Main.class.getResource("sonFond.wav");
+        String s = urlImageVaiL.getPath();
+        Main.PlayMusicFond(s);
     }
+
     @FXML
     private void quitter(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

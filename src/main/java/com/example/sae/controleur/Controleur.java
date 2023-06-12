@@ -62,7 +62,7 @@ public class Controleur implements Initializable {
     boolean switchPause = false;
 
     @FXML
-    void boutonAbandonner(ActionEvent event) {
+    void boutonAbandonner() {
         finPerdu();
     }
 
@@ -76,7 +76,7 @@ public class Controleur implements Initializable {
 
 
     @FXML
-     void boutonVague(ActionEvent event){
+     void boutonVague(){
         env.lancementVague();
         if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
             initChrono();
@@ -85,7 +85,7 @@ public class Controleur implements Initializable {
     }
 
     @FXML
-    void boutonPause(ActionEvent event) {
+    void boutonPause() {
         if (!switchPause){
             gameLoop.pause();
             chronometreTimeline.pause();
@@ -97,21 +97,23 @@ public class Controleur implements Initializable {
         }
     }
 
-    void appuyer(ActionEvent event, double x, double y) {
+    void appuyer(double x, double y) {
         Vaisseau vaisseau = env.vaisseauPresent((int) x, (int) y);
         if(vaisseau != null){
             env.suppVaisseauPlacee(vaisseau);
         } else {
+            int newX = (int) (x / 32) * 32;
+            int newY = (int) (y / 32) * 32;
             if (tour1.isSelected()) {
-                vaisseau = new VaisseauCourt((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
+                vaisseau = new VaisseauCourt(newX, newY, terrain, env);
                 env.verifVaisseau(vaisseau);
             } else {
                 if (tour2.isSelected()) {
-                    vaisseau = new VaisseauMoyen((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
+                    vaisseau = new VaisseauMoyen(newX, newY, terrain, env);
                     env.verifVaisseau(vaisseau);
                 } else {
                     if (tour3.isSelected()) {
-                        vaisseau = new VaisseauLong((int) (x / 32) * 32, (int) (y / 32) * 32, terrain, env);
+                        vaisseau = new VaisseauLong(newX, newY, terrain, env);
                         env.verifVaisseau(vaisseau);
                     }
                 }
@@ -144,20 +146,20 @@ public class Controleur implements Initializable {
         env.getBarreDeVie().addListener(listenB);
 
         env.compteurVagueProperty().addListener(
-                (obs, old, nouv) -> {
-                        compteurV.setText(nouv.toString());
-                        if (env.getCompteurVague()==11 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
-                                finVictoire();
-                        }
-                });
+                (obs, old, nouv) ->
+                        compteurV.setText(nouv.toString()));
 
         env.argentProperty().addListener(
                 (obs, old, nouv) ->
                         argentStation.setText(nouv.toString()));
 
         env.nbEnnemisProperty().addListener(
-                (obs, old, nouv) ->
-                        tailleEnnemi.setText(nouv.toString()));
+                (obs, old, nouv) -> {
+                        tailleEnnemi.setText(nouv.toString());
+                        if (env.getCompteurVague()==2 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
+                            finVictoire();
+                        }
+                });
 
         env.vieProperty().addListener(
                 (obs, old, nouv) -> {
@@ -168,7 +170,7 @@ public class Controleur implements Initializable {
                 });
 
         PaneauDeJeu.setOnMouseClicked( event -> {
-            appuyer(null, event.getX(), event.getY());
+            appuyer(event.getX(), event.getY());
                 });
 
         initAnimation();
@@ -190,25 +192,15 @@ public class Controleur implements Initializable {
         primaryStage.setScene(scene);
         primaryStage.show();
         // Arrêter la musique en cours (si elle est en cours de lecture)
-        Main.stopMusicFond();
-
-        // Lancer la musique de victoire
-        try {
-//            Main.PlayMusicDefaite("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
-            Main.PlayMusicDefaite("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonPerdu.wav");
-        } catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (LineUnavailableException e) {
-            throw new RuntimeException(e);
-        }
+        URL urlImageVaiL = Main.class.getResource("sonPerdu.wav");
+        String s = urlImageVaiL.getPath();
+        Main.PlayMusicDefaite(s);
     }
 
     private void finVictoire() {
         System.out.println("vous avez gagné");
         gameLoop.stop();
-        Stage primaryStage = (Stage) ((Node) (Node) boutonVague).getScene().getWindow();
+        Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
         URL resource = getClass().getResource("/com/example/sae/vueFin.fxml");
         Parent root = null;
@@ -227,16 +219,9 @@ public class Controleur implements Initializable {
         Main.stopMusicFond();
 
         // Lancer la musique de victoire
-        try {
-            Main.PlayMusicVictoire("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
-//            Main.PlayMusicVictoire("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonVictoire.wav");
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        }
+        URL urlImageVaiL = Main.class.getResource("sonVictoire.wav");
+        String s = urlImageVaiL.getPath();
+        Main.PlayMusicVictoire(s);
     }
 
     private void initChrono(){
@@ -261,18 +246,10 @@ public class Controleur implements Initializable {
                 (ev ->{
                     env.unTour();
                     if(Main.verifSon()==false){
-                        try {
-                            Main.PlayMusicFond("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonFond.wav");
-//                            Main.PlayMusicFond("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav");
-                        } catch (UnsupportedAudioFileException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } catch (LineUnavailableException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                })
+                        URL urlImageVaiL = Main.class.getResource("sonFond.wav");
+                        String s = urlImageVaiL.getPath();
+                        Main.PlayMusicFond(s);
+                        }})
         );
         gameLoop.getKeyFrames().add(kf);
     }

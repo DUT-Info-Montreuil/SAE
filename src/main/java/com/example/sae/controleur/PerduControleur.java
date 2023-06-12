@@ -16,13 +16,6 @@ import java.io.IOException;
 import java.net.URL;
 
 public class PerduControleur {
-
-    @FXML
-    private Button retourMenu;
-    @FXML
-    private Button quitter;
-//sdfs
-
     @FXML
     public void retourMenu (ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -36,14 +29,9 @@ public class PerduControleur {
         primaryStage.show();
 
         Main.stopMusicDefaite();
-        try {
-            Main.PlayMusicFond("/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonFond.wav");
-//            Main.PlayMusicFond("/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav");
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        }
+        URL urlImageVaiL = Main.class.getResource("sonFond.wav");
+        String s = urlImageVaiL.getPath();
+        Main.PlayMusicFond(s);
     }
     @FXML
     private void quitter(ActionEvent event) {

@@ -127,7 +127,7 @@
                                     <DropShadow color="RED" />
                                  </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour1" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1" textFill="RED">
+                              <RadioButton fx:id="tour1" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1" textFill="RED" selected="true">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="tour" />
                                  </toggleGroup>

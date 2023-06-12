@@ -3,11 +3,13 @@ package com.example.sae;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 public class Main extends Application {
 
@@ -26,17 +28,34 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) throws UnsupportedAudioFileException, LineUnavailableException, IOException {
-        String s = "/home/etudiants/info/aboukebeche/SAE/src/main/resources/com/example/sae/sonFond.wav";
-//        String s = "/home/etudiants/info/sirhbira/SAE/src/main/resources/com/example/sae/sonFond.wav";
+    public static void main(String[] args){
+        URL urlImageVaiL = Main.class.getResource("sonFond.wav");
+        String s = urlImageVaiL.getPath();
         PlayMusicFond(s);
         launch();
     }
-    public static void PlayMusicFond(String location) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+    public static void PlayMusicFond(String location){
+        AudioInputStream audioInputStream = null;
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
-        clipFond = (Clip) AudioSystem.getLine(info);
-        clipFond.open(audioInputStream);
+        try {
+            clipFond = (Clip) AudioSystem.getLine(info);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            clipFond.open(audioInputStream);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         clipFond.start();
     }
 
@@ -54,11 +73,28 @@ public class Main extends Application {
         }
     }
 
-    public static void PlayMusicVictoire(String location) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+    public static void PlayMusicVictoire(String location){
+        AudioInputStream audioInputStream = null;
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
-        clipVictoire = (Clip) AudioSystem.getLine(info);
-        clipVictoire.open(audioInputStream);
+        try {
+            clipVictoire = (Clip) AudioSystem.getLine(info);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            clipVictoire.open(audioInputStream);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         clipVictoire.start();
     }
     public static void stopMusicVictoire() {
@@ -69,11 +105,28 @@ public class Main extends Application {
     }
 
 
-    public static void PlayMusicDefaite(String location) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+    public static void PlayMusicDefaite(String location){
+        AudioInputStream audioInputStream = null;
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(new File(location));
+        } catch (UnsupportedAudioFileException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         DataLine.Info info = new DataLine.Info(Clip.class, audioInputStream.getFormat());
-        clipDefaite = (Clip) AudioSystem.getLine(info);
-        clipDefaite.open(audioInputStream);
+        try {
+            clipDefaite = (Clip) AudioSystem.getLine(info);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            clipDefaite.open(audioInputStream);
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         clipDefaite.start();
     }
     public static void stopMusicDefaite() {
