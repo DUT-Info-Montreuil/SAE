@@ -21,7 +21,7 @@ public class MenuControleur {
     private void demarrerPartie(ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
-        URL resource = getClass().getResource("/com/example/sae/vue.fxml");
+        URL resource = getClass().getResource("/com/example/sae/vueChoix.fxml");
         Parent root = fxmlLoader.load(resource);
         Scene scene = new Scene(root, 1024, 880);
         primaryStage.setResizable(false);

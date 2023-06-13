@@ -21,7 +21,7 @@ public  class Vaisseau {
     private ObservableList<Ennemi> ennemis;
     private int vie;
     private BarreDeVie barreDeVie;
-
+//    private RayonLaser rayonLaser;
 
     public Vaisseau(int x, int y, Terrain terrain, int prix, Environnement env, int portee, int degat) {
         this.ennemis = FXCollections.observableArrayList();
@@ -114,7 +114,9 @@ public  class Vaisseau {
         boolean ennemi = false;
         for (int i = 0; i < ennemis.size(); i++){
                 Ennemi a = ennemis.get(i);
-                if (ennemiPortee(a) && a.estVivant() && ennemi == false) {
+                if (ennemiPortee(a) && a.estVivant() && !ennemi) {
+//                    rayonLaser = new RayonLaser(a.getX(), a.getY(), getX(), getY());
+//                    env.ajouterRayonLaser(rayonLaser);
                     a.decrementerPv(degat);
                     ennemi = true;
                     System.out.println("attaque" + i);
