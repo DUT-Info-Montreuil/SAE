@@ -124,10 +124,9 @@ public class Controleur implements Initializable {
 
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        terrain = new Terrain();
+        terrain = new Terrain(ChoixControleur.choix);
         TerrainVue tv = new TerrainVue(terrain, tilePane);
-        tv.afficherTerrain();
+        tv.afficherTerrain(ChoixControleur.choix);
 
         env = new Environnement(terrain);
 
@@ -144,6 +143,9 @@ public class Controleur implements Initializable {
 
         ListChangeListener<BarreDeVie> listenB = new ListObsBarreDeVie(PaneauDeJeu);
         env.getBarreDeVie().addListener(listenB);
+
+//        ListChangeListener<RayonLaser> listenR = new ListObsRayonLaser(PaneauDeJeu);
+//        env.getRayonLasers().addListener(listenR);
 
         env.compteurVagueProperty().addListener(
                 (obs, old, nouv) ->

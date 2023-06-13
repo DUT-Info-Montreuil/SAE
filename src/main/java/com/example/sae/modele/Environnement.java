@@ -14,6 +14,7 @@ public class Environnement {
     private ObservableList<Ennemi> ennemis;
     private ObservableList<Vaisseau> vaisseaux;
     private ObservableList<BarreDeVie> barreDeVies;
+//    private ObservableList<RayonLaser> rayonLasers;
     private IntegerProperty nbEnnemis;
     private int tours;
     private Terrain terrain;
@@ -28,6 +29,7 @@ public class Environnement {
         this.ennemis = FXCollections.observableArrayList();
         this.vaisseaux = FXCollections.observableArrayList();
         this.barreDeVies = FXCollections.observableArrayList();
+//        this.rayonLasers = FXCollections.observableArrayList();
         this.tours = 0;
         this.terrain = terrain;
         this.station = new Station(terrain, this);
@@ -109,6 +111,18 @@ public class Environnement {
         }
         return null;
     }
+
+//    public ObservableList<RayonLaser> getRayonLasers() {
+//        return rayonLasers;
+//    }
+//
+//    public void ajouterRayonLaser(RayonLaser rayonLaser) {
+//        rayonLasers.add(rayonLaser);
+//    }
+//
+//    public void supprimerRayonLaser(RayonLaser rayonLaser) {
+//        rayonLasers.remove(rayonLaser);
+//    }
 
     public int getArgent() {
         return boutique.getArgent();
@@ -208,7 +222,11 @@ public class Environnement {
                 vaisseauPresent(v.getX(), v.getY());
                 vaisseaux.remove(i);
             }
-            this.tours++;
         }
+//        for (int i = 0; i < rayonLasers.size(); i++) {
+//            RayonLaser r = rayonLasers.get(i);
+//            supprimerRayonLaser(r);
+//        }
+            this.tours++;
     }
 }
