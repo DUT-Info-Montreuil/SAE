@@ -7,15 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 
 public class PerduControleur {
+
     @FXML
     public void retourMenu (ActionEvent event) throws IOException {
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -29,6 +27,7 @@ public class PerduControleur {
         primaryStage.show();
 
         Main.stopMusicDefaite();
+
         URL urlImageVaiL = Main.class.getResource("sonFond.wav");
         String s = urlImageVaiL.getPath();
         Main.PlayMusicFond(s);

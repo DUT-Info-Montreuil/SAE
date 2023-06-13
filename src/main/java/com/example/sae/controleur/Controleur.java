@@ -156,7 +156,7 @@ public class Controleur implements Initializable {
         env.nbEnnemisProperty().addListener(
                 (obs, old, nouv) -> {
                         tailleEnnemi.setText(nouv.toString());
-                        if (env.getCompteurVague()==2 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
+                        if (env.getCompteurVague()==10 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
                             finVictoire();
                         }
                 });
@@ -192,6 +192,9 @@ public class Controleur implements Initializable {
         primaryStage.setScene(scene);
         primaryStage.show();
         // Arrêter la musique en cours (si elle est en cours de lecture)
+        Main.stopMusicFond();
+
+        // Lancer la musique de defaite
         URL urlImageVaiL = Main.class.getResource("sonPerdu.wav");
         String s = urlImageVaiL.getPath();
         Main.PlayMusicDefaite(s);

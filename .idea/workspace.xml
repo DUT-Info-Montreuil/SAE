@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fcd5789-2576-48e1-a3b6-7dba27beea31" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_linux_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_linux_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_linux_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_linux_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/FinControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/FinControleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/MenuControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/MenuControleur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/PerduControleur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/sae/controleur/PerduControleur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/BFS/BFS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/BFS/BFS.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/controleur/Controleur.class" afterDir="false" />
@@ -36,7 +49,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauCourt.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauCourt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauLong.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauLong.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauMoyen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/modele/VaisseauMoyen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue/BarreDeVieVue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue/BarreDeVieVue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue/EnnemisVue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue/EnnemisVue.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/sae/vue/TerrainVue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/sae/vue/TerrainVue.class" afterDir="false" />
@@ -51,10 +63,32 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/VaisseauCourt.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/Boutique.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vaisseau.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/Environnement.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/controleur/PerduControleur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/controleur/FinControleur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/example/sae/vueFin.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/BarreDeVie.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/vue/BarreDeVieVue.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/example/sae/vueMenu.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/Alien.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/controleur/Controleur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/resources/com/example/sae/vue.fxml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/controleur/MenuControleur.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/modele/Vague.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/com/example/sae/vue/VaisseauxVue.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -64,16 +98,19 @@
     </option>
   </component>
   <component name="ProjectId" id="2R7BYhDXWYaxc23fa7ypz9Ewdq6" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.sae.Main" />
