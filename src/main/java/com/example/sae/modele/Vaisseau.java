@@ -21,7 +21,8 @@ public  class Vaisseau {
     private ObservableList<Ennemi> ennemis;
     private int vie;
     private BarreDeVie barreDeVie;
-//    private RayonLaser rayonLaser;
+    private RayonLaser rayonLaser;
+    private boolean rayonAjouter;
 
     public Vaisseau(int x, int y, Terrain terrain, int prix, Environnement env, int portee, int degat) {
         this.ennemis = FXCollections.observableArrayList();
@@ -36,6 +37,7 @@ public  class Vaisseau {
         compteur++;
         this.vie = 600;
         this.barreDeVie = new BarreDeVie(getVie(), getVieMax(), getId(), getX(), getY());
+        this.rayonAjouter = false;
     }
 
     public IntegerProperty xProperty() {
@@ -115,13 +117,20 @@ public  class Vaisseau {
         for (int i = 0; i < ennemis.size(); i++){
                 Ennemi a = ennemis.get(i);
                 if (ennemiPortee(a) && a.estVivant() && !ennemi) {
-//                    rayonLaser = new RayonLaser(a.getX(), a.getY(), getX(), getY());
-//                    env.ajouterRayonLaser(rayonLaser);
+                    if (!rayonAjouter){
+                        rayonLaser = new RayonLaser(a.getX(), a.getY(), getX(), getY());
+                        env.ajouterRayonLaser(rayonLaser);
+                        rayonAjouter = true;
+                    }
                     a.decrementerPv(degat);
                     ennemi = true;
                     System.out.println("attaque" + i);
                 } else {
-//                    System.out.println("pas attaque");
+                    if(!ennemi) {
+                        env.supprimerRayonLaser(rayonLaser);
+                        rayonLaser = null;
+                        rayonAjouter = false;
+                    }
                 }
             }
         }
@@ -144,25 +153,3 @@ public  class Vaisseau {
         vie--;
     }
 }
-//    boolean ennemi = false;
-//    Ennemi a = e.get(j);
-//        for (int i = 0; i < e.size(); i++){
-//        if(ennemiPortee(a) && j!=0 && ennemi == false){
-//        a.decrementerPv(degat);
-//        j=i;
-//        ennemi = true;
-//        if (!a.estVivant() && !ennemiPortee(a)) {
-//        j = 0;
-//        }
-//        }else {
-//        a = e.get(i);
-//        if (ennemiPortee(a) && ennemi == false) {
-//        a.decrementerPv(degat);
-//        ennemi = true;
-//        j = i;
-//        System.out.println("attaque");
-//        } else {
-//        System.out.println("pas attaque");
-//        }
-//        }
-//        }

@@ -144,8 +144,8 @@ public class Controleur implements Initializable {
         ListChangeListener<BarreDeVie> listenB = new ListObsBarreDeVie(PaneauDeJeu);
         env.getBarreDeVie().addListener(listenB);
 
-//        ListChangeListener<RayonLaser> listenR = new ListObsRayonLaser(PaneauDeJeu);
-//        env.getRayonLasers().addListener(listenR);
+        ListChangeListener<RayonLaser> listenR = new ListObsRayonLaser(PaneauDeJeu);
+        env.getRayonLasers().addListener(listenR);
 
         env.compteurVagueProperty().addListener(
                 (obs, old, nouv) ->
@@ -158,7 +158,7 @@ public class Controleur implements Initializable {
         env.nbEnnemisProperty().addListener(
                 (obs, old, nouv) -> {
                         tailleEnnemi.setText(nouv.toString());
-                        if (env.getCompteurVague()==10 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
+                        if (env.getCompteurVague()==1 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
                             finVictoire();
                         }
                 });
