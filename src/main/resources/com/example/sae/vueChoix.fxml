@@ -44,6 +44,14 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="L'ESPACE" wrappingWidth="323.6070556640625">
+                     <font>
+                        <Font name="Lato Semibold" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="RED" height="25.56" radius="12.657499999999999" width="27.07" />
+                     </effect>
+                  </Text>
                   <ImageView fitHeight="193.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@terrain1.png" />
@@ -57,6 +65,14 @@
             <VBox prefHeight="185.0" prefWidth="103.0" />
             <VBox alignment="CENTER" prefHeight="168.0" prefWidth="247.0">
                <children>
+                  <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="PLANETE MARS" wrappingWidth="323.6070556640625">
+                     <font>
+                        <Font name="Lato Semibold" size="24.0" />
+                     </font>
+                     <effect>
+                        <DropShadow color="RED" height="25.56" radius="12.657499999999999" width="27.07" />
+                     </effect>
+                  </Text>
                   <ImageView fitHeight="186.0" fitWidth="297.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@terrain2.png" />
