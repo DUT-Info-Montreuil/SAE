@@ -122,6 +122,12 @@ public  class Vaisseau {
                         env.ajouterRayonLaser(rayonLaser);
                         rayonAjouter = true;
                     }
+                    if (rayonAjouter){
+                        rayonLaser.setAngle();
+                        rayonLaser.setxPointA(a.getX());
+                        rayonLaser.setyPointA(a.getY());
+                        rayonLaser.setLongueur();
+                    }
                     a.decrementerPv(degat);
                     ennemi = true;
                     System.out.println("attaque" + i);

@@ -30,6 +30,7 @@ public class RayonLaser {
         double delta_x = getxPosition() - getxPointA();
         double delta_y = getyPosition() - getyPointA();
         double angle = Math.atan2(delta_y, delta_x);
+        System.out.println(Math.toDegrees(angle));
         return Math.toDegrees(angle);
     }
 
@@ -51,8 +52,12 @@ public class RayonLaser {
         return angle.getValue();
     }
 
+    public void setAngle() {
+        this.angle.setValue(calculerAngle());
+    }
+
     public DoubleProperty distanceProperty(){
-        return angle;
+        return longueur;
     }
 
     public DoubleProperty angleProperty(){
@@ -62,9 +67,23 @@ public class RayonLaser {
     public IntegerProperty xPositionProperty(){
         return xPosition;
     }
+
     public IntegerProperty yPositionProperty(){
         return yPosition;
     }
+
+    public void setLongueur() {
+        this.longueur.setValue(calculerDistance());
+    }
+
+    public void setxPointA(int xPointA) {
+        this.xPointA.setValue(xPointA);
+    }
+
+    public void setyPointA(int yPointA) {
+        this.yPointA.setValue(yPointA);
+    }
+
 
     public int getxPointA() {
         return xPointA.getValue();

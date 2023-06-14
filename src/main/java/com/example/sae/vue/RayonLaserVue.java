@@ -31,6 +31,7 @@ public class RayonLaserVue {
         iv2.translateXProperty().bind(rayonLaser.xPositionProperty());
         iv2.translateYProperty().bind(rayonLaser.yPositionProperty());
         iv2.rotateProperty().bind(rayonLaser.angleProperty()); // Lier la rotation à la propriété angle de RayonLaser
+        iv2.fitHeightProperty().bind(rayonLaser.distanceProperty());
         iv2.fitWidthProperty().bind(rayonLaser.distanceProperty());
         this.panneauJeu.getChildren().add(iv2);
     }
