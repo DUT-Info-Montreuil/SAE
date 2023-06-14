@@ -8,10 +8,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class RayonLaser {
     private IntegerProperty xPointA;
     private IntegerProperty yPointA;
-    private DoubleProperty longueur;
     private IntegerProperty xPosition;
     private IntegerProperty yPosition;
-    private DoubleProperty angle;
     private String id;
     public static int compteur;
 
@@ -20,24 +18,8 @@ public class RayonLaser {
         this.yPointA = new SimpleIntegerProperty(ypointA);
         this.xPosition = new SimpleIntegerProperty(xposition);
         this.yPosition = new SimpleIntegerProperty(yposition);
-        this.longueur = new SimpleDoubleProperty(calculerDistance());
-        this.angle = new SimpleDoubleProperty(calculerAngle());
         this.id="R"+compteur;
         compteur++;
-    }
-
-    public double calculerAngle(){
-        double delta_x = getxPosition() - getxPointA();
-        double delta_y = getyPosition() - getyPointA();
-        double angle = Math.atan2(delta_y, delta_x);
-        System.out.println(Math.toDegrees(angle));
-        return Math.toDegrees(angle);
-    }
-
-    private double calculerDistance() {
-        double delta_x = getxPosition() - getxPointA();
-        double delta_y = getyPosition() - getyPointA();
-        return Math.sqrt(delta_x * delta_x + delta_y * delta_y);
     }
 
     public IntegerProperty xPointAProperty(){
@@ -48,22 +30,6 @@ public class RayonLaser {
         return yPointA;
     }
 
-    public double getAngle() {
-        return angle.getValue();
-    }
-
-    public void setAngle() {
-        this.angle.setValue(calculerAngle());
-    }
-
-    public DoubleProperty distanceProperty(){
-        return longueur;
-    }
-
-    public DoubleProperty angleProperty(){
-        return angle;
-    }
-
     public IntegerProperty xPositionProperty(){
         return xPosition;
     }
@@ -71,17 +37,12 @@ public class RayonLaser {
     public IntegerProperty yPositionProperty(){
         return yPosition;
     }
-
-    public void setLongueur() {
-        this.longueur.setValue(calculerDistance());
-    }
-
     public void setxPointA(int xPointA) {
-        this.xPointA.setValue(xPointA);
+        this.xPointA.setValue(xPointA+16);
     }
 
     public void setyPointA(int yPointA) {
-        this.yPointA.setValue(yPointA);
+        this.yPointA.setValue(yPointA + 10);
     }
 
 

@@ -123,10 +123,8 @@ public  class Vaisseau {
                         rayonAjouter = true;
                     }
                     if (rayonAjouter){
-                        rayonLaser.setAngle();
                         rayonLaser.setxPointA(a.getX());
                         rayonLaser.setyPointA(a.getY());
-                        rayonLaser.setLongueur();
                     }
                     a.decrementerPv(degat);
                     ennemi = true;
@@ -157,5 +155,9 @@ public  class Vaisseau {
 
     public void perteVie(){
         vie--;
+    }
+
+    public String getIdRayon() {
+        return rayonLaser.getId();
     }
 }

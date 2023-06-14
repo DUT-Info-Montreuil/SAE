@@ -83,6 +83,7 @@ public class VaisseauxVue {
         this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getId()));
         this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getId()));
         this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getId()));
+        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getIdRayon()));
     }
 }
 
