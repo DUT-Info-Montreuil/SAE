@@ -1,6 +1,7 @@
 package com.example.sae.controleur;
 
 
+import com.example.sae.CSV.LecteurCSV;
 import com.example.sae.Main;
 import com.example.sae.modele.*;
 import com.example.sae.vue.TerrainVue;
@@ -59,8 +60,9 @@ public class Controleur implements Initializable {
     private Environnement env;
     private int chronometre = 0;
     private Timeline chronometreTimeline;
-    boolean switchPause = false;
-
+    private boolean switchPause = false;
+    private LecteurCSV lecteurCSV;
+    private String formattedTime;
     @FXML
     void boutonAbandonner() {
         finPerdu();
@@ -129,6 +131,7 @@ public class Controleur implements Initializable {
         tv.afficherTerrain(ChoixControleur.choix);
 
         env = new Environnement(terrain);
+        lecteurCSV = new LecteurCSV();
 
         compteurV.setText(String.valueOf(env.getCompteurVague()));
         vieStation.setText(String.valueOf(env.getVieStation()));
@@ -180,6 +183,8 @@ public class Controleur implements Initializable {
     }
 
     private void finPerdu(){
+        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "false"};
+        lecteurCSV.ecritureFichier(d);
         System.out.println("Vous avez perdu");
         gameLoop.stop();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -203,6 +208,8 @@ public class Controleur implements Initializable {
     }
 
     private void finVictoire() {
+        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "true"};
+        lecteurCSV.ecritureFichier(d);
         System.out.println("vous avez gagné");
         gameLoop.stop();
         Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
@@ -233,7 +240,7 @@ public class Controleur implements Initializable {
         // Démarrer le chronomètre
         chronometreTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             chronometre++;
-            String formattedTime = formatChronometre(chronometre);
+            formattedTime = formatChronometre(chronometre);
             labelChronometre.setText(formattedTime);
         }));
         chronometreTimeline.setCycleCount(Timeline.INDEFINITE);

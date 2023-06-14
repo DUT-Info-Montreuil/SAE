@@ -8,17 +8,21 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import javafx.scene.control.TextField;
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
 public class MenuControleur {
 
-
-    // quand le bouton est cliqué lancement du jeu
+    @FXML
+    private TextField prenom;
+    protected static String nom;
 
     @FXML
     private void demarrerPartie(ActionEvent event) throws IOException {
+        nom = prenom.getText();
+        System.out.println(nom);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
         URL resource = getClass().getResource("/com/example/sae/vueChoix.fxml");
