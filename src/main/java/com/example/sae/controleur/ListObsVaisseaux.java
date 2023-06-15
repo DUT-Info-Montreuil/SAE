@@ -1,18 +1,17 @@
 package com.example.sae.controleur;
 
 import com.example.sae.modele.Vaisseau;
-import com.example.sae.vue.BarreDeVieVue;
 import com.example.sae.vue.VaisseauxVue;
 import javafx.collections.ListChangeListener;
 import javafx.scene.layout.Pane;
 
 public class ListObsVaisseaux implements ListChangeListener<Vaisseau> {
 
-    private Pane PaneauDeJeu;
+    private Pane panneauDeJeu;
     private VaisseauxVue vaisseauxVue;
 
     public ListObsVaisseaux (Pane PanneauJeu) {
-        this.PaneauDeJeu = PanneauJeu;
+        this.panneauDeJeu = PanneauJeu;
         vaisseauxVue = new VaisseauxVue(PanneauJeu);
     }
 
@@ -22,13 +21,13 @@ public class ListObsVaisseaux implements ListChangeListener<Vaisseau> {
             if (change.wasAdded()) {
                 for (Vaisseau v : change.getAddedSubList()) {
                     System.out.println("add");
-                    vaisseauxVue.créerSprite(v);
+                    vaisseauxVue.creerVaisseau(v);
                 }
             }
             if (change.wasRemoved()) {
                 for (Vaisseau v : change.getRemoved()) {
                     System.out.println("supp");
-                    vaisseauxVue.supprimerSprite(v);
+                    vaisseauxVue.supprimerVaisseau(v);
                 }
             }
         }

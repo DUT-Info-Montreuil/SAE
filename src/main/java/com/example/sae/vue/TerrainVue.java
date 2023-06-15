@@ -2,29 +2,23 @@ package com.example.sae.vue;
 
 import com.example.sae.Main;
 import com.example.sae.modele.Terrain;
-import com.example.sae.modele.Ennemi;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
-
 import java.net.URL;
 
 public class TerrainVue {
+
     private TilePane tilePane;
     private Terrain terrain;
-
 
     public TerrainVue(Terrain terrain, TilePane tilePane) {
         this.terrain = terrain;
         this.tilePane = tilePane;
     }
 
-
-
-
-
-    public void afficherTerrain(int i) {
-        if (i == 1) {
+    public void afficherTerrain(int choixTerrain) {
+        if (choixTerrain == 1) {
             int[][] codesTuiles = this.terrain.getTileMap();
             URL urlImageSol = Main.class.getResource("sol.png");
             Image imageSol = new Image(String.valueOf(urlImageSol));
@@ -92,9 +86,6 @@ public class TerrainVue {
 
             URL urlImageSol6 = Main.class.getResource("solFuse.png");
             Image imageSol6 = new Image(String.valueOf(urlImageSol6));
-
-
-
 
             for (int y = 0; y < codesTuiles.length; y++) {
                 for (int x = 0; x < codesTuiles[y].length; x++) {

@@ -7,18 +7,11 @@ public class Station {
 
     private IntegerProperty vie;
 
-    private  Terrain terrain;
-
-    private Environnement environnement;
-
-
-    public Station(Terrain terrain, Environnement environnement) {
+    public Station() {
         this.vie = new SimpleIntegerProperty(20);
-        this.terrain = terrain;
-        this.environnement = environnement;
     }
 
-    public void perteVie (){
+    public void decrementerVie(){
         this.vieProperty().setValue(getVie()-1);
 }
 

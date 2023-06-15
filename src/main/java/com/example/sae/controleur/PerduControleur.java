@@ -8,7 +8,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 
@@ -25,13 +24,12 @@ public class PerduControleur {
         primaryStage.setTitle("Alien Survival : La Dernière Lueur d'Espoir");
         primaryStage.setScene(scene);
         primaryStage.show();
-
         Main.stopMusicDefaite();
-
         URL urlImageVaiL = Main.class.getResource("sonFond.wav");
         String s = urlImageVaiL.getPath();
         Main.PlayMusicFond(s);
     }
+
     @FXML
     private void quitter(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

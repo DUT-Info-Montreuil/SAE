@@ -7,21 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 
 public class FinControleur {
-//sdfs
-    @FXML
-    private Button retourMenu;
-    @FXML
-    private Button quitter;
-
 
     @FXML
     public void retourMenu (ActionEvent event) throws IOException {

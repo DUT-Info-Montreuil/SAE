@@ -7,8 +7,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class RayonLaserVue {
-    private Pane panneauJeu;
 
+    private Pane panneauJeu;
 
     public RayonLaserVue (Pane panneauJeu) {
         this.panneauJeu = panneauJeu;
@@ -22,10 +22,10 @@ public class RayonLaserVue {
         line.setEffect(dropShadow);
         line.setStrokeWidth(4.0);
         line.setId(rayonLaser.getId());
-        line.startXProperty().bind(rayonLaser.xPositionProperty());
-        line.startYProperty().bind(rayonLaser.yPositionProperty());
-        line.endXProperty().bind(rayonLaser.xPointAProperty());
-        line.endYProperty().bind(rayonLaser.yPointAProperty());
+        line.startXProperty().bind(rayonLaser.xPositionVaisseauProperty());
+        line.startYProperty().bind(rayonLaser.yPositionVaisseauProperty());
+        line.endXProperty().bind(rayonLaser.xPositionEnnemiProperty());
+        line.endYProperty().bind(rayonLaser.yPositionEnnemiProperty());
         this.panneauJeu.getChildren().add(line);
     }
 

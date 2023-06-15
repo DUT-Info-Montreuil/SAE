@@ -1,19 +1,17 @@
 package com.example.sae.controleur;
 
 import com.example.sae.modele.RayonLaser;
-import com.example.sae.modele.Vaisseau;
 import com.example.sae.vue.RayonLaserVue;
-import com.example.sae.vue.VaisseauxVue;
 import javafx.collections.ListChangeListener;
 import javafx.scene.layout.Pane;
 
 public class ListObsRayonLaser implements ListChangeListener<RayonLaser> {
 
-    private Pane PaneauDeJeu;
+    private Pane panneauDeJeu;
     private RayonLaserVue rayonLaserVue;
 
     public ListObsRayonLaser(Pane PanneauJeu) {
-        this.PaneauDeJeu = PanneauJeu;
+        this.panneauDeJeu = PanneauJeu;
         rayonLaserVue = new RayonLaserVue(PanneauJeu);
     }
 

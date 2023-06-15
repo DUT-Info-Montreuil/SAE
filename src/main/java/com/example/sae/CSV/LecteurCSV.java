@@ -1,13 +1,10 @@
 package com.example.sae.CSV;
 
-import com.example.sae.Main;
-
 import java.io.*;
-import java.net.URL;
 import java.util.Scanner;
 
 public class LecteurCSV {
-    private String[][] tableauScore = {{"Nom", "Vague", "Temps", "Victoire"}};
+    private String[][] tableauScore = {{"Nom", "Vague", "Temps", "V/D"}};
     private String cheminFichier = "score.csv";
     public LecteurCSV(){}
 /*

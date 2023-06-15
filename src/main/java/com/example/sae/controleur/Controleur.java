@@ -1,6 +1,5 @@
 package com.example.sae.controleur;
 
-
 import com.example.sae.CSV.LecteurCSV;
 import com.example.sae.Main;
 import com.example.sae.modele.*;
@@ -8,7 +7,6 @@ import com.example.sae.vue.TerrainVue;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.ListChangeListener;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,9 +21,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,27 +29,26 @@ public class Controleur implements Initializable {
     @FXML
     private Button boutonVague;
     @FXML
-    private Pane PaneauDeJeu;
+    private Pane panneauDeJeu;
     @FXML
-    private TilePane tilePane;
+    private TilePane tuile;
     @FXML
-    private RadioButton tour1;
+    private RadioButton tour1Bouton;
     @FXML
-    private RadioButton tour2;
+    private RadioButton tour2Bouton;
     @FXML
-    private RadioButton tour3;
+    private RadioButton tour3Bouton;
     @FXML
-    private TextField vieStation;
+    private TextField vieStationText;
     @FXML
-    private TextField argentStation;
+    private TextField argentStationText;
     @FXML
-    private TextField compteurV;
+    private TextField compteurVagueText;
     @FXML
-    private TextField tailleEnnemi;
-    @FXML
-    private Button boutonPause;
+    private TextField nombreEnnemiText;
     @FXML
     private Label labelChronometre;
+
     private Timeline gameLoop;
     private Terrain terrain;
     private Environnement env;
@@ -62,7 +56,8 @@ public class Controleur implements Initializable {
     private Timeline chronometreTimeline;
     private boolean switchPause = false;
     private LecteurCSV lecteurCSV;
-    private String formattedTime;
+    private String formatTemps;
+
     @FXML
     void boutonAbandonner() {
         finPerdu();
@@ -75,7 +70,6 @@ public class Controleur implements Initializable {
 
         return String.format("%02d:%02d:%02d", heures, minutes, secondes);
     }
-
 
     @FXML
      void boutonVague(){
@@ -99,24 +93,24 @@ public class Controleur implements Initializable {
         }
     }
 
-    void appuyer(double x, double y) {
+    void appuyerTuile(double x, double y) {
         Vaisseau vaisseau = env.vaisseauPresent((int) x, (int) y);
         if(vaisseau != null){
             env.suppVaisseauPlacee(vaisseau);
         } else {
             int newX = (int) (x / 32) * 32;
             int newY = (int) (y / 32) * 32;
-            if (tour1.isSelected()) {
+            if (tour1Bouton.isSelected()) {
                 vaisseau = new VaisseauCourt(newX, newY, terrain, env);
-                env.verifVaisseau(vaisseau);
+                env.verifVaisseauCondition(vaisseau);
             } else {
-                if (tour2.isSelected()) {
+                if (tour2Bouton.isSelected()) {
                     vaisseau = new VaisseauMoyen(newX, newY, terrain, env);
-                    env.verifVaisseau(vaisseau);
+                    env.verifVaisseauCondition(vaisseau);
                 } else {
-                    if (tour3.isSelected()) {
+                    if (tour3Bouton.isSelected()) {
                         vaisseau = new VaisseauLong(newX, newY, terrain, env);
-                        env.verifVaisseau(vaisseau);
+                        env.verifVaisseauCondition(vaisseau);
                     }
                 }
             }
@@ -126,56 +120,56 @@ public class Controleur implements Initializable {
 
         @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        terrain = new Terrain(ChoixControleur.choix);
-        TerrainVue tv = new TerrainVue(terrain, tilePane);
-        tv.afficherTerrain(ChoixControleur.choix);
+        terrain = new Terrain(ChoixControleur.choixTerrain);
+        TerrainVue tv = new TerrainVue(terrain, tuile);
+        tv.afficherTerrain(ChoixControleur.choixTerrain);
 
         env = new Environnement(terrain);
         lecteurCSV = new LecteurCSV();
 
-        compteurV.setText(String.valueOf(env.getCompteurVague()));
-        vieStation.setText(String.valueOf(env.getVieStation()));
-        argentStation.setText(String.valueOf(env.getArgent()));
+        compteurVagueText.setText(String.valueOf(env.getCompteurVague()));
+        vieStationText.setText(String.valueOf(env.getVieStation()));
+        argentStationText.setText(String.valueOf(env.getArgent()));
 
 
-        ListChangeListener<Ennemi> listenE = new ListObsEnnemis(PaneauDeJeu);
-        env.getEnnemi().addListener(listenE);
+        ListChangeListener<Ennemi> listenE = new ListObsEnnemis(panneauDeJeu);
+        env.getEnnemis().addListener(listenE);
 
-        ListChangeListener<Vaisseau> listenV = new ListObsVaisseaux(PaneauDeJeu);
+        ListChangeListener<Vaisseau> listenV = new ListObsVaisseaux(panneauDeJeu);
         env.getVaisseaux().addListener(listenV);
 
-        ListChangeListener<BarreDeVie> listenB = new ListObsBarreDeVie(PaneauDeJeu);
-        env.getBarreDeVie().addListener(listenB);
+        ListChangeListener<BarreDeVie> listenB = new ListObsBarreDeVie(panneauDeJeu);
+        env.getBarreDeVies().addListener(listenB);
 
-        ListChangeListener<RayonLaser> listenR = new ListObsRayonLaser(PaneauDeJeu);
+        ListChangeListener<RayonLaser> listenR = new ListObsRayonLaser(panneauDeJeu);
         env.getRayonLasers().addListener(listenR);
 
         env.compteurVagueProperty().addListener(
                 (obs, old, nouv) ->
-                        compteurV.setText(nouv.toString()));
+                        compteurVagueText.setText(nouv.toString()));
 
         env.argentProperty().addListener(
                 (obs, old, nouv) ->
-                        argentStation.setText(nouv.toString()));
+                        argentStationText.setText(nouv.toString()));
 
-        env.nbEnnemisProperty().addListener(
+        env.nombreEnnemisProperty().addListener(
                 (obs, old, nouv) -> {
-                        tailleEnnemi.setText(nouv.toString());
-                        if (env.getCompteurVague()==1 && env.getEnnemi().isEmpty() && env.getEnnemisVagues().isEmpty()){
+                        nombreEnnemiText.setText(nouv.toString());
+                        if (env.getCompteurVague()==10 && env.getEnnemis().isEmpty() && env.getEnnemisVagues().isEmpty()){
                             finVictoire();
                         }
                 });
 
         env.vieProperty().addListener(
                 (obs, old, nouv) -> {
-                    vieStation.setText(nouv.toString());
+                    vieStationText.setText(nouv.toString());
                     if (env.getVieStation() == 0 ) {
                         finPerdu();
                     }
                 });
 
-        PaneauDeJeu.setOnMouseClicked( event -> {
-            appuyer(event.getX(), event.getY());
+        panneauDeJeu.setOnMouseClicked(event -> {
+            appuyerTuile(event.getX(), event.getY());
                 });
 
         initAnimation();
@@ -183,8 +177,9 @@ public class Controleur implements Initializable {
     }
 
     private void finPerdu(){
-        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "Défaite"};
-        lecteurCSV.ecritureFichier(d);
+        String[] infoPartie = {MenuControleur.pseudo, String.valueOf(env.getCompteurVague()), formatTemps, "Défaite"};
+        lecteurCSV.ecritureFichier(infoPartie);
+
         System.out.println("Vous avez perdu");
         gameLoop.stop();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -208,8 +203,8 @@ public class Controleur implements Initializable {
     }
 
     private void finVictoire() {
-        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "Victoire"};
-        lecteurCSV.ecritureFichier(d);
+        String[] infoPartie = {MenuControleur.pseudo, String.valueOf(env.getCompteurVague()), formatTemps, "Victoire"};
+        lecteurCSV.ecritureFichier(infoPartie);
         System.out.println("vous avez gagné");
         gameLoop.stop();
         Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
@@ -240,8 +235,8 @@ public class Controleur implements Initializable {
         // Démarrer le chronomètre
         chronometreTimeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             chronometre++;
-            formattedTime = formatChronometre(chronometre);
-            labelChronometre.setText(formattedTime);
+            formatTemps = formatChronometre(chronometre);
+            labelChronometre.setText(formatTemps);
         }));
         chronometreTimeline.setCycleCount(Timeline.INDEFINITE);
     }
@@ -257,7 +252,7 @@ public class Controleur implements Initializable {
                 // c'est un eventHandler d'ou le lambda
                 (ev ->{
                     env.unTour();
-                    if(Main.verifSon()==false){
+                    if(Main.verifSonActif()==false){
                         URL urlImageVaiL = Main.class.getResource("sonFond.wav");
                         String s = urlImageVaiL.getPath();
                         Main.PlayMusicFond(s);

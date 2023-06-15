@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +21,6 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 1024, 880);
         stage.setTitle("Alien Survival");
         stage.setScene(scene);
-
         stage.setResizable(false);
         stage.show();
     }
@@ -33,6 +31,7 @@ public class Main extends Application {
         PlayMusicFond(s);
         launch();
     }
+
     public static void PlayMusicFond(String location){
         AudioInputStream audioInputStream = null;
         try {
@@ -58,7 +57,7 @@ public class Main extends Application {
         clipFond.start();
     }
 
-    public static boolean verifSon() {
+    public static boolean verifSonActif() {
         if(!clipFond.isRunning()){
             return false;
         }
@@ -103,7 +102,6 @@ public class Main extends Application {
         }
     }
 
-
     public static void PlayMusicDefaite(String location){
         AudioInputStream audioInputStream = null;
         try {
@@ -128,6 +126,7 @@ public class Main extends Application {
         }
         clipDefaite.start();
     }
+
     public static void stopMusicDefaite() {
         if (clipDefaite != null && clipDefaite.isRunning()) {
             clipDefaite.stop();

@@ -4,11 +4,9 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class Boutique {
-    private Environnement env;
     private IntegerProperty argent;
 
-    public Boutique(Environnement env) {
-        this.env = env;
+    public Boutique() {
         this.argent = new SimpleIntegerProperty(200);
     }
 
@@ -24,19 +22,19 @@ public class Boutique {
         this.argentProperty().setValue(n);
     }
 
-    public void ajoutEnnemi(Ennemi ennemi){
+    public void ajoutPrixEnnemiTuer(Ennemi ennemi){
         setArgent(getArgent() + ennemi.getPrix());
     }
 
-    public void ajoutVaisseau(Vaisseau vaisseau){
+    public void ajoutPrixEnleverVaisseau(Vaisseau vaisseau){
         setArgent(getArgent() + vaisseau.getPrix()/2);
     }
 
-    public void suppression(Vaisseau vaisseau){
+    public void debiterPrixVaisseau(Vaisseau vaisseau){
         setArgent(getArgent() - vaisseau.getPrix());
     }
 
-    public void ajoutManche(){
+    public void ajoutBonusFinManche(){
         setArgent(getArgent() + 50);
     }
 

@@ -28,32 +28,26 @@ public class EnnemisVue {
         imageChe = new Image(String.valueOf(urlImageChe));
     }
 
-    public void créerSprite(Ennemi ennemi) {
+    public void creerEnnemi(Ennemi ennemi) {
         if (ennemi instanceof Alien){
             iv2 = new ImageView(imageAl);
             iv2.setId(ennemi.getId());
-
         } else {
             if (ennemi instanceof LimaceLente){
                 iv2 = new ImageView(imageLim);
                 iv2.setId(ennemi.getId());
-
             } else {
                 iv2 = new ImageView(imageChe);
                 iv2.setId(ennemi.getId());
-
             }
         }
         iv2.translateXProperty().bind(ennemi.xProperty());
         iv2.translateYProperty().bind(ennemi.yProperty());
         this.panneauJeu.getChildren().add(iv2);
-
     }
 
-    public void supprimerSprite(Ennemi ennemi){
+    public void supprimerEnnemi(Ennemi ennemi){
         this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ ennemi.getId()));
         this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ ennemi.getId()));
     }
-
-
 }

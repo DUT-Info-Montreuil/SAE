@@ -1,15 +1,15 @@
 package com.example.sae.modele;
 
 import javafx.beans.property.*;
-import javafx.scene.control.ProgressBar;
 
 public class BarreDeVie  {
+
     private IntegerProperty x, y;
     private DoubleProperty vieTotale;
     private Double vie;
     private Double vieMax;
     private String id;
-    private StringProperty style;
+    private StringProperty couleurStyle;
 
 
     public BarreDeVie(int vie, int vieMax, String id, int x, int y){
@@ -19,18 +19,18 @@ public class BarreDeVie  {
         this.vieMax = (double)vieMax;
         this.id = id;
         this.vieTotale = new SimpleDoubleProperty(vie/vieMax);
-        style = new SimpleStringProperty();
+        couleurStyle = new SimpleStringProperty();
     }
 
     public void setCouleur() {
         double pourcentageVie = getVieTotale();
 
         if (pourcentageVie <= 0.55) {
-            setStyle("-fx-accent: red;"); // Rouge pour moins de 30% de vie
+            setCouleurStyle("-fx-accent: red;"); // Rouge pour moins de 30% de vie
         } else if (pourcentageVie <= 0.85) {
-            setStyle("-fx-accent: orange;"); // Orange pour 30% à 70% de vie
+            setCouleurStyle("-fx-accent: orange;"); // Orange pour 30% à 70% de vie
         } else {
-            setStyle("-fx-accent: green;"); // Vert pour plus de 70% de vie
+            setCouleurStyle("-fx-accent: green;"); // Vert pour plus de 70% de vie
         }
     }
 
@@ -43,8 +43,8 @@ public class BarreDeVie  {
         return vieTotale;
     }
 
-    public void setVieTotale() {
-        this.vieTotale.setValue((double) vie/ (double) vieMax);
+    public void miseAJourVieTotale() {
+        this.vieTotale.setValue((double) vie/ vieMax);
     }
 
     public void setVie(double vie) {
@@ -67,8 +67,8 @@ public class BarreDeVie  {
         return this.xProperty().getValue();
     }
 
-    public final void setX(int n) {
-        this.xProperty().setValue(n);
+    public final void setX(int x) {
+        this.xProperty().setValue(x);
     }
 
 
@@ -76,20 +76,20 @@ public class BarreDeVie  {
         return this.yProperty().getValue();
     }
 
-    public final void setY(int n) {
-        this.yProperty().setValue(n-10);
+    public final void setY(int y) {
+        this.yProperty().setValue(y-10);
     }
 
-    public StringProperty styleProperty() {
-        return style;
+    public StringProperty couleurStyleProperty() {
+        return couleurStyle;
     }
 
-    public final String getStyle() {
-        return this.styleProperty().getValue();
+    public final String getCouleurStyle() {
+        return this.couleurStyleProperty().getValue();
     }
 
-    public final void setStyle(String s) {
-        this.styleProperty().setValue(s);
+    public final void setCouleurStyle(String s) {
+        this.couleurStyleProperty().setValue(s);
     }
 
 }

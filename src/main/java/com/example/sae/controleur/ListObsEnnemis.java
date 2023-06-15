@@ -1,7 +1,6 @@
 package com.example.sae.controleur;
 
 import com.example.sae.modele.Ennemi;
-import com.example.sae.vue.BarreDeVieVue;
 import com.example.sae.vue.EnnemisVue;
 import javafx.collections.ListChangeListener;
 import javafx.scene.layout.Pane;
@@ -9,12 +8,11 @@ import javafx.scene.layout.Pane;
 
 public class ListObsEnnemis implements ListChangeListener<Ennemi> {
 
-
-    private Pane PaneauDeJeu;
+    private Pane panneauDeJeu;
     private EnnemisVue ennemisVue;
 
     public ListObsEnnemis(Pane PanneauJeu) {
-        this.PaneauDeJeu = PanneauJeu;
+        this.panneauDeJeu = PanneauJeu;
         ennemisVue = new EnnemisVue(PanneauJeu);
     }
 
@@ -24,13 +22,13 @@ public class ListObsEnnemis implements ListChangeListener<Ennemi> {
             if (change.wasAdded()) {
                 for (Ennemi e : change.getAddedSubList()) {
                     System.out.println("add");
-                    ennemisVue.créerSprite(e);
+                    ennemisVue.creerEnnemi(e);
                     }
                 }
                 if (change.wasRemoved()) {
                     for (Ennemi e : change.getRemoved()) {
                         System.out.println("supp");
-                        ennemisVue.supprimerSprite(e);
+                        ennemisVue.supprimerEnnemi(e);
                     }
                 }
             }

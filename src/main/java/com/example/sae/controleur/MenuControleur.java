@@ -1,6 +1,5 @@
 package com.example.sae.controleur;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,20 +8,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.TextField;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 
 public class MenuControleur {
 
     @FXML
-    private TextField prenom;
-    protected static String nom;
+    private TextField prenomTextField;
+    protected static String pseudo;
 
     @FXML
     private void demarrerPartie(ActionEvent event) throws IOException {
-        nom = prenom.getText();
-        System.out.println(nom);
+        pseudo = prenomTextField.getText();
+        System.out.println(pseudo);
         Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader();
         URL resource = getClass().getResource("/com/example/sae/vueChoix.fxml");
@@ -33,6 +31,7 @@ public class MenuControleur {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     @FXML
     private void quitter(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,65 +1,47 @@
 package com.example.sae.modele;
 
-import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class RayonLaser {
-    private IntegerProperty xPointA;
-    private IntegerProperty yPointA;
-    private IntegerProperty xPosition;
-    private IntegerProperty yPosition;
+    private IntegerProperty xPositionEnnemi;
+    private IntegerProperty yPositionEnnemi;
+    private IntegerProperty xPositionVaisseau;
+    private IntegerProperty yPositionVaisseau;
     private String id;
-    public static int compteur;
+    public static int compteurId;
 
-    public RayonLaser(int xpointA, int ypointA, int xposition, int yposition) {
-        this.xPointA = new SimpleIntegerProperty(xpointA);
-        this.yPointA = new SimpleIntegerProperty(ypointA);
-        this.xPosition = new SimpleIntegerProperty(xposition + 16);
-        this.yPosition = new SimpleIntegerProperty(yposition + 16);
-        this.id="R"+compteur;
-        compteur++;
+    public RayonLaser(int xPositionEnnemi, int yPositionEnnemi, int xPositionVaisseau, int yPositionVaisseau) {
+        this.xPositionEnnemi = new SimpleIntegerProperty(xPositionEnnemi);
+        this.yPositionEnnemi = new SimpleIntegerProperty(yPositionEnnemi);
+        this.xPositionVaisseau = new SimpleIntegerProperty(xPositionVaisseau + 16);
+        this.yPositionVaisseau = new SimpleIntegerProperty(yPositionVaisseau + 16);
+        this.id="R"+ compteurId;
+        compteurId++;
     }
 
-    public IntegerProperty xPointAProperty(){
-        return xPointA;
+    public IntegerProperty xPositionEnnemiProperty(){
+        return xPositionEnnemi;
     }
 
-    public IntegerProperty yPointAProperty(){
-        return yPointA;
+    public IntegerProperty yPositionEnnemiProperty(){
+        return yPositionEnnemi;
     }
 
-    public IntegerProperty xPositionProperty(){
-        return xPosition;
+    public IntegerProperty xPositionVaisseauProperty(){
+        return xPositionVaisseau;
     }
 
-    public IntegerProperty yPositionProperty(){
-        return yPosition;
-    }
-    public void setxPointA(int xPointA) {
-        this.xPointA.setValue(xPointA+16);
+    public IntegerProperty yPositionVaisseauProperty(){
+        return yPositionVaisseau;
     }
 
-    public void setyPointA(int yPointA) {
-        this.yPointA.setValue(yPointA + 10);
+    public void setxPositionEnnemi(int xPositionEnnemi) {
+        this.xPositionEnnemi.setValue(xPositionEnnemi +16);
     }
 
-
-    public int getxPointA() {
-        return xPointA.getValue();
-    }
-
-    public int getyPointA() {
-        return yPointA.getValue();
-    }
-
-    public int getxPosition() {
-        return xPosition.getValue();
-    }
-
-    public int getyPosition() {
-        return yPosition.getValue();
+    public void setyPositionEnnemi(int yPositionEnnemi) {
+        this.yPositionEnnemi.setValue(yPositionEnnemi + 10);
     }
 
     public String getId() {

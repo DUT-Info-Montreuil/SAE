@@ -5,9 +5,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-
-
 public  class Vaisseau {
 
     private IntegerProperty x, y;
@@ -17,12 +14,12 @@ public  class Vaisseau {
     private int degat;
     private Environnement env;
     private String id;
-    private static int compteur=0;
+    private static int compteurId =0;
     private ObservableList<Ennemi> ennemis;
     private int vie;
     private BarreDeVie barreDeVie;
     private RayonLaser rayonLaser;
-    private boolean rayonAjouter;
+    private boolean rayonActif;
 
     public Vaisseau(int x, int y, Terrain terrain, int prix, Environnement env, int portee, int degat) {
         this.ennemis = FXCollections.observableArrayList();
@@ -33,11 +30,11 @@ public  class Vaisseau {
         this.env = env;
         this.portee = portee;
         this.degat = degat;
-        this.id="V"+compteur;
-        compteur++;
+        this.id="V"+ compteurId;
+        compteurId++;
         this.vie = 600;
         this.barreDeVie = new BarreDeVie(getVie(), getVieMax(), getId(), getX(), getY());
-        this.rayonAjouter = false;
+        this.rayonActif = false;
     }
 
     public IntegerProperty xProperty() {
@@ -85,7 +82,7 @@ public  class Vaisseau {
         int x = getX() / 32;
         int y = getY() / 32;
         System.out.println(y + " " + x);
-        if (terrain.estAInterieur(x, y) && terrain.getTileMap()[y][x] == terrain.POSEV) {
+        if (terrain.estAInterieurTerrain(x, y) && terrain.getTileMap()[y][x] == terrain.POSEV) {
             terrain.getTileMap()[y][x] = 5;
             return true; // La case n'est pas vide
         }
@@ -93,8 +90,8 @@ public  class Vaisseau {
     }
 
     public void ennemiPorteeVaisseau(){
-        for (int i = 0; i < env.getEnnemi().size(); i++){
-            Ennemi a = env.getEnnemi().get(i);
+        for (int i = 0; i < env.getEnnemis().size(); i++){
+            Ennemi a = env.getEnnemis().get(i);
             if (ennemiPortee(a)){
                 ennemis.add(a);
             }
@@ -102,10 +99,6 @@ public  class Vaisseau {
                 ennemis.remove(a);
             }
         }
-    }
-
-    public int getDegat() {
-        return degat;
     }
 
     public int getPortee() {
@@ -117,14 +110,14 @@ public  class Vaisseau {
         for (int i = 0; i < ennemis.size(); i++){
                 Ennemi a = ennemis.get(i);
                 if (ennemiPortee(a) && a.estVivant() && !ennemi) {
-                    if (!rayonAjouter){
+                    if (!rayonActif){
                         rayonLaser = new RayonLaser(a.getX(), a.getY(), getX(), getY());
                         env.ajouterRayonLaser(rayonLaser);
-                        rayonAjouter = true;
+                        rayonActif = true;
                     }
-                    if (rayonAjouter){
-                        rayonLaser.setxPointA(a.getX());
-                        rayonLaser.setyPointA(a.getY());
+                    if (rayonActif){
+                        rayonLaser.setxPositionEnnemi(a.getX());
+                        rayonLaser.setyPositionEnnemi(a.getY());
                     }
                     a.decrementerPv(degat);
                     ennemi = true;
@@ -133,12 +126,11 @@ public  class Vaisseau {
                     if(!ennemi) {
                         env.supprimerRayonLaser(rayonLaser);
                         rayonLaser = null;
-                        rayonAjouter = false;
+                        rayonActif = false;
                     }
                 }
             }
         }
-
 
     public boolean ennemiPortee(Ennemi ennemi) {
         double distance = Math.sqrt(Math.pow(ennemi.getX() - getX() , 2) + Math.pow(ennemi.getY() - getY(), 2));

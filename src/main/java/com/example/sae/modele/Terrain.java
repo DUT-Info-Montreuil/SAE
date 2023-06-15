@@ -1,14 +1,6 @@
 package com.example.sae.modele;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Terrain {
-    public final static int CHEMIN=1;
-    public final static int STATION=2;
     public final static int POSEV=4;
 
     private int[][] tileMap;
@@ -67,23 +59,14 @@ public class Terrain {
         }
     }
 
-    public boolean estAInterieur(int x, int y) {
+    public boolean estAInterieurTerrain(int x, int y) {
         int lignes = tileMap.length;
         int colonnes = tileMap[0].length;
 
         return x >= 0 && x < colonnes && y >= 0 && y < lignes;
     }
 
-    public int ligne(){
-        return tileMap.length;
-    }
-
-    public int colonne(){
-        return tileMap[0].length;
-    }
-
     public int[][] getTileMap() {
         return tileMap;
     }
-
 }

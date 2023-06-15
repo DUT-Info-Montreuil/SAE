@@ -2,7 +2,6 @@ package com.example.sae.modele;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-
 import java.awt.*;
 
 public class Ennemi {
@@ -11,10 +10,10 @@ public class Ennemi {
     private Terrain terrain;
     private int pv;
     private Environnement env;
-    public static int compteur=0;
+    public static int compteurId =0;
     private String id;
     private int prix;
-    private int index;
+    private int tuileActuel;
     private BarreDeVie barreDeVie;
     private int pvMax;
 
@@ -25,10 +24,10 @@ public class Ennemi {
         this.vitesse = vitesse;
         this.terrain = terrain;
         this.env = env;
-        this.id="E"+compteur;
-        compteur++;
+        this.id="E"+ compteurId;
+        compteurId++;
         this.prix = prix;
-        this.index = 0;
+        this.tuileActuel = 0;
         this.pvMax = pvMax;
         this.barreDeVie = new BarreDeVie(getPv(), getPvMax(), getId(), getX(), getY());
 
@@ -85,7 +84,7 @@ public class Ennemi {
         this.pv -= n;
     }
 
-    public boolean estArrive(){
+    public boolean estArriveStation(){
         if (terrain.getTileMap()[getY()/32][getX()/32] == 2) {
             return true;
         }
@@ -93,8 +92,8 @@ public class Ennemi {
     }
 
     public void seDeplace() {
-        if (index < this.env.getChemin().size() - 1) {
-            Point prochaineTuile = this.env.getChemin().get(index + 1);
+        if (tuileActuel < this.env.getCheminCourt().size() - 1) {
+            Point prochaineTuile = this.env.getCheminCourt().get(tuileActuel + 1);
             double prochainePosX = prochaineTuile.getY() * 32;
             double prochainePosY = prochaineTuile.getX() * 32;
 
@@ -107,7 +106,7 @@ public class Ennemi {
                 // Si la distance restante est inférieure ou égale à la vitesse, on arrive à la tuile suivante
                 setX(prochainePosX);
                 setY(prochainePosY);
-                index++;
+                tuileActuel++;
             } else {
                 // Sinon, on se déplace vers la prochaine tuile en fonction de la vitesse
                 double deplacementX = (deltaX / distance) * vitesse;
@@ -118,7 +117,8 @@ public class Ennemi {
             }
         }
     }
-   /*
+
+   /* ANCIEN DEPLACEMENT
     public void seDeplace() {
 
         if (index< this.env.getChemin().size()-1){
