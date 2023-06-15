@@ -183,7 +183,7 @@ public class Controleur implements Initializable {
     }
 
     private void finPerdu(){
-        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "false"};
+        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "Défaite"};
         lecteurCSV.ecritureFichier(d);
         System.out.println("Vous avez perdu");
         gameLoop.stop();
@@ -208,7 +208,7 @@ public class Controleur implements Initializable {
     }
 
     private void finVictoire() {
-        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "true"};
+        String[] d = {MenuControleur.nom, String.valueOf(env.getCompteurVague()), formattedTime, "Victoire"};
         lecteurCSV.ecritureFichier(d);
         System.out.println("vous avez gagné");
         gameLoop.stop();
