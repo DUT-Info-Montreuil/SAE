@@ -16,8 +16,8 @@ public class RayonLaser {
     public RayonLaser(int xpointA, int ypointA, int xposition, int yposition) {
         this.xPointA = new SimpleIntegerProperty(xpointA);
         this.yPointA = new SimpleIntegerProperty(ypointA);
-        this.xPosition = new SimpleIntegerProperty(xposition);
-        this.yPosition = new SimpleIntegerProperty(yposition);
+        this.xPosition = new SimpleIntegerProperty(xposition + 16);
+        this.yPosition = new SimpleIntegerProperty(yposition + 16);
         this.id="R"+compteur;
         compteur++;
     }
