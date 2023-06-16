@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -41,5 +42,19 @@
             </effect>
         </Button>
     </VBox>
-    <Label fx:id="label" layoutX="70.0" layoutY="613.0" prefHeight="200.0" prefWidth="301.0"/>
+    <Label fx:id="label" alignment="TOP_CENTER" layoutX="273.0" layoutY="70.0" prefHeight="200.0" prefWidth="499.0" textFill="WHITE">
+      <effect>
+         <DropShadow color="RED" />
+      </effect>
+      <font>
+         <Font name="Lato Semibold" size="20.0" />
+      </font></Label>
+   <Text fill="WHITE" layoutX="288.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom | Vague | Temps | V/D" wrappingWidth="498.7294921875">
+      <font>
+         <Font name="Lato Semibold" size="33.0" />
+      </font>
+      <effect>
+         <DropShadow color="RED" />
+      </effect>
+   </Text>
 </Pane>

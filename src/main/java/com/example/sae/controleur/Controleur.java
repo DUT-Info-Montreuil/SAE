@@ -155,7 +155,7 @@ public class Controleur implements Initializable {
         env.nombreEnnemisProperty().addListener(
                 (obs, old, nouv) -> {
                         nombreEnnemiText.setText(nouv.toString());
-                        if (env.getCompteurVague()==10 && env.getEnnemis().isEmpty() && env.getEnnemisVagues().isEmpty()){
+                        if (env.getCompteurVague()==1 && env.getEnnemis().isEmpty() && env.getEnnemisVagues().isEmpty()){
                             finVictoire();
                         }
                 });
