@@ -166,7 +166,7 @@ public class Environnement {
     }
 
     public boolean victoirePartie(){
-        if(getCompteurVague()==1 && getEnnemis().isEmpty() && getEnnemisVagues().isEmpty()){
+        if(getCompteurVague()==10 && getEnnemis().isEmpty() && getEnnemisVagues().isEmpty()){
             return true;
         }
         return false;
