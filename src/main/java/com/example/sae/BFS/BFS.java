@@ -7,6 +7,7 @@ public class BFS {
 
     private static int[][] moves = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}}; // Définition des mouvements possibles (haut, bas, gauche, droite)
 
+    //Recherche le chemin le plus court entre deux points dans une grille en utilisant l'algorithme BFS.
     public static List<Point> bfs(int[][] terrain, Point depart, Point arrivee) {
         Queue<Point> queue = new LinkedList<>();
         queue.add(depart);
@@ -26,12 +27,12 @@ public class BFS {
             for (int[] move : moves) {
                 int newX = x + move[0];
                 int newY = y + move[1];
-
+                // Vérifier si le déplacement est valide et si la tuile n'a pas déjà été visitée
                 if (isValidMove(terrain, newX, newY) && !parents.containsKey(new Point(newX, newY))) {
                     Point newTuile = new Point(newX, newY);
                     queue.add(newTuile);
                     parents.put(newTuile, tuileCourante);
-
+                    // Vérifier si la tuile actuelle est l'arrivée
                     if (newTuile.equals(arrivee)) {
                         found = true;
                         break;
@@ -39,7 +40,7 @@ public class BFS {
                 }
             }
         }
-
+        // Reconstituer le chemin à partir des parents
         List<Point> chemin = new ArrayList<>();
         Point tuile = arrivee;
         while (tuile != null) {
