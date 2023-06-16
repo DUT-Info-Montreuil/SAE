@@ -179,7 +179,6 @@ public class Controleur implements Initializable {
     private void finPerdu(){
         String[] infoPartie = {MenuControleur.pseudo, String.valueOf(env.getCompteurVague()), formatTemps, "Défaite"};
         lecteurCSV.ecritureFichier(infoPartie);
-
         System.out.println("Vous avez perdu");
         gameLoop.stop();
         FXMLLoader fxmlLoader = new FXMLLoader();

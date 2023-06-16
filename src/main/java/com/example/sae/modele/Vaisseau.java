@@ -5,6 +5,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.Collection;
+
 public  class Vaisseau {
 
     private IntegerProperty x, y;
@@ -151,5 +153,9 @@ public  class Vaisseau {
 
     public String getIdRayon() {
         return rayonLaser.getId();
+    }
+
+    public ObservableList<Ennemi> getEnnemis() {
+        return ennemis;
     }
 }

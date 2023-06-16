@@ -1,6 +1,11 @@
 package com.example.sae.CSV;
 
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+
 import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class LecteurCSV {
@@ -35,20 +40,39 @@ public class LecteurCSV {
             System.out.println("Erreur lors de l'écriture dans le fichier CSV : " + e.getMessage());
         }
     }
-    public void lecteurFichier(){
+
+//    public  void relierLecteurTableau(TableView<String[]> tableView, TableColumn<String[], String> nomColonne, TableColumn<String[], String> vagueColonne, TableColumn<String[], String> tempsColonne, TableColumn<String[], String> vdColonne) {
+  //      tableView.getColumns().addAll(nomColonne, vagueColonne, tempsColonne, vdColonne);
+    //    tableView.getItems().clear();
+      //  lecteurFichier(tableView);
+    //}
+
+    public void lecteurFichier(TableView<String[]> tableView) {
         try (Scanner sreader = new Scanner(new FileReader(cheminFichier))) {
-            String line;
+            ArrayList<String[]> rowDatas = new ArrayList<>();
             while (sreader.hasNextLine()) {
-                line = sreader.nextLine();
-                String[] rowData = line.split(";");
-                for (String data : rowData) {
-                    System.out.print(data + "\t");
-                }
-                System.out.println();
+                String[] rowData = sreader.nextLine().split(";");
+                rowDatas.add(rowData);
             }
-            sreader.close();
+            tableView.getItems().addAll(rowDatas);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String lecteurFichier() {
+        StringBuilder contenuFichier = new StringBuilder();
+
+        try (Scanner sreader = new Scanner(new FileReader(cheminFichier))) {
+            while (sreader.hasNextLine()) {
+                String line = sreader.nextLine();
+                contenuFichier.append(line).append("\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return contenuFichier.toString();
     }
 }

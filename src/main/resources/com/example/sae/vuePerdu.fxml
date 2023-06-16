@@ -41,4 +41,5 @@
             </effect>
         </Button>
     </VBox>
+    <Label fx:id="label" layoutX="70.0" layoutY="613.0" prefHeight="200.0" prefWidth="301.0"/>
 </Pane>

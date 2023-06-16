@@ -33,7 +33,7 @@
                            <effect>
                               <DropShadow height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
                            </effect></Label>
-                        <TextField fx:id="vieStation" editable="false" prefHeight="34.0" prefWidth="54.0" style="-fx-background-color: lightblue; fx-text-fill: black;">
+                        <TextField fx:id="vieStationText" editable="false" prefHeight="34.0" prefWidth="54.0" style="-fx-background-color: lightblue; fx-text-fill: black;">
                            <font>
                               <Font name="Lato Semibold" size="17.0" />
                            </font></TextField>
@@ -57,7 +57,7 @@
                               <DropShadow height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
                            </effect>
                         </Label>
-                        <TextField fx:id="compteurV" editable="false" prefHeight="32.0" prefWidth="35.0" style="-fx-background-color: lightblue; fx-text-fill: black;">
+                        <TextField fx:id="compteurVagueText" editable="false" prefHeight="32.0" prefWidth="35.0" style="-fx-background-color: lightblue; fx-text-fill: black;">
                            <font>
                               <Font name="Lato Semibold" size="17.0" />
                            </font></TextField>
@@ -73,7 +73,7 @@
                               <DropShadow color="#1b1a1a" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
                            </effect>
                         </Label>
-                        <TextField fx:id="tailleEnnemi" editable="false" prefHeight="34.0" prefWidth="43.0" style="-fx-background-color: lightblue; -fx-text-fill: black;" text="0">
+                        <TextField fx:id="nombreEnnemiText" editable="false" prefHeight="34.0" prefWidth="43.0" style="-fx-background-color: lightblue; -fx-text-fill: black;" text="0">
                            <font>
                               <Font name="Lato Semibold" size="17.0" />
                            </font></TextField>
@@ -93,7 +93,7 @@
                               <DropShadow color="#141414" height="7.46" radius="2.8200000000000003" spread="0.3" width="5.82" />
                            </effect>
                         </Label>
-                        <TextField fx:id="argentStation" editable="false" prefHeight="34.0" prefWidth="57.0" style="-fx-background-color: lightblue; fx-text-fill: black;">
+                        <TextField fx:id="argentStationText" editable="false" prefHeight="34.0" prefWidth="57.0" style="-fx-background-color: lightblue; fx-text-fill: black;">
                            <font>
                               <Font name="Lato Semibold" size="17.0" />
                            </font></TextField>
@@ -127,7 +127,7 @@
                                     <DropShadow color="RED" />
                                  </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour1" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1" textFill="RED" selected="true">
+                              <RadioButton fx:id="tour1Bouton" mnemonicParsing="false" prefHeight="18.0" prefWidth="78.0" text="Tour1" textFill="RED" selected="true">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="tour" />
                                  </toggleGroup>
@@ -161,7 +161,7 @@
                                     <DropShadow color="#e0ff00" />
                                  </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour2" mnemonicParsing="false" text="Tour2" textFill="YELLOW" toggleGroup="$tour">
+                              <RadioButton fx:id="tour2Bouton" mnemonicParsing="false" text="Tour2" textFill="YELLOW" toggleGroup="$tour">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -188,7 +188,7 @@
                                     <DropShadow color="#e18607" radius="6.205" spread="0.57" width="5.82" />
                                  </effect>
                               </ImageView>
-                              <RadioButton fx:id="tour3" mnemonicParsing="false" text="Tour3" textFill="#ee930a" toggleGroup="$tour">
+                              <RadioButton fx:id="tour3Bouton" mnemonicParsing="false" text="Tour3" textFill="#ee930a" toggleGroup="$tour">
                                  <font>
                                     <Font size="17.0" />
                                  </font>
@@ -262,12 +262,12 @@
       </HBox>
    </bottom>
    <center>
-      <Pane fx:id="PaneauDeJeu" prefHeight="660.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="panneauDeJeu" prefHeight="660.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <children>
-            <TilePane fx:id="tilePane" prefColumns="32" prefHeight="660.0" prefRows="22" prefTileHeight="32.0" prefTileWidth="32.0" prefWidth="1024.0" />
+            <TilePane fx:id="tuile" prefColumns="32" prefHeight="660.0" prefRows="22" prefTileHeight="32.0" prefTileWidth="32.0" prefWidth="1024.0" />
          </children>
       </Pane>
    </center>
