@@ -20,8 +20,6 @@ public class BarreDeVie  {
         this.vieTotale = new SimpleDoubleProperty(vie/vieMax);
     }
 
-
-
     public double getVieTotale() {
         return vieTotale.getValue();
     }

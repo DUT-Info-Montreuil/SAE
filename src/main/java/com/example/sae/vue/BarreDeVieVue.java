@@ -21,25 +21,22 @@ public class BarreDeVieVue {
         barreDeVie.setTranslateY(barre.getY());
         barreDeVie.setMaxHeight(10);
         barreDeVie.setMaxWidth(30);
-        barreDeVie.setStyle(setCouleur(barre).toString()); // Utilisez la couleur appropriée en fonction de la vie
+        barreDeVie.setStyle("-fx-accent: green"); // Utilisez la couleur appropriée en fonction de la vie
         this.panneauJeu.getChildren().add(barreDeVie);
         System.out.println(barre.getVieTotale());
         barreDeVie.translateXProperty().bind(barre.xProperty());
         barreDeVie.translateYProperty().bind(barre.yProperty());
         barreDeVie.progressProperty().bind(barre.vieTotaleProperty());
-        barreDeVie.styleProperty().bind(setCouleur(barre));
-    }
-    public StringProperty setCouleur(BarreDeVie barreDeVie) {
-        double pourcentageVie = barreDeVie.getVieTotale();
-        StringProperty couleur;
-        if (pourcentageVie <= 0.55) {
-            couleur = new SimpleStringProperty("-fx-accent: red;"); // Rouge pour moins de 30% de vie
-        } else if (pourcentageVie <= 0.85) {
-            couleur = new SimpleStringProperty("-fx-accent: orange;"); // Orange pour 30% à 70% de vie
-        } else {
-            couleur = new SimpleStringProperty("-fx-accent: green;"); // Vert pour plus de 70% de vie
-        }
-    return couleur;
+        barre.vieTotaleProperty().addListener(event -> {
+            double pourcentageVie = barre.getVieTotale();
+            if (pourcentageVie <= 0.55) {
+                barreDeVie.setStyle("-fx-accent: red"); // Rouge pour moins de 30% de vie
+            } else if (pourcentageVie <= 0.85) {
+                barreDeVie.setStyle("-fx-accent: orange"); // Orange pour 30% à 70% de vie
+            } else {
+                barreDeVie.setStyle("-fx-accent: green"); // Vert pour plus de 70% de vie
+            }
+        });
     }
 }
 
