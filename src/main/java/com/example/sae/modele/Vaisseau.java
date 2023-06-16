@@ -63,7 +63,6 @@ public  class Vaisseau {
         this.xProperty().setValue(n);
     }
 
-
     public final int getY() {
         return this.yProperty().getValue();
     }
