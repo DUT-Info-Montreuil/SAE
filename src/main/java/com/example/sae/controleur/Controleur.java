@@ -1,6 +1,5 @@
 package com.example.sae.controleur;
 
-import com.example.sae.CSV.LecteurCSV;
 import com.example.sae.Main;
 import com.example.sae.modele.*;
 import com.example.sae.vue.TerrainVue;
@@ -55,7 +54,6 @@ public class Controleur implements Initializable {
     private int chronometre = 0;
     private Timeline chronometreTimeline;
     private boolean switchPause = false;
-    private LecteurCSV lecteurCSV;
     private String formatTemps;
 
     @FXML
@@ -72,7 +70,7 @@ public class Controleur implements Initializable {
     }
 
     @FXML
-     void boutonVague(){
+    void boutonVague(){
         env.lancementVague();
         if (chronometreTimeline == null) { // Vérifier si le chronomètre est déjà en cours d'exécution
             initChrono();
@@ -118,14 +116,13 @@ public class Controleur implements Initializable {
         System.out.println("clic sur bouton ajouter");
     }
 
-        @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         terrain = new Terrain(ChoixControleur.choixTerrain);
         TerrainVue tv = new TerrainVue(terrain, tuile);
         tv.afficherTerrain(ChoixControleur.choixTerrain);
 
         env = new Environnement(terrain);
-        lecteurCSV = new LecteurCSV();
 
         compteurVagueText.setText(String.valueOf(env.getCompteurVague()));
         vieStationText.setText(String.valueOf(env.getVieStation()));
@@ -154,23 +151,23 @@ public class Controleur implements Initializable {
 
         env.nombreEnnemisProperty().addListener(
                 (obs, old, nouv) -> {
-                        nombreEnnemiText.setText(nouv.toString());
-                        if (env.getCompteurVague()==10 && env.getEnnemis().isEmpty() && env.getEnnemisVagues().isEmpty()){
-                            finVictoire();
-                        }
+                    nombreEnnemiText.setText(nouv.toString());
+                    if (env.victoirePartie()){
+                        finVictoire();
+                    }
                 });
 
         env.vieProperty().addListener(
                 (obs, old, nouv) -> {
                     vieStationText.setText(nouv.toString());
-                    if (env.getVieStation() == 0 ) {
+                    if (env.stationDetruit()) {
                         finPerdu();
                     }
                 });
 
         panneauDeJeu.setOnMouseClicked(event -> {
             appuyerTuile(event.getX(), event.getY());
-                });
+        });
 
         initAnimation();
         gameLoop.play();
@@ -178,7 +175,7 @@ public class Controleur implements Initializable {
 
     private void finPerdu(){
         String[] infoPartie = {MenuControleur.pseudo, String.valueOf(env.getCompteurVague()), formatTemps, "Défaite"};
-        lecteurCSV.ecritureFichier(infoPartie);
+        env.getLecteurCSV().ecritureFichier(infoPartie);
         System.out.println("Vous avez perdu");
         gameLoop.stop();
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -203,7 +200,7 @@ public class Controleur implements Initializable {
 
     private void finVictoire() {
         String[] infoPartie = {MenuControleur.pseudo, String.valueOf(env.getCompteurVague()), formatTemps, "Victoire"};
-        lecteurCSV.ecritureFichier(infoPartie);
+        env.getLecteurCSV().ecritureFichier(infoPartie);
         System.out.println("vous avez gagné");
         gameLoop.stop();
         Stage primaryStage = (Stage) ((Node) boutonVague).getScene().getWindow();
@@ -255,7 +252,7 @@ public class Controleur implements Initializable {
                         URL urlImageVaiL = Main.class.getResource("sonFond.wav");
                         String s = urlImageVaiL.getPath();
                         Main.PlayMusicFond(s);
-                        }})
+                    }})
         );
         gameLoop.getKeyFrames().add(kf);
     }

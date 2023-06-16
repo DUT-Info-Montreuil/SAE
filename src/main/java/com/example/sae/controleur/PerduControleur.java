@@ -1,6 +1,6 @@
 package com.example.sae.controleur;
 
-import com.example.sae.CSV.LecteurCSV;
+import com.example.sae.modele.LecteurCSV;
 import com.example.sae.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,8 +10,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;

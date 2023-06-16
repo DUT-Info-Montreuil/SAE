@@ -22,6 +22,7 @@ public class Environnement {
     private Boutique boutique;
     private BFS bfs;
     private List<Point> chemin;
+    private LecteurCSV lecteurCSV;
 
     public Environnement(Terrain terrain) {
         this.bfs = new BFS();
@@ -29,6 +30,7 @@ public class Environnement {
         this.vaisseaux = FXCollections.observableArrayList();
         this.barreDeVies = FXCollections.observableArrayList();
         this.rayonLasers = FXCollections.observableArrayList();
+        this.lecteurCSV = new LecteurCSV();
         this.tours = 0;
         this.terrain = terrain;
         this.station = new Station();
@@ -39,6 +41,10 @@ public class Environnement {
         for (Point tuile : chemin) {
             System.out.println(tuile);
         }
+    }
+
+    public LecteurCSV getLecteurCSV(){
+        return lecteurCSV;
     }
 
     public List<Point> getCheminCourt() {
@@ -152,6 +158,20 @@ public class Environnement {
         }
     }
 
+    public boolean stationDetruit(){
+        if(getVieStation() == 0){
+            return true;
+        }
+        return false;
+    }
+
+    public boolean victoirePartie(){
+        if(getCompteurVague()==1 && getEnnemis().isEmpty() && getEnnemisVagues().isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
     public void lancerVague() {
         vague.vagueEnnemis();
     }
@@ -178,7 +198,6 @@ public class Environnement {
 
     public void unTour() {
         miseAJourNbEnnemis();
-
         if (!vague.getEnnemisVague().isEmpty() && tours % 5 == 0) {
             ajouterEnnemi(vague.getEnnemisVague().get(0));
             vague.supprimerEnnemi();
@@ -202,7 +221,6 @@ public class Environnement {
         }
         for (int i = 0; i < vaisseaux.size(); i++) {
             Vaisseau v = vaisseaux.get(i);
-            v.perteVie();
             v.ennemiPorteeVaisseau();
             v.attaque();
             v.getBarreDeVie().setVie(v.getVie());
@@ -212,6 +230,6 @@ public class Environnement {
                 vaisseaux.remove(i);
             }
         }
-            this.tours++;
+        this.tours++;
     }
 }

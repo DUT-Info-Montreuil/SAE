@@ -1,12 +1,7 @@
-package com.example.sae.CSV;
-
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+package com.example.sae.modele;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class LecteurCSV {
     private String cheminFichier = "score.csv";

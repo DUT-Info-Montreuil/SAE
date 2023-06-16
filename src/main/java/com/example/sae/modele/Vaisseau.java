@@ -5,8 +5,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Collection;
-
 public  class Vaisseau {
 
     private IntegerProperty x, y;
@@ -34,7 +32,7 @@ public  class Vaisseau {
         this.degat = degat;
         this.id="V"+ compteurId;
         compteurId++;
-        this.vie = 600;
+        this.vie = 400;
         this.barreDeVie = new BarreDeVie(getVie(), getVieMax(), getId(), getX(), getY());
         this.rayonActif = false;
     }
@@ -121,6 +119,7 @@ public  class Vaisseau {
                         rayonLaser.setyPositionEnnemi(a.getY());
                     }
                     a.decrementerPv(degat);
+                    perteVie();
                     ennemi = true;
                     System.out.println("attaque" + i);
                 } else {
@@ -139,7 +138,7 @@ public  class Vaisseau {
     }
 
     public int getVieMax(){
-        return 600;
+        return 400;
     }
 
     public int getVie() {

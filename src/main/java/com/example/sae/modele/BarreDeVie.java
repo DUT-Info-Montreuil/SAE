@@ -21,6 +21,7 @@ public class BarreDeVie  {
     }
 
 
+
     public double getVieTotale() {
         return vieTotale.getValue();
     }
@@ -65,5 +66,6 @@ public class BarreDeVie  {
     public final void setY(int y) {
         this.yProperty().setValue(y-10);
     }
+
 
 }
