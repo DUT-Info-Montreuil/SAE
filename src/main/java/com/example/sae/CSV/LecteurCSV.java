@@ -42,11 +42,6 @@ public class LecteurCSV {
             System.out.println("Erreur lors de l'écriture dans le fichier CSV : " + e.getMessage());
         }
     }
-//    public  void relierLecteurTableau(TableView<String[]> tableView, TableColumn<String[], String> nomColonne, TableColumn<String[], String> vagueColonne, TableColumn<String[], String> tempsColonne, TableColumn<String[], String> vdColonne) {
-  //      tableView.getColumns().addAll(nomColonne, vagueColonne, tempsColonne, vdColonne);
-    //    tableView.getItems().clear();
-      //  lecteurFichier(tableView);
-    //}
 
     public String lecteurFichier() {
         StringBuilder contenuFichier = new StringBuilder();

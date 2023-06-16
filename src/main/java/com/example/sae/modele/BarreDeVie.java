@@ -9,7 +9,6 @@ public class BarreDeVie  {
     private Double vie;
     private Double vieMax;
     private String id;
-    private StringProperty couleurStyle;
 
 
     public BarreDeVie(int vie, int vieMax, String id, int x, int y){
@@ -19,19 +18,6 @@ public class BarreDeVie  {
         this.vieMax = (double)vieMax;
         this.id = id;
         this.vieTotale = new SimpleDoubleProperty(vie/vieMax);
-        couleurStyle = new SimpleStringProperty();
-    }
-
-    public void setCouleur() {
-        double pourcentageVie = getVieTotale();
-
-        if (pourcentageVie <= 0.55) {
-            setCouleurStyle("-fx-accent: red;"); // Rouge pour moins de 30% de vie
-        } else if (pourcentageVie <= 0.85) {
-            setCouleurStyle("-fx-accent: orange;"); // Orange pour 30% à 70% de vie
-        } else {
-            setCouleurStyle("-fx-accent: green;"); // Vert pour plus de 70% de vie
-        }
     }
 
 
@@ -78,18 +64,6 @@ public class BarreDeVie  {
 
     public final void setY(int y) {
         this.yProperty().setValue(y-10);
-    }
-
-    public StringProperty couleurStyleProperty() {
-        return couleurStyle;
-    }
-
-    public final String getCouleurStyle() {
-        return this.couleurStyleProperty().getValue();
-    }
-
-    public final void setCouleurStyle(String s) {
-        this.couleurStyleProperty().setValue(s);
     }
 
 }

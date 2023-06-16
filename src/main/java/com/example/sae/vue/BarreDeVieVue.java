@@ -1,6 +1,8 @@
 package com.example.sae.vue;
 
 import com.example.sae.modele.*;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.Pane;
 
@@ -19,13 +21,25 @@ public class BarreDeVieVue {
         barreDeVie.setTranslateY(barre.getY());
         barreDeVie.setMaxHeight(10);
         barreDeVie.setMaxWidth(30);
-        barreDeVie.setStyle(barre.getCouleurStyle()); // Utilisez la couleur appropriée en fonction de la vie
+        barreDeVie.setStyle(setCouleur(barre).toString()); // Utilisez la couleur appropriée en fonction de la vie
         this.panneauJeu.getChildren().add(barreDeVie);
         System.out.println(barre.getVieTotale());
         barreDeVie.translateXProperty().bind(barre.xProperty());
         barreDeVie.translateYProperty().bind(barre.yProperty());
         barreDeVie.progressProperty().bind(barre.vieTotaleProperty());
-        barreDeVie.styleProperty().bind(barre.couleurStyleProperty());
+        barreDeVie.styleProperty().bind(setCouleur(barre));
+    }
+    public StringProperty setCouleur(BarreDeVie barreDeVie) {
+        double pourcentageVie = barreDeVie.getVieTotale();
+        StringProperty couleur;
+        if (pourcentageVie <= 0.55) {
+            couleur = new SimpleStringProperty("-fx-accent: red;"); // Rouge pour moins de 30% de vie
+        } else if (pourcentageVie <= 0.85) {
+            couleur = new SimpleStringProperty("-fx-accent: orange;"); // Orange pour 30% à 70% de vie
+        } else {
+            couleur = new SimpleStringProperty("-fx-accent: green;"); // Vert pour plus de 70% de vie
+        }
+    return couleur;
     }
 }
 

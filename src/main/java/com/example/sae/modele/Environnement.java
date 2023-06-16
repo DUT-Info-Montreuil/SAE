@@ -187,7 +187,6 @@ public class Environnement {
         for (int i = 0; i < ennemis.size(); i++) {
             Ennemi a = ennemis.get(i);
             a.seDeplace();
-            a.getBarreDeVie().setCouleur();
             a.getBarreDeVie().setX(a.getX());
             a.getBarreDeVie().setY(a.getY());
             a.getBarreDeVie().setVie(a.getPv());
@@ -206,7 +205,6 @@ public class Environnement {
             v.perteVie();
             v.ennemiPorteeVaisseau();
             v.attaque();
-            v.getBarreDeVie().setCouleur();
             v.getBarreDeVie().setVie(v.getVie());
             v.getBarreDeVie().miseAJourVieTotale();
             if (!v.estVivant()) {

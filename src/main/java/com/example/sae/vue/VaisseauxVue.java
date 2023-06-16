@@ -66,11 +66,13 @@ public class VaisseauxVue {
         panneauJeu.getChildren().add(rayonPortee);
     }
 
-    public void supprimerVaisseau(Vaisseau vaisseau){
-        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getId()));
-        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getId()));
-        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getId()));
-        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#"+ vaisseau.getIdRayon()));
+    public void supprimerVaisseau(Vaisseau vaisseau) {
+        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#" + vaisseau.getId()));
+        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#" + vaisseau.getId()));
+        this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#" + vaisseau.getId()));
+        if (vaisseau.isRayonActif()) {
+            this.panneauJeu.getChildren().remove(this.panneauJeu.lookup("#" + vaisseau.getIdRayon()));
+        }
     }
 }
 

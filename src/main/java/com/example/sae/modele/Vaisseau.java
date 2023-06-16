@@ -151,6 +151,10 @@ public  class Vaisseau {
         vie--;
     }
 
+    public boolean isRayonActif(){
+        return rayonActif;
+    }
+
     public String getIdRayon() {
         return rayonLaser.getId();
     }
