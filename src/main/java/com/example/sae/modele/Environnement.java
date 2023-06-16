@@ -35,7 +35,7 @@ public class Environnement {
         this.boutique = new Boutique();
         this.vague = new Vague(terrain, this, boutique);
         this.nombreEnnemis = new SimpleIntegerProperty(0);
-        this.chemin = BFS.bfs(terrain.getTileMap(),new Point(0, 3), new Point(21, 31));
+        this.chemin = BFS.bfs(terrain.getTileMap(),new Point(0, 3), terrain.trouverxyStation());
         for (Point tuile : chemin) {
             System.out.println(tuile);
         }
