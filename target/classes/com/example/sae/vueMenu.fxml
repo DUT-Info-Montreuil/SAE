@@ -7,6 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <Pane prefHeight="880.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sae.controleur.MenuControleur">
     <ImageView fitHeight="992.0" fitWidth="1334.0" layoutX="-220.0" pickOnBounds="true" preserveRatio="true">
         <image>
@@ -21,6 +24,10 @@
             <Image url="@texte.png" />
          </image>
       </ImageView>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Entrez votre nom : " style="-fx-font-size: 20px; -fx-text-fill: white; -fx-background-color: red;" />
+            <TextField fx:id="prenomTextField" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-background-color: red;" />
+        </HBox>
         <Button onAction="#demarrerPartie" style="-fx-font-size: 20px; -fx-text-fill: white; -fx-background-color: red;" text="Lancer">
             <effect>
                 <DropShadow color="black" radius="5.0" spread="0.2" />

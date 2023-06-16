@@ -1,11 +1,7 @@
 package com.example.sae.modele;
 
-import com.example.sae.BFS.BFS;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.awt.*;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -87,55 +83,4 @@ public class EnnemiTest {
         assertFalse(ennemi.estArriveStation());
     }
 
- /*
-    public void testSeDeplace() {
-        ennemi.setX(0);
-        ennemi.setY(0);
-
-        int[][] terrain = {
-                {1, 0, 1, 1, 1},
-                {1, 0, 1, 0, 1},
-                {1, 1, 1, 0, 1},
-                {1, 0, 0, 0, 1},
-                {1, 1, 1, 1, 2},
-        };
-        Point depart = new Point(0, 0);
-        Point arrivee = new Point(4, 4);
-        List<Point> chemin = BFS.bfs(terrain, depart, arrivee);
-        environnement.setCheminCourt(chemin);
-        System.out.println(chemin);
-
-        // Effectuez les déplacements et vérifiez la position de l'ennemi après chaque déplacement
-        ennemi.seDeplace(); // Déplacement 1
-        assertEquals(32, ennemi.getX());
-        assertEquals(0, ennemi.getY());
-
-        ennemi.seDeplace(); // Déplacement 2
-        assertEquals(64, ennemi.getX());
-        assertEquals(0, ennemi.getY());
-
-        ennemi.seDeplace(); // Déplacement 3
-        assertEquals(96, ennemi.getX());
-        assertEquals(0, ennemi.getY());
-
-        ennemi.seDeplace(); // Déplacement 4
-        assertEquals(128, ennemi.getX());
-        assertEquals(0, ennemi.getY());
-
-        ennemi.seDeplace(); // Déplacement 4
-        assertEquals(128, ennemi.getX());
-        assertEquals(32, ennemi.getY());
-
-        ennemi.seDeplace(); // Déplacement 4
-        assertEquals(128, ennemi.getX());
-        assertEquals(64, ennemi.getY());
-
-        ennemi.seDeplace(); // Déplacement 4
-        assertEquals(128, ennemi.getX());
-        assertEquals(96, ennemi.getY());
-
-        ennemi.seDeplace(); // Déplacement 4
-        assertEquals(128, ennemi.getX());
-        assertEquals(128, ennemi.getY());
-    }*/
 }

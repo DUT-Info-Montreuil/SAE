@@ -84,18 +84,18 @@ public class VaisseauTest {
 
     @Test
     public void testGetVieMax() {
-        assertEquals(600, vaisseau.getVieMax());
+        assertEquals(400, vaisseau.getVieMax());
     }
 
     @Test
     public void testGetVie() {
-        assertEquals(600, vaisseau.getVie());
+        assertEquals(400, vaisseau.getVie());
     }
 
     @Test
     public void testPerteVie() {
         vaisseau.perteVie();
-        assertEquals(599, vaisseau.getVie());
+        assertEquals(399, vaisseau.getVie());
     }
 
     @Test
